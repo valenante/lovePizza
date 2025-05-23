@@ -27,10 +27,10 @@
 
 .carrito-section-title {
   font-size: 1.2rem;
-  color: #6A0DAD;
+  color: #06813b;
   margin-bottom: 12px;
   text-align: center;
-  border-bottom: 1px solid #6A0DAD;
+  border-bottom: 1px solid #06813b;
   padding-bottom: 6px;
 }
 
@@ -53,6 +53,7 @@
 /* Contenedor del botón enviar */
 .carrito-enviar-container {
   margin-top: 20px;
+  
 }
 
 .carrito-item {
@@ -93,7 +94,7 @@
 }
 
 .carrito-enviar-button:hover:enabled {
-  background-color: #5c0998;
+  background-color: #06813b;
 }
 
 .carrito-enviar-button:disabled {

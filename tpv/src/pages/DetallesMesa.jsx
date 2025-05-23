@@ -105,12 +105,6 @@ const DetalleMesa = () => {
   }, [socket, id]);
 
   const emitirFactura = async () => {
-    const pedidosNoFinalizados = mesa.pedidos.filter(p => p.estado !== "listo");
-    if (pedidosNoFinalizados.length > 0) {
-      setMensajeAlerta({ tipo: "error", mensaje: "No puedes emitir la factura. Todos los pedidos deben estar finalizados." });
-      return;
-    }
-
     await cerrarMesa(metodoPagoFactura, 'nominativa');
   };
 

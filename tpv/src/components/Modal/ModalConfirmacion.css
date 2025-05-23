@@ -41,7 +41,7 @@
 }
 
 .boton-aceptar-modal:hover {
-    background-color: #5a2d91;
+    background-color: #06813b;
     transform: scale(1.05);
 }
 
@@ -56,7 +56,7 @@
 }
 
 .boton-cancelar-modal:hover {
-    background-color: #d76a2b;
+    background-color: #d3301e;
     transform: scale(1.05);
 }
 

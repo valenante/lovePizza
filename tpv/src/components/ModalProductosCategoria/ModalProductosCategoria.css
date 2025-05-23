@@ -25,7 +25,7 @@
 /* Título */
 .modal-contenido h2 {
   text-align: center;
-  color: #6A0DAD;
+  color: #06813b;
   margin-bottom: 20px;
 }
 
@@ -61,7 +61,7 @@
   position: absolute;
   top: 5px;
   right: 5px;
-  background-color: #6A0DAD;
+  background-color: #06813b;
   color: #fff;
   border-radius: 50%;
   padding: 5px 8px;
@@ -81,16 +81,16 @@
 }
 
 .modal-contenido button:first-of-type {
-  background-color: #FF6700;
+  background-color: #d3301e;
   color: #fff;
 }
 
 .modal-contenido button:first-of-type:hover {
-  background-color: #6A0DAD;
+  background-color: #06813b;
 }
 
 .modal-contenido button:last-of-type {
-  background-color: #ccc;
+  background-color: #06813b;
 }
 
 .modal-contenido button:last-of-type:hover {

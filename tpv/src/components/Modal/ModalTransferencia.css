@@ -111,12 +111,12 @@ select:focus {
 }
 
 .cerrar-transferencia {
-  background-color: #FF6700;
+  background-color: #d3301e;
   color: white;
 }
 
 .cerrar-transferencia:hover {
-  background-color: #e35d00;
+  background-color: #d3301e;
   transform: scale(1.05);
 }
 
