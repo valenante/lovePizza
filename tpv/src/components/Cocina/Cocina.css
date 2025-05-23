@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 5px solid var(--color-principal);
+    border: 5px solid #06813b;
     border-radius: 15px;
 }
 
@@ -20,7 +20,7 @@
 /* Botón Finalizados */
 .boton-finalizados--cocina {
     padding: 10px 25px;
-    background-color: var(--color-secundario);
+    background-color: #d3301e;
     border: none;
     color: #fff;
     border-radius: 10px;
@@ -32,7 +32,7 @@
 }
 
 .boton-finalizados--cocina:hover {
-    background-color: var(--color-secundario);
+    background-color: #d3301e;
     transform: scale(1.05);
 }
 
@@ -40,7 +40,7 @@
 .mensaje-vacio--cocina {
     text-align: center;
     font-size: 1.4rem;
-    color: var(--color-principal);
+    color: #06813b;
     font-style: italic;
 }
 
@@ -71,14 +71,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid var(--color-principal);
+    border-bottom: 2px solid #06813b;
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
 
 .pedido-header--cocina h3 {
     font-size: 1.5rem;
-    color: var(--color-secundario);
+    color: #d3301e;
     margin: 0;
 }
 
@@ -90,7 +90,7 @@
 
 .alergias--cocina {
     font-size: 1rem;
-    color: var(--color-secundario);
+    color: #d3301e;
     font-weight: bold;
 }
 
@@ -109,14 +109,14 @@
 }
 
 .producto-item--cocina label:hover {
-    color: var(--color-principal);
+    color: #06813b;
 }
 
 /* Botón Terminar Pedido */
 .boton-terminar--cocina {
     margin-top: auto; /* Empuja el botón hacia el fondo */
     padding: 10px 25px;
-    background-color: var(--color-principal);
+    background-color: #06813b;
     color: #fff;
     border: none;
     border-radius: 10px;

@@ -22,15 +22,8 @@ const RightBar = ({ mesaId }) => {
   const { categories, fetchCategories, products, fetchProducts } = useCategorias();
   const [mostrarResumen, setMostrarResumen] = useState(false);
   const [resumen, setResumen] = useState({});
-  const [mensajePedido, setMensajePedido] = useState("");
   const [carritoBebidas, setCarritoBebidas] = useState([]);
   const [productosYaPedidos, setProductosYaPedidos] = useState([]);
-  const [carritoSecciones, setCarritoSecciones] = useState({
-
-    entrante: [],
-    medio: [],
-    final: [],
-  });
 
   useEffect(() => { fetchCategories(tipo); }, [tipo]);
   useEffect(() => { if (categoriaSeleccionada) fetchProducts(categoriaSeleccionada); }, [categoriaSeleccionada]);
@@ -55,10 +48,7 @@ const RightBar = ({ mesaId }) => {
     if (productoPersonalizado.tipo === "bebida") {
       setCarritoBebidas((prev) => [...prev, productoPersonalizado]);
     } else {
-      setCarritoSecciones((prev) => ({
-        ...prev,
-        medio: [...prev.medio, { ...productoPersonalizado, seccion: 'medio' }],
-      }));
+      setCarrito((prev) => [...prev, productoPersonalizado]);
     }
     cerrarModal();
   };
@@ -67,7 +57,7 @@ const RightBar = ({ mesaId }) => {
     try {
       setIsLoading(true);
 
-      const pedidoOrdenado = [...carritoSecciones.entrante, ...carritoSecciones.medio, ...carritoSecciones.final];
+      const pedidoOrdenado = [...carrito];
 
       if (pedidoOrdenado.length > 0) {
         const payloadPlatos = pedidoOrdenado.map(p => ({
@@ -106,7 +96,7 @@ const RightBar = ({ mesaId }) => {
         const { data } = await api.post(`/pedidosBebidas/${mesaId}/agregar-producto`, { productos: payloadBebidas });
       }
 
-      setCarritoSecciones({ entrante: [], medio: [], final: [] });
+      setCarrito([]);
       setCarritoBebidas([]);
       setMensajeAlerta({ tipo: "exito", mensaje: "Pedido enviado correctamente." });
     } catch (error) {
@@ -191,8 +181,8 @@ const RightBar = ({ mesaId }) => {
         <div className="resumen-pedido-panel">
           <h4>Pedido Actual</h4>
           <CarritoOrganizable
-            carritoSecciones={carritoSecciones}
-            setCarritoSecciones={setCarritoSecciones}
+            carrito={carrito}
+            setCarrito={setCarrito}
             enviarPedido={enviarPedido}
             isLoading={isLoading}
           />

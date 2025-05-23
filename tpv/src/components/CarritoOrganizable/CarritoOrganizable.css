@@ -14,7 +14,7 @@
 
 /* Sección de cada grupo */
 .carrito-section {
-  border: 2px solid #6A0DAD;
+  border: 2px solid #d3301e;
   border-radius: 12px;
   padding: 16px;
   background-color: #f8f6ff;
@@ -83,7 +83,7 @@
 .carrito-eliminar-button {
   background: none;
   border: none;
-  color: var(--color-secundario);;
+  color: #d3301e;;
   font-size: 1.2rem;
   cursor: pointer;
   display: flex;

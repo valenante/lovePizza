@@ -16,7 +16,7 @@
 /* Título */
 .titulo--login {
   font-size: 2rem;
-  color: var(--color-principal);
+  color: #06813b;
   /* Morado profundo */
   text-align: center;
   margin-bottom: 20px;
@@ -36,7 +36,7 @@
   width: 100%;
   max-width: 40vh;
   padding: 10px;
-  border: 1px solid var(--color-principal);
+  border: 1px solid #06813b;
   /* Morado profundo */
   border-radius: 5px;
   font-size: 1rem;
@@ -45,7 +45,7 @@
 
 .input--login:focus {
   outline: none;
-  border-color: var(--color-secundario);
+  border-color: #d3301e;
   /* Naranja vibrante */
   box-shadow: 0 0 5px rgba(255, 103, 0, 0.5);
 }
@@ -61,7 +61,7 @@
 /* Botón */
 .boton--login {
   padding: 10px;
-  background-color: var(--color-principal);
+  background-color: #06813b;
   /* Morado profundo */
   color: #fff;
   border: none;
@@ -78,7 +78,7 @@
 }
 
 .boton--login:hover:not(:disabled) {
-  background-color: var(--color-secundario);
+  background-color: #d3301e;
   /* Naranja vibrante */
   transform: scale(1.05);
 }

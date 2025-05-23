@@ -32,7 +32,7 @@
 /* Títulos y subtítulos */
 .titulo-modal--productoDetalle {
   font-size: 1.8rem;
-  color: var(--color-principal);
+  color: #06813b;
   /* Morado profundo */
   margin-bottom: 10px;
 }
@@ -94,7 +94,7 @@
 }
 
 .boton-cantidad--productoDetalle {
-  background: var(--color-secundario);
+  background: #d3301e;
   /* Naranja */
   color: #FFFFFF;
   border: none;
@@ -106,7 +106,7 @@
 }
 
 .boton-cantidad--productoDetalle:hover {
-  background: var(--color-principal);
+  background: #06813b;
   /* Morado */
   transform: scale(1.1);
 }
@@ -126,7 +126,7 @@
 
 .boton-cancelar--productoDetalle,
 .boton-agregar--productoDetalle {
-  background: var(--color-secundario);
+  background: #d3301e;
   /* Naranja */
   color: #FFFFFF;
   border: none;
@@ -139,7 +139,7 @@
 
 .boton-cancelar--productoDetalle:hover,
 .boton-agregar--productoDetalle:hover {
-  background: var(--color-principal);
+  background: #06813b;
   /* Morado */
   transform: scale(1.05);
 }
@@ -260,7 +260,7 @@
   .select-precio--productoDetalle:focus,
   .select-tipoPlato--productoDetalle:focus,
   .select-acompanante--productoDetalle:focus {
-    border-color: var(--color-principal);
+    border-color: #06813b;
     outline: none;
   }
 

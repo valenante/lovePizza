@@ -21,7 +21,7 @@
 
 /* Título */
 .facturas-page h1 {
-  color: var(--color-principal);
+  color: #06813b;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -47,14 +47,14 @@
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
-  background-color: var(--color-principal);
+  background-color: #06813b;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .filtros-facturas button:hover {
-  background-color: var(--color-secundario);
+  background-color: #d3301e;
 }
 
 /* Tabla */
@@ -73,14 +73,14 @@
 }
 
 .facturas-table th {
-  background-color: var(--color-principal);
+  background-color: #06813b;
   color: white;
 }
 
 /* Botón de acción en la tabla */
 .facturas-table button {
   padding: 0.3rem 0.7rem;
-  background-color: var(--color-secundario);
+  background-color: #d3301e;
   color: white;
   border: none;
   border-radius: 4px;
@@ -103,7 +103,7 @@
 .paginacion-facturas button {
   padding: 8px 16px;
   border: none;
-  background-color: var(--color-principal); /* Morado profundo */
+  background-color: #06813b; /* Morado profundo */
   color: #fff;
   border-radius: 5px;
   font-weight: bold;
@@ -117,13 +117,13 @@
 }
 
 .paginacion-facturas button:hover:not(:disabled) {
-  background-color: var(--color-secundario); /* Naranja vibrante */
+  background-color: #d3301e; /* Naranja vibrante */
   transform: scale(1.05);
 }
 
 .paginacion-facturas span {
   font-size: 1rem;
-  color: var(--color-principal);
+  color: #06813b;
   font-weight: bold;
 }
 

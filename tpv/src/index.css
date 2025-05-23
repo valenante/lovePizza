@@ -1,6 +1,8 @@
 /* Fondo global */
-html, body {
-  background-color: #6A0DAD; /* Fondo morado */
+html,
+body {
+  background-color: #06813b;
+  /* Fondo morado */
   font-family: 'Roboto', sans-serif;
 }
 
@@ -11,12 +13,14 @@ a {
 }
 
 :root {
-  --color-principal: #6A0DAD;
-  --color-principal-oscuro: #5c0bb8; /* una versión ligeramente más oscura */
-  --color-secundario: #FF6700;
+  --color-principal: #06813b;
+  --color-principal-oscuro: #145a32;
+  /* una versión ligeramente más oscura */
+  --color-secundario: #d3301e;
   --blanco: #ffffff;
   --gris-claro: #f5f5f5;
   --gris-oscuro: #333333;
+  --fuente-principal: "Marcellus", serif;
 }
 
 /* Clases de colores */

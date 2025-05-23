@@ -23,7 +23,7 @@
 /* Títulos */
 .titulo-mesa--mesadetalles {
   font-size: 2rem;
-  color: var(--color-principal);
+  color: #06813b;
   /* Morado profundo */
   margin-bottom: 10px;
 }
@@ -71,7 +71,7 @@
 }
 
 .lista-pedidos--mesadetalles::-webkit-scrollbar-thumb {
-  background-color: var(--color-principal);
+  background-color: #06813b;
   /* Morado profundo */
   border-radius: 4px;
 }
@@ -110,7 +110,7 @@
 /* Botones */
 .boton-eliminar--mesadetalles,
 .boton-cerrar--mesadetalles {
-  background-color: var(--color-secundario);
+  background-color: #d3301e;
   /* Naranja vibrante */
   color: #FFFFFF;
   border: none;
@@ -125,7 +125,7 @@
 
 .boton-eliminar--mesadetalles:hover,
 .boton-cerrar--mesadetalles:hover {
-  background-color: var(--color-principal);
+  background-color: #06813b;
   /* Morado profundo */
   transform: scale(1.05);
 }
@@ -143,7 +143,7 @@
 .boton-imprimir--mesadetalles,
 .boton-factura--mesadetalles,
 .boton-abrir--mesadetalles {
-  background-color: var(--color-principal);
+  background-color: #06813b;
   /* Morado profundo */
   color: #FFFFFF;
   border: none;
@@ -167,7 +167,7 @@
 .boton-factura--mesadetalles {
   flex: 1;
   /* Ocupar la mitad cada uno */
-  background-color: var(--color-principal);
+  background-color: #06813b;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -180,7 +180,7 @@
 /* Hover */
 .boton-imprimir--mesadetalles:hover,
 .boton-factura--mesadetalles:hover {
-  background-color: var(--color-secundario);
+  background-color: #d3301e;
   /* Naranja vibrante */
   transform: scale(1.05);
 }
@@ -224,7 +224,7 @@
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background: var(--color-principal);
+  background: #06813b;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -284,7 +284,7 @@
   /* Botones */
   .boton-eliminar--mesadetalles,
   .boton-cerrar--mesadetalles {
-    background-color: var(--color-secundario);
+    background-color: #d3301e;
     /* Naranja vibrante */
     color: #FFFFFF;
     border: none;

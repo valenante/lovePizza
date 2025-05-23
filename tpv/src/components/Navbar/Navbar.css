@@ -1,6 +1,6 @@
 /* Navbar container */
 .navbar--navbar {
-  background-color: #6a0dad; /* Morado Profundo */
+  background-color: #06813b; /* Morado Profundo */
   padding: 10px 20px;
   display: flex;
   justify-content: center;
@@ -32,9 +32,14 @@
 }
 
 /* Navbar items */
-.navbar-item--navbar {
+.navbar-item--navbar{
   font-size: 1.2rem; /* Tamaño de fuente base */
   font-weight: bold;
+}
+
+.navbar-checkbox-habilitar{
+  color: #ffffff;
+  margin-left: 10px;
 }
 
 /* Navbar links */
@@ -46,7 +51,7 @@
 
 /* Hover effect for links */
 .navbar-link--navbar:hover {
-  color: var(--color-secundario); /* Naranja vibrante */
+  color: #d3301e; /* Naranja vibrante */
 }
 
 .only-mobile {
@@ -59,14 +64,25 @@
 
 .navbar-select--navbar {
   font-size: 1.2rem;
-  padding: 10px;
   border-radius: 5px;
   border: none;
-  background-color: #6a0dad; /* Morado */
+  background-color: #06813b; /* Morado */
   color: #ffffff; /* Blanco */
   font-weight: bold;
   cursor: pointer;
   appearance: none; /* Quita estilos nativos del navegador */
+}
+
+.navbar-switches {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.navbar-switches label {
+  color: white;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
@@ -119,16 +135,13 @@
 
   .navbar-select--navbar {
     font-size: 1rem;
-    padding: 8px 10px;
     border-radius: 5px;
     border: none;
     background-color: #ffffff;
-    color: #6a0dad;
-    font-weight: bold;
-    width: 0%;
-    min-width: 120px;
+    margin-bottom: 1vh;
+    color: #06813b;
+    width: 15vh;
     text-align: center;
-    appearance: none; /* Estilo más uniforme */
   }
 
   .only-desktop {

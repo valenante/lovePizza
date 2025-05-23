@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/images/logoZf.webp"; // Logo de la aplicación
+import logo from "../../assets/images/logo.png"; // Logo de la aplicación
 import "../../styles/TopBar.css"; // Estilos de TopBar
 
 const TopBar = () => {

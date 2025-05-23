@@ -47,7 +47,7 @@
   margin-top: 1rem;
   padding: 0.7rem 1.5rem;
   font-size: 1rem;
-  background-color: rgb(84, 20, 108);
+  background-color: var(--color-principal);
   color: white;
   border: none;
   cursor: pointer;

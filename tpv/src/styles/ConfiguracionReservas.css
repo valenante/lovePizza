@@ -10,7 +10,7 @@
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
   text-align: center;
-  color: var(--color-principal);
+  color: #06813b;
 }
 
 .franja-config {
@@ -67,7 +67,7 @@
 }
 
 .configuracion-reservas>button:first-of-type {
-  background-color: var(--color-principal);
+  background-color: #06813b;
   color: white;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .configuracion-reservas>button:last-of-type {
-  background-color: var(--color-secundario);
+  background-color: #d3301e;
   color: white;
 }
 
@@ -94,7 +94,7 @@
 
 .checkbox-dia {
   background-color: #fff;
-  border: 2px solid var(--color-principal);
+  border: 2px solid #06813b;
   border-radius: 8px;
   padding: 0.6rem;
   display: flex;
@@ -108,7 +108,7 @@
 }
 
 .checkbox-dia input[type="checkbox"] {
-  accent-color: var(--color-principal);
+  accent-color: #06813b;
   transform: scale(1.2);
 }
 
@@ -117,7 +117,7 @@
 }
 
 .checkbox-dia input[type="checkbox"]:checked + span {
-  color: var(--color-principal);
+  color: #06813b;
 }
 
 /* ✅ Responsive */

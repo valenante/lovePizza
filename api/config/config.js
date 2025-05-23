@@ -32,7 +32,7 @@ export const corsOptions = {
     "http://192.168.1.150:3002",
     "https://valenante.info",
   ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization", "X-Cart-ID"],
   credentials: true,
 };

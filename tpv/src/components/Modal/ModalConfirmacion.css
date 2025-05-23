@@ -31,7 +31,7 @@
 }
 
 .boton-aceptar-modal{
-    background-color: var(--color-principal);
+    background-color: #06813b;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -46,7 +46,7 @@
 }
 
 .boton-cancelar-modal{
-    background-color: var(--color-secundario);
+    background-color: #d3301e;
     color: #fff;
     border: none;
     padding: 10px 20px;

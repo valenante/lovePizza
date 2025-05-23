@@ -5,6 +5,7 @@ import { useLingui } from "@lingui/react";
 import ProductoDetalle from "./ProductoDetalle";
 import ModalCroquetas from "./ModalCroquetas"; // Componente modal para croquetas
 import "../../styles/ProductoCard.css";
+import api from "../../utils/api"; // Asegúrate de que apunta al backend
 
 const ProductoCard = ({ producto, estrellas }) => {
   const [mostrarModal, setMostrarModal] = useState(false);
@@ -15,16 +16,23 @@ const ProductoCard = ({ producto, estrellas }) => {
     producto.precios.tapa != null
       ? "tapa"
       : producto.precios.racion != null
-      ? "racion"
-      : producto.precios.copa != null
-      ? "copa"
-      : producto.precios.botella != null
-      ? "botella"
-      : "precioBase"
+        ? "racion"
+        : producto.precios.copa != null
+          ? "copa"
+          : producto.precios.botella != null
+            ? "botella"
+            : "precioBase"
   );
   const [seleccionPrecio, setSeleccionPrecio] = useState(
     producto.precios?.[tipoPrecio] ?? producto.precios?.precioBase
   );
+
+  const [permitirComida, setPermitirComida] = useState(true);
+  const [permitirBebida, setPermitirBebida] = useState(true);
+  const esBebida = producto.tipo === "bebida";
+  const esComida = producto.tipo !== "bebida";
+
+
 
   const { i18n } = useLingui();
   const idiomaActual = i18n.locale;
@@ -38,6 +46,19 @@ const ProductoCard = ({ producto, estrellas }) => {
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const fetchConfiguracion = async () => {
+      try {
+        const { data } = await api.get("/configuracion-pedidos");
+        setPermitirComida(data.permitirPedidosComida);
+        setPermitirBebida(data.permitirPedidosBebida);
+      } catch (error) {
+        console.error("Error al cargar configuración:", error);
+      }
+    };
+    fetchConfiguracion();
   }, []);
 
   const abrirModal = () => setMostrarModal(true);
@@ -84,7 +105,7 @@ const ProductoCard = ({ producto, estrellas }) => {
       {pantallaPequena ? (
         <div className="producto-grid-pequeno">
           <h3 className="producto-nombre">{nombreTraducido}</h3>
-  
+
           <div className="producto-info-grid">
             <p className="producto-descripcion">{descripcionTraducida}</p>
             {producto.img && (
@@ -97,14 +118,17 @@ const ProductoCard = ({ producto, estrellas }) => {
               </div>
             )}
           </div>
-  
+
           <div className="producto-precio-boton">
             {renderPrecio()}
             {numeroMesa && (
-              <button onClick={abrirModal} className="agregar-carrito-btn-prodCard">
-                <Trans id="agregar-carrito">Agregar al carrito</Trans>
-              </button>
-            )}
+              (esBebida ? permitirBebida : permitirComida)
+            ) && (
+                <button onClick={abrirModal} className="agregar-carrito-btn-prodCard">
+                  <Trans id="agregar-carrito">Agregar al carrito</Trans>
+                </button>
+              )}
+
           </div>
         </div>
       ) : (
@@ -126,10 +150,13 @@ const ProductoCard = ({ producto, estrellas }) => {
             </p>
             <div className="producto-precio-boton">{renderPrecio()}</div>
             {numeroMesa && (
-              <button onClick={abrirModal} className="agregar-carrito-btn-prodCard">
-                <Trans id="agregar-carrito">Agregar al carrito</Trans>
-              </button>
-            )}
+              (esBebida ? permitirBebida : permitirComida)
+            ) && (
+                <button onClick={abrirModal} className="agregar-carrito-btn-prodCard">
+                  <Trans id="agregar-carrito">Agregar al carrito</Trans>
+                </button>
+              )}
+
           </div>
           {producto.img && (
             <div className="producto-img-container-prodCard">
@@ -142,7 +169,7 @@ const ProductoCard = ({ producto, estrellas }) => {
           )}
         </div>
       )}
-  
+
       {/* Renderiza el modal de croquetas o detalles normales */}
       {mostrarModal && esCroqueta ? (
         <ModalCroquetas
@@ -158,6 +185,6 @@ const ProductoCard = ({ producto, estrellas }) => {
       )}
     </div>
   );
-};  
+};
 
 export default ProductoCard;

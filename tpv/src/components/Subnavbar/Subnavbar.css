@@ -1,6 +1,6 @@
 /* Contenedor del SubNavbar */
 .subnavbar--subnavbar {
-  background-color: var(--color-principal);
+  background-color: #06813b;
   /* Morado profundo */
   padding: 10px 20px;
   position: relative;
@@ -40,7 +40,7 @@
 
 /* Botones del SubNavbar */
 .subnavbar-button--subnavbar {
-  background-color: var(--color-secundario);
+  background-color: #d3301e;
   /* Naranja vibrante */
   color: #FFFFFF;
   /* Texto blanco */
@@ -62,13 +62,13 @@
 /* Hover en botones */
 .subnavbar-button--subnavbar:hover {
   background-color: #FFFFFF;
-  color: var(--color-secundario);
+  color: #d3301e;
   transform: scale(1.05);
 }
 
 /* Estilos específicos para cerrar caja */
 .btn-cerrar-caja--subnavbar {
-  background-color: var(--color-principal);
+  background-color: #06813b;
 }
 
 .btn-cerrar-caja--subnavbar.disabled {
@@ -127,7 +127,7 @@
     width: 100%;
     height: auto;
     font-size: 3vh;
-    color: var(--color-secundario);
+    color: #d3301e;
     position: relative;
     background: none;
     border: none;
@@ -139,8 +139,8 @@
     width: 100%;
     margin: 1vh;
     font-weight: 700;
-    background-color: #630ea0;
-    border-bottom: 2px solid var(--color-secundario);
+    background-color: #06813b;
+    border-bottom: 2px solid #d3301e;
     border-radius: 5px;
   }
 
