@@ -31,7 +31,7 @@
 }
 
 .boton-aceptar-modal{
-    background-color: #06813b;
+    background-color: red;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -41,12 +41,12 @@
 }
 
 .boton-aceptar-modal:hover {
-    background-color: #06813b;
+    background-color: #5a2d91;
     transform: scale(1.05);
 }
 
 .boton-cancelar-modal{
-    background-color: #d3301e;
+    background-color: var(--color-secundario);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -56,7 +56,7 @@
 }
 
 .boton-cancelar-modal:hover {
-    background-color: #d3301e;
+    background-color: #d76a2b;
     transform: scale(1.05);
 }
 

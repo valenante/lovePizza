@@ -14,7 +14,7 @@
 
 /* Sección de cada grupo */
 .carrito-section {
-  border: 2px solid #d3301e;
+  border: 2px solid #6A0DAD;
   border-radius: 12px;
   padding: 16px;
   background-color: #f8f6ff;
@@ -27,10 +27,10 @@
 
 .carrito-section-title {
   font-size: 1.2rem;
-  color: #06813b;
+  color: #6A0DAD;
   margin-bottom: 12px;
   text-align: center;
-  border-bottom: 1px solid #06813b;
+  border-bottom: 1px solid #6A0DAD;
   padding-bottom: 6px;
 }
 
@@ -53,7 +53,6 @@
 /* Contenedor del botón enviar */
 .carrito-enviar-container {
   margin-top: 20px;
-  
 }
 
 .carrito-item {
@@ -84,7 +83,7 @@
 .carrito-eliminar-button {
   background: none;
   border: none;
-  color: #d3301e;;
+  color: var(--color-secundario);;
   font-size: 1.2rem;
   cursor: pointer;
   display: flex;
@@ -93,13 +92,27 @@
   text-align: center;
 }
 
+.carrito-enviar-button {
+  background-color: var(--color-principal);
+  color: var(--blanco);
+  border: none;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: var(--borde-redondeado);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
 .carrito-enviar-button:hover:enabled {
-  background-color: #06813b;
+  background-color: var(--color-principal-oscuro);
+  transform: scale(1.05);
 }
 
 .carrito-enviar-button:disabled {
-  background-color: #ccc;
+  background-color: var(--gris);
   cursor: not-allowed;
+  opacity: 0.7;
 }
 
 /* Responsive */

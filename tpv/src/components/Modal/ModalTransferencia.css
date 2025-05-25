@@ -32,7 +32,7 @@
 .transferir-panel {
   flex: 1;
   min-width: 320px;
-  border: 2px solid #06813b;
+  border: 2px solid #6A0DAD;
   border-radius: 12px;
   padding: 16px;
   background-color: #f8f6ff;
@@ -43,8 +43,8 @@
 
 .transferir-panel h3 {
   margin-bottom: 8px;
-  color: #06813b;
-  border-bottom: 2px solid #06813b;
+  color: #6A0DAD;
+  border-bottom: 2px solid #6A0DAD;
   padding-bottom: 4px;
   text-align: center;
 }
@@ -65,12 +65,12 @@
 
 .zona-drop {
   min-height: 120px;
-  border: 2px dashed #06813b;
+  border: 2px dashed #6A0DAD;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #06813b;
+  color: #6A0DAD;
   padding: 12px;
   margin-top: 8px;
   text-align: center;
@@ -80,7 +80,7 @@
 select {
   width: 100%;
   padding: 10px;
-  border: 2px solid #06813b;
+  border: 2px solid #6A0DAD;
   border-radius: 8px;
   font-size: 1rem;
   background: #fff;
@@ -89,7 +89,7 @@ select {
 }
 
 select:focus {
-  border-color: #06813b;
+  border-color: #5c0998;
   outline: none;
 }
 
@@ -111,22 +111,22 @@ select:focus {
 }
 
 .cerrar-transferencia {
-  background-color: #d3301e;
+  background-color: #FF6700;
   color: white;
 }
 
 .cerrar-transferencia:hover {
-  background-color: #d3301e;
+  background-color: #e35d00;
   transform: scale(1.05);
 }
 
 .confirmar-transferencia {
-  background-color: #06813b;
+  background-color: #6A0DAD;
   color: white;
 }
 
 .confirmar-transferencia:hover:enabled {
-  background-color: #06813b;
+  background-color: #5c0998;
   transform: scale(1.05);
 }
 

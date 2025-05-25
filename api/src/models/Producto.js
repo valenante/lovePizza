@@ -41,7 +41,7 @@ const productoSchema = new Schema(
     }, // Diferencia entre plato y bebida
     categoria: { type: String, required: true }, // Ej: "entrante", "plato principal", "refresco", "licor"
     descripcion: { type: String, default: '' },
-    img: { type: String, required: true },
+    img: { type: String},
 
     // Traducciones
     traducciones: {

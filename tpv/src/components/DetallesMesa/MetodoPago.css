@@ -26,7 +26,7 @@
   /* Título */
   .titulo--cuenta {
     font-size: 1.8rem;
-    color: #06813b; /* Morado profundo */
+    color: #6a0dad; /* Morado profundo */
     margin-bottom: 20px;
   }
   
@@ -83,16 +83,16 @@
   }
   
   .boton-cancelar--cuenta {
-    background-color: #d3301e; /* Gris */
+    background-color: var(--color-secundario); /* Gris */
     color: white;
   }
   
   .boton-cancelar--cuenta:hover {
-    background-color: #06813b;
+    background-color: var(--color-principal);
   }
   
   .boton-confirmar--cuenta {
-    background-color: #06813b; 
+    background-color: var(--color-principal); 
     color: #ffffff;
   }
   

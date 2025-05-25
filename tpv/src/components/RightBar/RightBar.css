@@ -29,9 +29,9 @@
 .boton-tipo--rightbar {
   background-color: #FFFFFF;
   /* Blanco */
-  border: 2px solid #06813b;
+  border: 2px solid var(--color-principal);
   /* Morado */
-  color: #06813b;
+  color: var(--color-principal);
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
@@ -41,14 +41,14 @@
 }
 
 .boton-tipo--rightbar.activo--rightbar {
-  background-color: #06813b;
+  background-color: var(--color-principal);
   /* Morado activo */
   color: #FFFFFF;
   /* Texto blanco */
 }
 
 .boton-tipo--rightbar:hover {
-  background-color: #d9363e;
+  background-color: var(--color-secundario);
   /* Naranja vibrante */
   color: #FFFFFF;
 }
@@ -61,7 +61,7 @@
 .titulo-categorias--rightbar {
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-bold);
-  color: #06813b;
+  color: var(--color-principal);
   margin-bottom: 10px;
 }
 
@@ -80,14 +80,14 @@
 }
 
 .categoria--rightbar.seleccionada--rightbar {
-  background-color: #d9363e;
+  background-color: var(--color-secundario);
   /* Naranja vibrante */
   color: #FFFFFF;
   /* Blanco */
 }
 
 .categoria--rightbar:hover {
-  background-color: #06813b;
+  background-color: var(--color-principal);
   /* Morado */
   color: #FFFFFF;
   /* Blanco */
@@ -101,7 +101,7 @@
 .titulo-productos--rightbar {
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-bold);
-  color: #06813b;
+  color: var(--color-principal);
   margin-bottom: 10px;
 }
 
@@ -135,7 +135,7 @@
 
 /* Botón agregar */
 .boton-agregar--rightbar {
-  background-color: #06813b;
+  background-color: var(--color-secundario);
   /* Naranja */
   color: #FFFFFF;
   /* Blanco */
@@ -149,7 +149,7 @@
 }
 
 .boton-agregar--rightbar:hover {
-  background-color: #06813b;
+  background-color: var(--color-principal);
   /* Morado */
   transform: scale(1.05);
 }
@@ -171,7 +171,7 @@
   position: fixed;
   top: 10px;
   right: 10px;
-  background-color: #06813b;
+  background-color: var(--color-principal);
   color: white;
   border: none;
   border-radius: 50%;
@@ -187,7 +187,7 @@
   top: 70px;
   right: 10px;
   background-color: #fff;
-  border: 2px solid #06813b;
+  border: 2px solid var(--color-principal);
   border-radius: 10px;
   padding: 15px;
   width: 250px;
@@ -245,7 +245,7 @@
   margin-top: 10px;
   width: 100%;
   padding: 8px;
-  background-color: #06813b; /* tu naranja vibrante */
+  background-color: var(--color-secundario); /* tu naranja vibrante */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -260,7 +260,7 @@
 }
 
 .boton-enviar-pedido:hover:not(:disabled) {
-  background-color: #06813b; /* tu morado */
+  background-color: var(--color-principal); /* tu morado */
 }
 
 .mensaje-pedido-textarea {
@@ -303,7 +303,7 @@
   }
 
   .boton-agregar--rightbar {
-    background-color: #d3301e;
+    background-color: var(--color-secundario);
     /* Naranja vibrante */
     color: #FFFFFF;
     border: none;
@@ -362,7 +362,7 @@
     border-radius: 10px;
     font-size: 0.9rem;
     font-weight: var(--font-weight-bold);
-    background-color: #06813b;
+    background-color: var(--color-principal);
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -371,13 +371,13 @@
 
   /* Activa o seleccionada */
   .categoria--rightbar.seleccionada--rightbar {
-    background-color: #d9363e;
+    background-color: var(--color-secundario);
     color: #FFFFFF;
   }
 
   /* Hover */
   .categoria--rightbar:hover {
-    background-color: #06813b;
+    background-color: var(--color-principal);
     color: #FFFFFF;
   }
 
