@@ -3,6 +3,7 @@ import { ProductosContext } from "../../context/ProductosContext";
 import ProductoCard from "./ProductoCard";
 import api from "../../utils/api";
 import Navbar from "../Navbar/Navbar";
+import "../../styles/Carta.css"; // Asegúrate de que la ruta es correcta
 
 const Carta = () => {
   const { productos, categoriaSeleccionada, cargarProductos } = useContext(ProductosContext);

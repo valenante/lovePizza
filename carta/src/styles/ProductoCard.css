@@ -56,7 +56,7 @@
   display: block;
   font-size: 1.2rem;
   font-weight: bold;
-  color: rgb(84, 20, 108);
+  color: var(--color-principal);
   margin-bottom: 15px;
 }
 
@@ -215,10 +215,9 @@ button.agregar-btn:active {
     max-width: 350px;
     margin: auto;
   }
-
   .producto-nombre {
     font-size: 1.5rem;
-    color: rgb(84, 20, 108);
+    color: var(--color-principal);
     margin-bottom: 10px;
   }
 
@@ -251,25 +250,25 @@ button.agregar-btn:active {
     border-radius: 5px;
   }
 
-  .producto-precio-boton{
+  .producto-precio-boton {
     display: flex;
     justify-content: space-between;
-    }
+  }
 
-    .producto-precio {
-      display: block;
-      font-weight: bold;
-      color: rgb(84, 20, 108);
-    }
-    
-    /* Tamaño grande para precioBase */
-    .precio-grande {
-      font-size: 1.4rem;
-    }
-    
-    /* Tamaño pequeño para select */
-    .precio-pequeno select {
-      font-size: 1rem;
-    }
-    
+  .producto-precio {
+    display: block;
+    font-weight: bold;
+    color: var(--color-principal);
+  }
+
+  /* Tamaño grande para precioBase */
+  .precio-grande {
+    font-size: 1.4rem;
+  }
+
+  /* Tamaño pequeño para select */
+  .precio-pequeno select {
+    font-size: 1rem;
+  }
+
 }

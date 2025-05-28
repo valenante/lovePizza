@@ -1,0 +1,12 @@
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  gap: 2rem;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .productos-grid {
+    grid-template-columns: 1fr; /* 1 columna en móviles */
+  }
+}
