@@ -133,6 +133,13 @@
   color: var(--gris-oscuro);
 }
 
+.navbar-checkbox-habilitar{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+}
+
 .only-mobile {
   display: none;
 }
