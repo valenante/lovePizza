@@ -63,7 +63,7 @@ html, body {
   
   .input--preMenu:focus {
     outline: none;
-    border-color: #ff6700; /* Naranja vibrante */
+    border-color: var(--color-secundario); /* Naranja vibrante */
     box-shadow: 0 0 5px rgba(255, 103, 0, 0.5);
   }
   
@@ -93,7 +93,7 @@ html, body {
   }
   
   .boton--preMenu:hover:not(:disabled) {
-    background-color: #ff6700; /* Naranja vibrante */
+    background-color: var(--color-secundario); /* Naranja vibrante */
     transform: scale(1.05);
   }
   

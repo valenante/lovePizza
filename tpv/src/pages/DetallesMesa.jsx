@@ -16,7 +16,7 @@ const DetalleMesa = () => {
   const navigate = useNavigate();
   const { socket } = useContext(SocketContext);
   const [mostrarFacturaModal, setMostrarFacturaModal] = useState(false);
-  const [datosFactura, setDatosFactura] = useState({ nombre: "", nif: "" });
+  const [datosFactura, setDatosFactura] = useState({ nombre: "", nif: "", hashFactura: "", numeroFactura: "" });
   const [metodoPagoFactura, setMetodoPagoFactura] = useState(null);
   const [mostrarModalConfirmacion, setMostrarModalConfirmacion] = useState(false);
   const [accionModal, setAccionModal] = useState(null);
@@ -120,12 +120,14 @@ const DetalleMesa = () => {
     }
   };
 
+  console.log("Datos de la factura:", datosFactura);
+
   const cerrarMesa = async (metodoPago) => {
     try {
       const response = await api.put(`/mesas/${mesa._id}/cerrar`, {
         metodoPago,
         clienteNombre: datosFactura.nombre,
-        clienteNIF: datosFactura.nif
+        clienteNIF: datosFactura.nif,
       });
 
       const { datosImpresion } = response.data;
@@ -221,8 +223,6 @@ const DetalleMesa = () => {
         }
       },
     });
-
-    console.log("Mostrando modal de confirmación para eliminar producto");
 
     setMostrarModalConfirmacion(true);
   };

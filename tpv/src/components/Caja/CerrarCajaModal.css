@@ -88,7 +88,7 @@
 }
 
 .boton-cancelar--cerrar-caja {
-  background-color: var(--gris);
+  background-color: var(--color-secundario);
   color: var(--blanco);
 }
 

@@ -172,7 +172,7 @@
 
 /* Botón Cancelar (color secundario) */
 .boton-cancelar--productoDetalle {
-  background-color: #FF6700;
+  background-color: var(--color-secundario);
   color: white;
   padding: 10px 20px;
   border: none;
@@ -184,13 +184,13 @@
 }
 
 .boton-cancelar--productoDetalle:hover {
-  background-color: #e35d00;
+  background-color: var(--color-secundario);
   transform: scale(1.05);
 }
 
 /* Botón Agregar (color principal) */
 .boton-agregar--productoDetalle {
-  background-color: #6A0DAD;
+  background-color: var(--color-principal);
   color: white;
   padding: 10px 20px;
   border: none;
@@ -202,7 +202,7 @@
 }
 
 .boton-agregar--productoDetalle:hover {
-  background-color: #5c0998;
+  background-color: var(--color-principal);
   transform: scale(1.05);
 }
 

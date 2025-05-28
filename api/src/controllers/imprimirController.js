@@ -43,7 +43,7 @@ export const imprimirBebidas = async (req, res) => {
 // Función para imprimir factura
 export const imprimirFactura = async (req, res) => {
   const { mesaId } = req.params;
-  const { clienteNombre, clienteNIF, metodoPago, productos } = req.body;
+  const { clienteNombre, clienteNIF, metodoPago, productos, hash, numeroFactura } = req.body;
 
   try {
     const mesa = await Mesa.findById(mesaId).lean();
@@ -60,6 +60,8 @@ export const imprimirFactura = async (req, res) => {
       clienteNombre,
       clienteNIF,
       metodoPago,
+      hash,
+      numeroFactura,
     };
 
     const response = await axios.post(`${IMPRESION_SERVER}/imprimir-factura`, datosImpresion);
