@@ -323,7 +323,7 @@ const generarPDF = (mesasCerradas, total, totalesMetodoPago) => {
     doc.on('error', reject);
 
     // 📌 Ruta de la imagen (asegúrate de que la ruta es correcta)
-    const logoPath = path.join(__dirname, '../../public/images/logoZf.jpg');
+    const logoPath = path.join(__dirname, '../../public/images/logo.png');
 
     try {
       // 📌 **LOGO COMO ENCABEZADO (parte superior)**
