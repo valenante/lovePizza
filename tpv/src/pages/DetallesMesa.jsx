@@ -114,8 +114,6 @@ const DetalleMesa = () => {
     }
   };
 
-  console.log("Datos de la factura:", datosFactura);
-
   const cerrarMesa = async (metodoPago) => {
     try {
       const response = await api.put(`/mesas/${mesa._id}/cerrar`, {

@@ -100,8 +100,6 @@ export const agregarProductoAlPedido = async (req, res) => {
   const { mesaId } = req.params;
   const { productos } = req.body;
 
-  console.log(req.body);
-
   if (!Array.isArray(productos) || productos.length === 0) {
     return res.status(400).json({ error: 'Debes enviar al menos un producto válido.' });
   }
