@@ -100,7 +100,6 @@
 }
 
 .agregar-carrito-btn-prodCard:hover {
-  background-color: rgba(84, 20, 108, 0.8);
   transform: scale(1.05);
   /* Aumenta ligeramente el tamaño al pasar el mouse */
 }
@@ -192,7 +191,6 @@ button.agregar-btn {
 }
 
 button.agregar-btn:hover {
-  background-color: rgba(106, 13, 173, 0.9);
   /* Morado un poco más claro */
   transform: scale(1.05);
   /* Aumenta ligeramente */
