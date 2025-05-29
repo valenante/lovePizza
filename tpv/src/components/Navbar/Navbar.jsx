@@ -91,8 +91,8 @@ const Navbar = () => {
             value={selectValue}
           >
             <option value="" disabled>Ir a...</option>
-            <option value="/tpv/products">Productos</option>
-            <option value="/tpv/reservas">Reservas</option>
+            <option value="/products">Productos</option>
+            <option value="/reservas">Reservas</option>
           </select>
         </li>
 
