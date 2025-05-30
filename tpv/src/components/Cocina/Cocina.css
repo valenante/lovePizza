@@ -153,7 +153,7 @@
   margin-top: 10px;
   margin-bottom: 5px;
   padding: 5px 10px;
-  background-color: #6a0dad; /* morado */
+  background-color: var(--color-principal); /* morado */
   color: white;
   border-radius: 4px;
   text-transform: uppercase;
