@@ -100,7 +100,7 @@
 }
 
 .agregar-carrito-btn-prodCard:hover {
-  background-color: var(--color-principal), 20, 108, 0.8);
+  background-color: var(--color-principal);
   transform: scale(1.05);
   /* Aumenta ligeramente el tamaño al pasar el mouse */
 }

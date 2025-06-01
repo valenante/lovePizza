@@ -78,8 +78,9 @@ const Home = () => {
           <div className="footer-top">
             <div className="footer-info">
               <h3 className="footer-title">Contacto</h3>
-              <p className="footer-item">📞 Teléfono: 665 92 54 13</p>
-              <p className="footer-item">📍 Dirección: Calle de la Cruz, 10, 29620, Torremolinos, Málaga, España</p>
+              <p className="footer-item">📞 Teléfono:  631 50 70 83</p>
+              <p className="footer-item">📍
+                Plaza Federico Garcia Lorca nu.1, Torremolinos, Málaga, España</p>
             </div>
 
             <div className="footer-horario">
