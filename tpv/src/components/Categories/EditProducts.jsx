@@ -209,7 +209,7 @@ const EditProduct = ({ product, onSave, onCancel, onDelete }) => {
                 Precio Botella:
                 <input
                   type="number"
-                  name="precios.botella2"
+                  name="precios.botella"
                   value={formData.precios.botella || ""}
                   onChange={handleChange}
                   className="input--editar"
@@ -218,6 +218,16 @@ const EditProduct = ({ product, onSave, onCancel, onDelete }) => {
             </>
           ) : (
             <>
+              <label className="label--editar">
+                Precio Base:
+                <input
+                  type="number"
+                  name="precios.precioBase"
+                  value={formData.precios.precioBase || ""}
+                  onChange={handleChange}
+                  className="input--editar"
+                />
+              </label>
               <label className="label--editar">
                 Precio Tapa:
                 <input
