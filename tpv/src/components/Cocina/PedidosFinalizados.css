@@ -19,7 +19,7 @@
   max-width: 600px;
   max-height: 80vh; /* Limita la altura */
   overflow-y: auto; /* Scroll si es necesario */
-  border: 3px solid #06813b;
+  border: 3px solid var(--color-principal);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -29,15 +29,15 @@
 /* Título */
 .pedidos-finalizados h2 {
     font-size: 1.8rem;
-    color: #06813b;
-    border-bottom: 2px solid #06813b;
+    color: var(--color-principal);
+    border-bottom: 2px solid var(--color-principal);
     padding-bottom: 10px;
 }
 
 /* Botón Cerrar */
 .boton-cerrar--finalizados {
     padding: 8px 20px;
-    background-color: #d3301e;
+    background-color: var(--color-secundario);
     color: white;
     border: none;
     border-radius: 8px;
@@ -56,14 +56,14 @@
 /* Mensaje cuando no hay pedidos */
 .mensaje-vacio--finalizados {
     font-size: 1.2rem;
-    color: #06813b;
+    color: var(--color-principal);
     font-style: italic;
 }
 
 /* Contenedor de cada pedido */
 .pedido-finalizado {
     background-color: #f5f5f5;
-    border: 2px solid #06813b;
+    border: 2px solid var(--color-principal);
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -77,7 +77,7 @@
 /* Información del Pedido */
 .pedido-finalizado h3 {
     font-size: 1.4rem;
-    color: #d3301e;
+    color: var(--color-secundario);
     margin-bottom: 8px;
 }
 
@@ -106,5 +106,5 @@
 
 /* Total del Pedido */
 .pedido-finalizado strong {
-    color: #06813b;
+    color: var(--color-principal);
 }

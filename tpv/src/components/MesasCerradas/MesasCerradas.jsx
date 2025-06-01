@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "../../utils/api"; // Importa la configuración de axios
 import "./MesasCerradas.css"; // Importa el archivo de estilos
 import ModalConfirmacion from "../Modal/ModalConfirmacion"; // Importa el componente de modal
-import AlertaMensaje from "../AlertaMensaje/AlertaMensaje"; // Importa el componente de alert
+import AlertaMensaje from "../AlertaMensaje/AlertaMensaje";
 
 const MesasCerradas = () => {
   const [mesas, setMesas] = useState([]);
@@ -89,7 +89,6 @@ const MesasCerradas = () => {
 
   return (
     <div className="mesas-cerradas--mesas-cerradas">
-      <h1 className="titulo--mesas-cerradas">Gestión de Mesas Cerradas</h1>
       <div className="botones-container">
         <div className="botones-container-mesas-cerradas">
           <button

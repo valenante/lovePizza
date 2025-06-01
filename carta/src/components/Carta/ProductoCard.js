@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useMesas } from "../../context/MesasContext";
-import { Trans } from "@lingui/react";
-import { useLingui } from "@lingui/react";
+import { Trans, useLingui } from "@lingui/react";
 import ProductoDetalle from "./ProductoDetalle";
-import ModalCroquetas from "./ModalCroquetas"; // Componente modal para croquetas
+import ModalCroquetas from "./ModalCroquetas";
+import api from "../../utils/api";
 import "../../styles/ProductoCard.css";
-import api from "../../utils/api"; // Asegúrate de que apunta al backend
 
 const ProductoCard = ({ producto, estrellas }) => {
   const [mostrarModal, setMostrarModal] = useState(false);
@@ -16,23 +15,19 @@ const ProductoCard = ({ producto, estrellas }) => {
     producto.precios.tapa != null
       ? "tapa"
       : producto.precios.racion != null
-        ? "racion"
-        : producto.precios.copa != null
-          ? "copa"
-          : producto.precios.botella != null
-            ? "botella"
-            : "precioBase"
+      ? "racion"
+      : producto.precios.copa != null
+      ? "copa"
+      : producto.precios.botella != null
+      ? "botella"
+      : "precioBase"
   );
   const [seleccionPrecio, setSeleccionPrecio] = useState(
     producto.precios?.[tipoPrecio] ?? producto.precios?.precioBase
   );
 
-  const [permitirComida, setPermitirComida] = useState(true);
-  const [permitirBebida, setPermitirBebida] = useState(true);
-  const esBebida = producto.tipo === "bebida";
-  const esComida = producto.tipo !== "bebida";
-
-
+  const [permitePedidosComida, setPermitePedidosComida] = useState(true);
+  const [permitePedidosBebida, setPermitePedidosBebida] = useState(true);
 
   const { i18n } = useLingui();
   const idiomaActual = i18n.locale;
@@ -51,11 +46,11 @@ const ProductoCard = ({ producto, estrellas }) => {
   useEffect(() => {
     const fetchConfiguracion = async () => {
       try {
-        const { data } = await api.get("/configuracion-pedidos");
-        setPermitirComida(data.permitirPedidosComida);
-        setPermitirBebida(data.permitirPedidosBebida);
-      } catch (error) {
-        console.error("Error al cargar configuración:", error);
+        const res = await api.get("/configuracion-global");
+        setPermitePedidosComida(res.data.permitePedidosComida);
+        setPermitePedidosBebida(res.data.permitePedidosBebida);
+      } catch (err) {
+        console.error("Error al obtener configuración global:", err);
       }
     };
     fetchConfiguracion();
@@ -100,12 +95,17 @@ const ProductoCard = ({ producto, estrellas }) => {
     );
   };
 
+  const puedeAgregar = () => {
+    if (!numeroMesa) return false; // no mostrar botón si no hay mesa
+    if (producto.tipo === "bebida") return permitePedidosBebida;
+    return permitePedidosComida;
+  };
+
   return (
     <div className="producto-card-prodCard">
       {pantallaPequena ? (
         <div className="producto-grid-pequeno">
           <h3 className="producto-nombre">{nombreTraducido}</h3>
-
           <div className="producto-info-grid">
             <p className="producto-descripcion">{descripcionTraducida}</p>
             {producto.img && (
@@ -118,17 +118,13 @@ const ProductoCard = ({ producto, estrellas }) => {
               </div>
             )}
           </div>
-
           <div className="producto-precio-boton">
             {renderPrecio()}
-            {numeroMesa && (
-              (esBebida ? permitirBebida : permitirComida)
-            ) && (
-                <button onClick={abrirModal} className="agregar-carrito-btn-prodCard">
-                  <Trans id="agregar-carrito">Agregar al carrito</Trans>
-                </button>
-              )}
-
+            {puedeAgregar() && (
+              <button onClick={abrirModal} className="agregar-carrito-btn-prodCard">
+                <Trans id="agregar-carrito">Agregar al carrito</Trans>
+              </button>
+            )}
           </div>
         </div>
       ) : (
@@ -149,14 +145,11 @@ const ProductoCard = ({ producto, estrellas }) => {
               )}
             </p>
             <div className="producto-precio-boton">{renderPrecio()}</div>
-            {numeroMesa && (
-              (esBebida ? permitirBebida : permitirComida)
-            ) && (
-                <button onClick={abrirModal} className="agregar-carrito-btn-prodCard">
-                  <Trans id="agregar-carrito">Agregar al carrito</Trans>
-                </button>
-              )}
-
+            {puedeAgregar() && (
+              <button onClick={abrirModal} className="agregar-carrito-btn-prodCard">
+                <Trans id="agregar-carrito">Agregar al carrito</Trans>
+              </button>
+            )}
           </div>
           {producto.img && (
             <div className="producto-img-container-prodCard">
@@ -170,7 +163,6 @@ const ProductoCard = ({ producto, estrellas }) => {
         </div>
       )}
 
-      {/* Renderiza el modal de croquetas o detalles normales */}
       {mostrarModal && esCroqueta ? (
         <ModalCroquetas
           producto={producto}

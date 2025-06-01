@@ -26,7 +26,7 @@
   /* Título */
   .titulo--cuenta {
     font-size: 1.8rem;
-    color: var(--color-principal); /* Morado profundo */
+    color: #6a0dad; /* Morado profundo */
     margin-bottom: 20px;
   }
   

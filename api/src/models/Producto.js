@@ -34,6 +34,7 @@ const productoSchema = new Schema(
   {
     // Información general
     nombre: { type: String, required: true },
+    aliases: [{ type: String}], // Nombres alternativos o abreviaciones
     tipo: {
       type: String,
       enum: ['plato', 'tapaRacion', 'bebida', 'extra', 'postre'],

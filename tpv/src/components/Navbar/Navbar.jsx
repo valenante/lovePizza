@@ -1,53 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import api from "../../utils/api"; // asegúrate que apunta al backend
+import api from '../../utils/api'; // Asegúrate de que el path sea correcto
 import "./Navbar.css";
-import logo from "../../images/LovePizzaLogo.png"; // Asegúrate de que la ruta sea correcta
-import { useEffect } from "react";
+import logo from "../../images/logo.avif";
 
 const Navbar = () => {
-
-  const [permitirComida, setPermitirComida] = useState(true);
-  const [permitirBebida, setPermitirBebida] = useState(true);
   const [selectValue, setSelectValue] = useState("");
-
-  useEffect(() => {
-    const fetchConfiguracion = async () => {
-      try {
-        const { data } = await api.get("/configuracion-pedidos");
-        setPermitirComida(data.permitirPedidosComida);
-        setPermitirBebida(data.permitirPedidosBebida);
-      } catch (error) {
-        console.error("Error al cargar configuración:", error);
-      }
-    };
-    fetchConfiguracion();
-  }, []);
-
-  const toggleComida = async () => {
-    try {
-      const nuevaConfig = !permitirComida;
-      setPermitirComida(nuevaConfig);
-      await api.patch("/configuracion-pedidos", {
-        permitirPedidosComida: nuevaConfig
-      });
-    } catch (error) {
-      console.error("Error al actualizar comida:", error);
-    }
-  };
-
-  const toggleBebida = async () => {
-    try {
-      const nuevaConfig = !permitirBebida;
-      setPermitirBebida(nuevaConfig);
-      await api.patch("/configuracion-pedidos", {
-        permitirPedidosBebida: nuevaConfig
-      });
-    } catch (error) {
-      console.error("Error al actualizar bebida:", error);
-    }
-  };
-
+  const [config, setConfig] = useState({
+    permitePedidosComida: true,
+    permitePedidosBebida: true,
+  });
 
   const handleSelectChange = (e) => {
     const path = e.target.value;
@@ -56,6 +18,32 @@ const Navbar = () => {
       setSelectValue(""); // Reinicia el valor después de redirigir
     }
   };
+
+  const fetchConfig = async () => {
+    try {
+      const res = await api.get("/configuracion-global");
+      setConfig(res.data);
+    } catch (error) {
+      console.error("Error al obtener configuración:", error);
+    }
+  };
+
+  const toggleCampo = async (campo) => {
+    try {
+      const nuevoValor = !config[campo];
+      const res = await api.put("/configuracion-global", {
+        [campo]: nuevoValor,
+      });
+      setConfig(res.data);
+    } catch (error) {
+      console.error("Error al actualizar configuración:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchConfig();
+  }, []);
+
   return (
     <nav className="navbar--navbar">
       <ul className="navbar-list--navbar">
@@ -74,16 +62,7 @@ const Navbar = () => {
         <li className="navbar-item--navbar only-desktop">
           <Link className="navbar-link--navbar" to="/reservas">Reservas</Link>
         </li>
-        <li className="navbar-item--navbar only-desktop">
-          <label className="navbar-checkbox-habilitar">
-            <input type="checkbox" checked={permitirComida} onChange={toggleComida} />
-            Comida
-          </label>
-          <label className="navbar-checkbox-habilitar">
-            <input type="checkbox" checked={permitirBebida} onChange={toggleBebida} />
-            Bebida
-          </label>
-        </li>
+
         <li className="navbar-item--navbar only-mobile">
           <select
             className="navbar-select--navbar"
@@ -91,13 +70,27 @@ const Navbar = () => {
             value={selectValue}
           >
             <option value="" disabled>Ir a...</option>
-            <option value="/products">Productos</option>
-            <option value="/reservas">Reservas</option>
+            <option value="/tpv/products">Productos</option>
+            <option value="/tpv/reservas">Reservas</option>
           </select>
         </li>
 
+        {/* Botones para habilitar/deshabilitar pedidos */}
+        <li className="navbar-item--navbar only-desktop">
+          <button
+            className={`toggle-btn ${config.permitePedidosComida ? "enabled" : "disabled"}`}
+            onClick={() => toggleCampo("permitePedidosComida")}
+          >
+            {config.permitePedidosComida ? "Comida ON" : "Comida OFF"}
+          </button>
+          <button
+            className={`toggle-btn ${config.permitePedidosBebida ? "enabled" : "disabled"}`}
+            onClick={() => toggleCampo("permitePedidosBebida")}
+          >
+            {config.permitePedidosBebida ? "Bebida ON" : "Bebida OFF"}
+          </button>
+        </li>
       </ul>
-
     </nav>
   );
 };

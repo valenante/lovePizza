@@ -9,7 +9,7 @@ const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN;
 export const enviarEmail = async ({ to, subject, html, attachments = [] }) => {
   const form = new FormData();
 
-  form.append('from', `Love Pizza <no-reply@${MAILGUN_DOMAIN}>`);
+  form.append('from', `Love Pizza<no-reply@${MAILGUN_DOMAIN}>`);
   form.append('to', to);
   form.append('subject', subject);
   form.append('html', html);

@@ -89,7 +89,6 @@ select {
 }
 
 select:focus {
-  border-color: var(--color-principal);
   outline: none;
 }
 
@@ -111,7 +110,7 @@ select:focus {
 }
 
 .cerrar-transferencia {
-  background-color: #FF6700;
+  background-color: var(--color-secundario);
   color: white;
 }
 
@@ -126,7 +125,6 @@ select:focus {
 }
 
 .confirmar-transferencia:hover:enabled {
-  background-color: var(--color-principal);
   transform: scale(1.05);
 }
 

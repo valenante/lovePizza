@@ -1,15 +1,21 @@
-import MesaCerrada from '../models/MesaCerrada.js';
-import Password from '../models/Password.js';
-import Caja from '../models/Caja.js';
-import Pedido from '../models/Pedido.js';
-import Cart from '../models/Cart.js';
-import Eliminaciones from '../models/Eliminacion.js';
-import Mesa from '../models/Mesa.js';
-import PDFDocument from 'pdfkit';
+// Nativos
 import { fileURLToPath } from 'url';
 import path from 'path';
+
+// Terceros
 import axios from 'axios';
+import PDFDocument from 'pdfkit';
 import FormData from 'form-data';
+
+// Modelos
+import Mesa from '../models/Mesa.js';
+import Pedido from '../models/Pedido.js';
+import Cart from '../models/Cart.js';
+import Caja from '../models/Caja.js';
+import MesaCerrada from '../models/MesaCerrada.js';
+import Eliminaciones from '../models/Eliminacion.js';
+import Password from '../models/Password.js';
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -123,14 +129,11 @@ export const integrarDinero = async (req, res) => {
 export const retirarDinero = async (req, res) => {
   const { monto, razon } = req.body;
 
-  monto, razon;
-
   if (!monto || !razon) {
     return res.status(400).json({ error: 'Monto y razón son obligatorios.' });
   }
 
   try {
-    ('Retirando dinero...');
     const today = new Date();
     today.setHours(0, 0, 0, 0); // Establece la hora a 00:00:00 para evitar problemas con la comparación
 
@@ -142,20 +145,12 @@ export const retirarDinero = async (req, res) => {
       return res.status(404).json({ error: 'Caja no encontrada.' });
     }
 
-    'Caja encontrada:', caja;
-
     const montoNumerico = parseFloat(monto);
     if (isNaN(montoNumerico) || montoNumerico <= 0) {
       return res
         .status(400)
         .json({ error: 'El monto debe ser un número mayor a 0.' });
     }
-
-    'Monto a retirar:', montoNumerico;
-
-    caja.detallesMetodoPago.efectivo,
-      caja.detallesMetodoPago.tarjeta,
-      caja.detallesMetodoPago.propina;
 
     if (caja.detallesMetodoPago.efectivo < montoNumerico) {
       return res.status(400).json({
@@ -166,7 +161,6 @@ export const retirarDinero = async (req, res) => {
     caja.detallesMetodoPago.efectivo -= montoNumerico;
     caja.total -= montoNumerico;
 
-    'Efectivo después de la operación:', caja.detallesMetodoPago.efectivo;
 
     // Registrar la operación
     caja.operaciones.push({
@@ -323,7 +317,7 @@ const generarPDF = (mesasCerradas, total, totalesMetodoPago) => {
     doc.on('error', reject);
 
     // 📌 Ruta de la imagen (asegúrate de que la ruta es correcta)
-    const logoPath = path.join(__dirname, '../../public/images/logo.png');
+    const logoPath = path.join(__dirname, '../../public/images/logoZf.jpg');
 
     try {
       // 📌 **LOGO COMO ENCABEZADO (parte superior)**
@@ -450,7 +444,7 @@ const generarPDF = (mesasCerradas, total, totalesMetodoPago) => {
 export const enviarEmailConPDF = async (pdfBuffer) => {
   const form = new FormData();
 
-  form.append('from', `Zabor Féten <no-reply@${MAILGUN_DOMAIN}>`);
+  form.append('from', `Love Pizza <no-reply@${MAILGUN_DOMAIN}>`);
   form.append('to', 'valentinoantenucci1@gmail.com');
   form.append('subject', 'Informe Diario - Cierre de Caja');
   form.append(

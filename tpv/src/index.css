@@ -1,12 +1,11 @@
+/* === VARIABLES GLOBALES === */
 :root {
-  --color-principal: #06813b;
-  --color-principal-oscuro: #145a32;
-  /* una versión ligeramente más oscura */
-  --color-secundario: #d3301e;
+  --color-principal: #177a2e; /* Verde principal */
+  --color-principal-oscuro: #218838; /* Verde más oscuro */
+  --color-secundario: #dc3545; /* Rojo vibrante */
   --blanco: #ffffff;
   --gris-claro: #f5f5f5;
   --gris-oscuro: #333333;
-  --fuente-principal: "Marcellus", serif;
 
   --espaciado-base: 1rem;
   --borde-redondeado: 0.5rem;
@@ -17,8 +16,7 @@
 }
 
 /* === RESETEO Y BASE === */
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -30,26 +28,9 @@ body {
 }
 
 /* === UTILITARIOS === */
-.mt-2 {
-  margin-top: 2rem;
-}
-
-.mb-1 {
-  margin-bottom: 1rem;
-}
-
-.p-3 {
-  padding: 3rem;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.shadow-suave {
-  box-shadow: var(--sombra-suave);
-}
-
-.rounded {
-  border-radius: var(--borde-redondeado);
-}
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.p-3 { padding: 3rem; }
+.text-center { text-align: center; }
+.shadow-suave { box-shadow: var(--sombra-suave); }
+.rounded { border-radius: var(--borde-redondeado); }

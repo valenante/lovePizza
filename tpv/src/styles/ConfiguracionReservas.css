@@ -72,7 +72,7 @@
 }
 
 .configuracion-reservas>button:first-of-type:hover {
-  background-color: var(--color-principal);
+  background-color: #5c0bb8;
 }
 
 .configuracion-reservas>button:last-of-type {

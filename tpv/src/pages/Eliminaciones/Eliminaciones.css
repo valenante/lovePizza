@@ -15,7 +15,7 @@
 /* Título */
 .titulo--eliminaciones {
   font-size: 2rem;
-  color: var(--color-principal);
+  color: #6a0dad;
   /* Morado profundo */
   text-align: center;
   margin-bottom: 20px;
@@ -41,7 +41,7 @@
 }
 
 .tabla--eliminaciones th {
-  background-color: var(--color-principal);
+  background-color: #6a0dad;
   /* Morado profundo */
   color: #ffffff;
   /* Texto blanco */

@@ -133,19 +133,43 @@
   color: var(--gris-oscuro);
 }
 
-.navbar-checkbox-habilitar{
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: white;
-}
-
 .only-mobile {
   display: none;
 }
 
 .only-desktop {
   display: block;
+}
+
+.toggle-btn {
+  padding: 0.4rem .8rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-right: 1vh;
+  width: fit-content;
+  border: none;
+  border-radius: var(--borde-redondeado);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.2s ease;
+  color: var(--blanco);
+  box-shadow: var(--sombra-suave);
+}
+
+/* Estado habilitado (ON) */
+.toggle-btn.enabled {
+  background-color: var(--color-secundario);
+}
+
+/* Estado deshabilitado (OFF) */
+.toggle-btn.disabled {
+  background-color: #999;
+  color: #fff;
+}
+
+/* Hover */
+.toggle-btn:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {

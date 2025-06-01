@@ -21,20 +21,20 @@
   width: 100%;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
   text-align: center;
-  border-top: 5px solid #06813b;
+  border-top: 5px solid var(--color-principal);
 }
 
 .popup-content h3 {
   margin-bottom: 20px;
   font-size: 20px;
-  color: #06813b;
+  color: var(--color-principal);
   line-height: 1.4;
   word-wrap: break-word;
 }
 
 .popup-content button {
   padding: 12px 24px;
-  background-color: #06813b;
+  background-color: var(--color-principal);
   color: white;
   border: none;
   border-radius: 6px;
