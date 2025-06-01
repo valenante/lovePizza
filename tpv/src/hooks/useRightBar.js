@@ -12,19 +12,17 @@ export const useRightBar = (mesaId) => {
   const [productosCategoriaActual, setProductosCategoriaActual] = useState([]);
   const [mostrarResumen, setMostrarResumen] = useState(false);
   const [mensajeAlerta, setMensajeAlerta] = useState(null);
+  const [carrito, setCarrito] = useState([]); // ✅ carrito plano
   const [carritoBebidas, setCarritoBebidas] = useState([]);
   const [productosYaPedidos, setProductosYaPedidos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [carritoSecciones, setCarritoSecciones] = useState({
-    entrante: [],
-    medio: [],
-    final: [],
-  });
 
   const { categories, fetchCategories, products, fetchProducts } = useCategorias();
 
   useEffect(() => { fetchCategories(tipo); }, [tipo]);
-  useEffect(() => { if (categoriaSeleccionada) fetchProducts(categoriaSeleccionada); }, [categoriaSeleccionada]);
+  useEffect(() => {
+    if (categoriaSeleccionada) fetchProducts(categoriaSeleccionada);
+  }, [categoriaSeleccionada]);
 
   const abrirModal = (producto) => {
     const precioSeleccionado = preciosSeleccionados[producto._id] !== undefined
@@ -46,10 +44,7 @@ export const useRightBar = (mesaId) => {
     if (productoPersonalizado.tipo === "bebida") {
       setCarritoBebidas((prev) => [...prev, productoPersonalizado]);
     } else {
-      setCarritoSecciones((prev) => ({
-        ...prev,
-        medio: [...prev.medio, { ...productoPersonalizado, seccion: 'medio' }],
-      }));
+      setCarrito((prev) => [...prev, productoPersonalizado]); // ✅ ya no hay secciones
     }
     cerrarModal();
   };
@@ -58,14 +53,8 @@ export const useRightBar = (mesaId) => {
     try {
       setIsLoading(true);
 
-      const pedidoOrdenado = [
-        ...carritoSecciones.entrante,
-        ...carritoSecciones.medio,
-        ...carritoSecciones.final,
-      ];
-
-      if (pedidoOrdenado.length > 0) {
-        const payloadPlatos = pedidoOrdenado.map(p => ({
+      if (carrito.length > 0) {
+        const payloadPlatos = carrito.map(p => ({
           producto: p._id,
           cantidad: p.cantidad,
           total: p.precioSeleccionado * p.cantidad,
@@ -81,7 +70,6 @@ export const useRightBar = (mesaId) => {
             : [],
           mensaje: p.mensaje || "",
           adicionales: p.adicionales || [],
-          seccion: p.seccion || null,
         }));
 
         await api.post(`/pedidos/${mesaId}/agregar-producto`, { productos: payloadPlatos });
@@ -103,7 +91,7 @@ export const useRightBar = (mesaId) => {
         await api.post(`/pedidosBebidas/${mesaId}/agregar-producto`, { productos: payloadBebidas });
       }
 
-      setCarritoSecciones({ entrante: [], medio: [], final: [] });
+      setCarrito([]); // ✅ limpiar carrito plano
       setCarritoBebidas([]);
       setMensajeAlerta({ tipo: "exito", mensaje: "Pedido enviado correctamente." });
     } catch (error) {
@@ -142,8 +130,8 @@ export const useRightBar = (mesaId) => {
     abrirModal,
     cerrarModal,
     agregarAlCarrito,
-    carritoSecciones,
-    setCarritoSecciones,
+    carrito,
+    setCarrito,
     carritoBebidas,
     setCarritoBebidas,
     enviarPedido,

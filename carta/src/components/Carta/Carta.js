@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ProductosContext } from "../../context/ProductosContext";
 import ProductoCard from "./ProductoCard";
+import "../../styles/Carta.css"; // Asegúrate de que el path sea correcto
 import api from "../../utils/api";
 import Navbar from "../Navbar/Navbar";
 

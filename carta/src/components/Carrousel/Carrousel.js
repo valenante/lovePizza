@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
-import burgerImg from "../../assets/images/main-burgers.jpeg";
-import cocktailImg from "../../assets/images/main-cocktel.jpeg";
+import Pizza1 from "../../assets/images/pizza1.jpg";
+import Pizza2 from "../../assets/images/pizza2.jpg";
 import "../../styles/HomeCarrousel.css";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
@@ -14,12 +14,12 @@ const HomeCarousel = () => {
 
   const slides = [
     {
-      src: burgerImg,
-      text: "Disfruta de las mejores tapitas de Torremolinos",
+      src: Pizza1,
+      text: "Disfruta de las mejores pizzas de Torremolinos",
     },
     {
-      src: cocktailImg,
-      text: "El cóctel perfecto para la ocasión",
+      src: Pizza2,
+      text: "El sabor perfecto para la ocasión",
     },
   ];
 

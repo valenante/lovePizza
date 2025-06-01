@@ -12,7 +12,7 @@ const RightBar = ({ mesaId }) => {
     tipo, setTipo, categoriaSeleccionada, setCategoriaSeleccionada,
     productoSeleccionado, preciosSeleccionados, setPreciosSeleccionados,
     showModal, abrirModal, cerrarModal, agregarAlCarrito,
-    carritoSecciones, setCarritoSecciones, carritoBebidas, setCarritoBebidas,
+    carrito, setCarrito, carritoBebidas, setCarritoBebidas,
     enviarPedido, mensajeAlerta, setMensajeAlerta, isLoading,
     mostrarResumen, setMostrarResumen, categories,
     handleClickCategoria, mostrarModalCategoria,
@@ -71,8 +71,8 @@ const RightBar = ({ mesaId }) => {
         <div className="resumen-pedido-panel">
           <h4>Pedido Actual</h4>
           <CarritoOrganizable
-            carritoSecciones={carritoSecciones}
-            setCarritoSecciones={setCarritoSecciones}
+            carrito={carrito}
+            setCarrito={setCarrito}
             enviarPedido={enviarPedido}
             isLoading={isLoading}
           />

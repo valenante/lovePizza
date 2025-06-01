@@ -56,7 +56,7 @@
   display: block;
   font-size: 1.2rem;
   font-weight: bold;
-  color: rgb(84, 20, 108);
+  color: var(--color-principal);
   margin-bottom: 15px;
 }
 
@@ -140,7 +140,7 @@ button.cantidad-btn {
 }
 
 button.cantidad-btn:hover {
-  background-color: var(--color-secundario)
+  background-color: var(--color-secundario);
   /* Naranja más oscuro */
   transform: scale(1.1);
   /* Crece ligeramente */
@@ -218,7 +218,7 @@ button.agregar-btn:active {
 
   .producto-nombre {
     font-size: 1.5rem;
-    color: rgb(84, 20, 108);
+    color: var(--color-principal);
     margin-bottom: 10px;
   }
 
@@ -259,7 +259,7 @@ button.agregar-btn:active {
     .producto-precio {
       display: block;
       font-weight: bold;
-      color: rgb(84, 20, 108);
+      color: var(--color-principal);
     }
     
     /* Tamaño grande para precioBase */

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from '../../utils/api'; // Asegúrate de que el path sea correcto
 import "./Navbar.css";
-import logo from "../../images/logo.avif";
+import logo from "../../images/LovePizzaLogo.png"; // Asegúrate de que el path sea correcto
 
 const Navbar = () => {
   const [selectValue, setSelectValue] = useState("");

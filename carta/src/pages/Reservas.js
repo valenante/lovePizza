@@ -367,7 +367,7 @@ const Reserva = () => {
           <div className="modal-contenido" onClick={(e) => e.stopPropagation()}>
             <h2>Términos y condiciones</h2>
             <p>
-              En Zabor Fetén, trabajamos para ofrecerte una experiencia
+              En Love Pizza, trabajamos para ofrecerte una experiencia
               excepcional en cada visita...
             </p>
             <ul>
@@ -396,7 +396,7 @@ const Reserva = () => {
             </p>
             <p>
               Gracias por tu comprensión y por ayudarnos a seguir ofreciendo un
-              servicio eficiente y de calidad. ¡Te esperamos en Zabor Fetén para
+              servicio eficiente y de calidad. ¡Te esperamos en Love Pizza para
               una experiencia gastronómica única! 🍷✨
             </p>
             <button onClick={() => setMostrarTerminos(false)}>Cerrar</button>
@@ -410,12 +410,12 @@ const Reserva = () => {
           onClick={() => setMostrarPrivacidad(false)}
         >
           <div className="modal-contenido" onClick={(e) => e.stopPropagation()}>
-            <h2>Política de Privacidad - Zabor Fetén</h2>
+            <h2>Política de Privacidad - Love Pizza</h2>
             <p>
               <strong>Última actualización:</strong> 12/03/2025
             </p>
             <p>
-              En Zabor Fetén nos comprometemos a proteger la privacidad de
+              En Love Pizza nos comprometemos a proteger la privacidad de
               nuestros clientes...
             </p>
 
