@@ -192,7 +192,7 @@ button.agregar-btn {
 }
 
 button.agregar-btn:hover {
-  background-color: rgba(106, 13, 173, 0.9);
+  background-color: var(--color-principal);
   /* Morado un poco más claro */
   transform: scale(1.05);
   /* Aumenta ligeramente */
