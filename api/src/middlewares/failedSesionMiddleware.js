@@ -18,13 +18,13 @@ export const logAndNotifyLogin = async (req, res, next) => {
   const ip = req.ip || req.connection.remoteAddress;
   const now = Date.now();
 
-  info(
+  logger.info(
     `[LOGIN ATTEMPT] Usuario: ${name}, IP: ${ip}, Hora: ${new Date().toISOString()}`
   );
 
   // Desbloquear si ya pasó el tiempo de bloqueo
   if (req.session.lockedUntil && now >= req.session.lockedUntil) {
-    info(`[LOGIN] Desbloqueando automáticamente al usuario ${name}.`);
+    logger.info(`[LOGIN] Desbloqueando automáticamente al usuario ${name}.`);
     req.session.failedAttempts = 0;
     delete req.session.lockedUntil;
   }
@@ -64,11 +64,11 @@ export const logAndNotifyLogin = async (req, res, next) => {
 
     try {
       await transporter.sendMail(mailOptions);
-      info(
+      logger.info(
         `[ALERTA ENVIADA] Notificación enviada al admin para el usuario ${name}.`
       );
     } catch (err) {
-      error(`[ERROR] No se pudo enviar el correo de alerta: ${err.message}`);
+      logger.error(`[ERROR] No se pudo enviar el correo de alerta: ${err.message}`);
     }
 
     return res.status(403).json({

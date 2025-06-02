@@ -76,3 +76,6 @@
 [2025-06-02 11:05:27] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
 [2025-06-02 11:05:28] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
 [2025-06-02 11:05:28] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 15:01:29] ERROR: Promesa no manejada: ReferenceError: info is not defined
+[2025-06-02 15:02:54] ERROR: Promesa no manejada: ReferenceError: info is not defined
+[2025-06-02 15:03:11] ERROR: Promesa no manejada: ReferenceError: info is not defined

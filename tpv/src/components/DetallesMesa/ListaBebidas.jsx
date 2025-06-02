@@ -28,9 +28,7 @@ const ListaBebidas = ({ pedidosBebidas = [], eliminarProducto }) => {
                         : "Cargando bebida..."}
                       <button
                         className="boton-eliminar--mesadetalles"
-                        onClick={() =>
-                          eliminarProducto(pedido._id, productoId)
-                        }
+                        onClick={eliminarProducto(pedido._id, productoId)}
                       >
                         x
                       </button>

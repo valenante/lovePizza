@@ -17,18 +17,17 @@ const ListaPedidos = ({ pedidos, productosDetalles, eliminarProducto }) => {
                 return (
                   <li
                     key={productoId}
-                    className={`producto--mesadetalles ${
-                      producto.estadoPreparacion === "listo"
+                    className={`producto--mesadetalles ${producto.estadoPreparacion === "listo"
                         ? "producto-listo"
                         : ""
-                    }`}
+                      }`}
                   >
                     {detalle
                       ? `${producto.cantidad} ${detalle.nombre}`
                       : "Cargando producto..."}
                     <button
                       className="boton-eliminar--mesadetalles"
-                      onClick={() => eliminarProducto(pedido._id, productoId)}
+                      onClick={eliminarProducto(pedido._id, productoId)}
                     >
                       x
                     </button>

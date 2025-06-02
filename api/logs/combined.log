@@ -1667,3 +1667,15 @@
 [2025-06-02 11:05:28] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
 [2025-06-02 11:08:53] INFO: ✅ Redis conectado correctamente
 [2025-06-02 11:08:53] INFO: Servidor escuchando en el puerto 3000
+[2025-06-02 15:00:51] INFO: ✅ Redis conectado correctamente
+[2025-06-02 15:00:51] INFO: Servidor escuchando en el puerto 3000
+[2025-06-02 15:01:29] ERROR: Promesa no manejada: ReferenceError: info is not defined
+[2025-06-02 15:02:50] INFO: ✅ Redis conectado correctamente
+[2025-06-02 15:02:50] INFO: Servidor escuchando en el puerto 3000
+[2025-06-02 15:02:54] ERROR: Promesa no manejada: ReferenceError: info is not defined
+[2025-06-02 15:03:08] INFO: ✅ Redis conectado correctamente
+[2025-06-02 15:03:08] INFO: Servidor escuchando en el puerto 3000
+[2025-06-02 15:03:11] ERROR: Promesa no manejada: ReferenceError: info is not defined
+[2025-06-02 15:03:31] INFO: ✅ Redis conectado correctamente
+[2025-06-02 15:03:31] INFO: Servidor escuchando en el puerto 3000
+[2025-06-02 15:03:32] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-02T13:03:32.637Z
