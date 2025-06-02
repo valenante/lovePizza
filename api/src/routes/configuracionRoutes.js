@@ -1,15 +1,15 @@
-import { Router } from "express";
+import { Router } from 'express';
 const router = Router();
 
 import {
   obtenerConfiguracion,
   actualizarConfiguracion,
-} from "../controllers/configuracionController.js";
+} from '../controllers/configuracionController.js';
 
 // GET /api/configuracion-global
-router.get("/", obtenerConfiguracion);
+router.get('/', obtenerConfiguracion);
 
 // PUT /api/configuracion-global
-router.put("/", actualizarConfiguracion);
+router.put('/', actualizarConfiguracion);
 
 export default router;

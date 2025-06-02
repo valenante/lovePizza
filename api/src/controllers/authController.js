@@ -1,8 +1,7 @@
 import User from '../models/Usuario.js'; // Modelo de usuario
 import jwt from 'jsonwebtoken';
 import TokenRevocado from '../models/TokenRevocado.js';
-import { warn } from '../../utils/logger.js';
-
+import logger from '../../utils/logger.js'; // Importar el logger
 // Generar access token
 const generarAccessToken = (user) => {
   return jwt.sign(
@@ -31,7 +30,9 @@ export const renovarToken = async (req, res) => {
   try {
     const tokenRevocado = await TokenRevocado.findOne({ token: refreshToken });
     if (tokenRevocado) {
-      return res.status(403).json({ error: 'Este refresh token ha sido revocado.' });
+      return res
+        .status(403)
+        .json({ error: 'Este refresh token ha sido revocado.' });
     }
 
     const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
@@ -77,17 +78,24 @@ export const logout = async (req, res) => {
     res.status(200).json({ message: 'Cierre de sesión exitoso.' });
   } catch (error) {
     if (error.name === 'JsonWebTokenError') {
-      console.error('Token inválido:', error.message);
-      return res.status(401).json({ error: 'El token proporcionado es inválido.' });
+      logger.error('Token inválido:', error.message);
+      return res
+        .status(401)
+        .json({ error: 'El token proporcionado es inválido.' });
     }
 
     if (error.name === 'TokenExpiredError') {
-      console.warn('Intento de cerrar sesión con un token expirado:', error.message);
+      console.warn(
+        'Intento de cerrar sesión con un token expirado:',
+        error.message
+      );
       return res.status(401).json({ error: 'El token ya ha expirado.' });
     }
 
-    console.error('Error inesperado al cerrar sesión:', error);
-    res.status(500).json({ error: 'Ocurrió un error inesperado al cerrar sesión.' });
+    logger.error('Error inesperado al cerrar sesión:', error);
+    res
+      .status(500)
+      .json({ error: 'Ocurrió un error inesperado al cerrar sesión.' });
   }
 };
 
@@ -118,7 +126,7 @@ export const registro = async (req, res) => {
       accessToken,
     });
   } catch (error) {
-    console.error('Error al registrar el usuario:', error);
+    logger.error('Error al registrar el usuario:', error);
     res.status(500).json({ error: 'Error al registrar el usuario.' });
   }
 };
@@ -131,7 +139,9 @@ export const login = async (req, res) => {
     if (!user) {
       req.session.failedAttempts = (req.session.failedAttempts || 0) + 1;
       await req.session.save();
-      return res.status(404).json({ error: 'Usuario o contraseña incorrectos.' });
+      return res
+        .status(404)
+        .json({ error: 'Usuario o contraseña incorrectos.' });
     }
 
     if (user.isBlocked) {
@@ -150,11 +160,15 @@ export const login = async (req, res) => {
         user.blockedUntil = new Date(Date.now() + 15 * 60 * 1000);
         await user.save();
         await req.session.save();
-        return res.status(403).json({ error: 'Cuenta bloqueada por múltiples intentos fallidos.' });
+        return res
+          .status(403)
+          .json({ error: 'Cuenta bloqueada por múltiples intentos fallidos.' });
       }
 
       await req.session.save();
-      return res.status(401).json({ error: 'Usuario o contraseña incorrectos.' });
+      return res
+        .status(401)
+        .json({ error: 'Usuario o contraseña incorrectos.' });
     }
 
     req.session.failedAttempts = 0;
@@ -186,7 +200,10 @@ export const login = async (req, res) => {
       },
     });
   } catch (error) {
-    console.error('[ERROR] Fallo en el inicio de sesión:', error.message || error);
+    logger.error(
+      '[ERROR] Fallo en el inicio de sesión:',
+      error.message || error
+    );
     return res.status(500).json({
       error: 'No se pudo completar el inicio de sesión. Intenta más tarde.',
     });
@@ -201,7 +218,7 @@ export const obtenerUsuario = async (req, res) => {
 
     return res.status(200).json({ user: req.session.user });
   } catch (error) {
-    console.error('❌ Error al obtener usuario:', error);
+    logger.error('❌ Error al obtener usuario:', error);
     return res.status(500).json({ error: 'Error del servidor.' });
   }
 };
@@ -211,7 +228,9 @@ export const protegerRuta = (req, res, next) => {
 
   if (!token) {
     warn('Intento de acceso no autorizado: Token no proporcionado');
-    return res.status(401).json({ error: 'Acceso no autorizado. Se requiere un token válido.' });
+    return res
+      .status(401)
+      .json({ error: 'Acceso no autorizado. Se requiere un token válido.' });
   }
 
   try {
@@ -221,13 +240,19 @@ export const protegerRuta = (req, res, next) => {
   } catch (error) {
     if (error.name === 'TokenExpiredError') {
       warn('Intento de acceso con token expirado');
-      return res.status(401).json({ error: 'El token ha expirado. Por favor, inicia sesión nuevamente.' });
+      return res.status(401).json({
+        error: 'El token ha expirado. Por favor, inicia sesión nuevamente.',
+      });
     }
     if (error.name === 'JsonWebTokenError') {
       warn('Intento de acceso con token inválido');
-      return res.status(401).json({ error: 'Token inválido. Por favor, verifica tu autenticación.' });
+      return res.status(401).json({
+        error: 'Token inválido. Por favor, verifica tu autenticación.',
+      });
     }
-    console.error(`Error desconocido al verificar el token: ${error.message}`);
-    return res.status(500).json({ error: 'Ocurrió un error al procesar la autenticación.' });
+    logger.error(`Error desconocido al verificar el token: ${error.message}`);
+    return res
+      .status(500)
+      .json({ error: 'Ocurrió un error al procesar la autenticación.' });
   }
 };

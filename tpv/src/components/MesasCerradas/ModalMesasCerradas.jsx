@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
+import * as logger from '../../utils/logger';
 import AlertaMensaje from "../AlertaMensaje/AlertaMensaje"; // Componente para mostrar alertas"
 import "./ModalMesasCerradas.css";
 
 const RecuperarMesaModal = ({ onClose }) => {
   const [mesasCerradas, setMesasCerradas] = useState([]);
-  const [mesasAbiertas, setMesasAbiertas] = useState([]);
+  const [setMesasAbiertas] = useState([]);
   const [recuperando, setRecuperando] = useState(false);
   const [mensajeAlerta, setMensajeAlerta] = useState(null); // Mensaje de alerta
 
@@ -22,7 +23,7 @@ const RecuperarMesaModal = ({ onClose }) => {
         }, {});
         setMesasCerradas(Object.values(mesasUnicas));
       } catch (error) {
-        console.error("Error al obtener mesas cerradas:", error);
+        logger.error("Error al obtener mesas cerradas:", error);
       }
     };
 
@@ -33,7 +34,7 @@ const RecuperarMesaModal = ({ onClose }) => {
           setMesasAbiertas(response.data);
         }
       } catch (error) {
-        console.error("Error al obtener mesas abiertas:", error);
+        logger.error("Error al obtener mesas abiertas:", error);
       }
     };
 
@@ -49,7 +50,7 @@ const RecuperarMesaModal = ({ onClose }) => {
       window.location.reload(); // Recargar la página para reflejar los cambios
       onClose();
     } catch (error) {
-      console.error("Error al recuperar la mesa:", error);
+      logger.error("Error al recuperar la mesa:", error);
       setMensajeAlerta({ tipo: "error", mensaje: "Hubo un error al recuperar las mesas" });
     } finally {
       setRecuperando(false);

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
 import PasswordModal from "../Password/PasswordModal";
 import CerrarCajaModal from "../Caja/CerrarCajaModal";
+import * as logger from '../../utils/logger';
 import RecuperarMesaModal from "../MesasCerradas/ModalMesasCerradas";
 import { useAuth } from "../../context/AuthContext";
 import "./Subnavbar.css";
@@ -29,7 +30,7 @@ const SubNavbar = () => {
         const { data } = await api.get("/caja/abierta");
         setCajaAbierta(data.abierta); // data.abierta true/false
       } catch (error) {
-        console.error("Error al verificar caja abierta:", error);
+        logger.error("Error al verificar caja abierta:", error);
         setCajaAbierta(false);
       }
     };

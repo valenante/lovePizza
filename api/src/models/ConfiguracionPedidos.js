@@ -1,14 +1,20 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const ConfiguracionPedidosSchema = new mongoose.Schema({
-  permitirPedidosComida: {
-    type: Boolean,
-    default: true,
+const ConfiguracionPedidosSchema = new mongoose.Schema(
+  {
+    permitirPedidosComida: {
+      type: Boolean,
+      default: true,
+    },
+    permitirPedidosBebida: {
+      type: Boolean,
+      default: true,
+    },
   },
-  permitirPedidosBebida: {
-    type: Boolean,
-    default: true,
-  }
-}, { timestamps: true });
+  { timestamps: true }
+);
 
-export default mongoose.model("ConfiguracionPedidos", ConfiguracionPedidosSchema);
+export default mongoose.model(
+  'ConfiguracionPedidos',
+  ConfiguracionPedidosSchema
+);

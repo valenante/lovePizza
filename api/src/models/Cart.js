@@ -38,7 +38,6 @@ const CartItemSchema = new Schema({
     default: 'compartir',
   }, // Tipo de plato
   tipoCroqueta: { type: String, default: 'normal' },
-  nombre: { type: String, required: false }, // Nombre del comensal
   alergias: { type: String, required: false }, // Alergias del comensal
   acompanante: { type: String, required: false }, // 👈 AÑADIDO AQUÍ
   adicionales: [adicionalSchema],

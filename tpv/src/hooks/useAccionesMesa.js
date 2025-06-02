@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import * as logger from '../utils/logger';
 import api from "../utils/api";
 
 const useAccionesMesa = (mesa, setMensajeAlerta, navigate, datosFactura) => {
@@ -6,7 +7,7 @@ const useAccionesMesa = (mesa, setMensajeAlerta, navigate, datosFactura) => {
     try {
       await api.post(`/imprimir/${mesa._id}/imprimir-factura`, datosImpresion);
     } catch (error) {
-      console.error("Error al imprimir la factura:", error);
+      logger.error("Error al imprimir la factura:", error);
     }
   }, [mesa]);
 
@@ -26,7 +27,7 @@ const useAccionesMesa = (mesa, setMensajeAlerta, navigate, datosFactura) => {
 
       navigate("/");
     } catch (error) {
-      console.error(error);
+      logger.error(error);
       setMensajeAlerta({
         tipo: "error",
         mensaje: "Hubo un error al cerrar la mesa.",

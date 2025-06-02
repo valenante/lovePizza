@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import ProductoDetalle from "./ProductoDetalle.jsx";
 import { useRightBar } from "../../hooks/useRightBar";
 import AlertaMensaje from "../AlertaMensaje/AlertaMensaje"; // ✅ Asegúrate de tenerlo creado

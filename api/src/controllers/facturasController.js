@@ -18,8 +18,10 @@ export const listarFacturasEncadenadas = async (req, res) => {
 
     res.json({ facturas, totalPaginas: Math.ceil(totalFacturas / limit) });
   } catch (error) {
-    console.error('❌ Error al obtener facturas:', error);
-    res.status(500).json({ error: 'Error al obtener las facturas encadenadas.' });
+    logger.error('❌ Error al obtener facturas:', error);
+    res
+      .status(500)
+      .json({ error: 'Error al obtener las facturas encadenadas.' });
   }
 };
 
@@ -30,14 +32,22 @@ export const exportarFacturasCSV = async (_req, res) => {
       return res.status(404).json({ error: 'No hay facturas registradas.' });
     }
 
-    const fields = ['numeroFactura', 'fechaExpedicion', 'clienteNombre', 'clienteNIF', 'importeTotal', 'hash', 'hashAnterior'];
+    const fields = [
+      'numeroFactura',
+      'fechaExpedicion',
+      'clienteNombre',
+      'clienteNIF',
+      'importeTotal',
+      'hash',
+      'hashAnterior',
+    ];
     const csv = new Parser({ fields }).parse(facturas);
 
     res.header('Content-Type', 'text/csv');
     res.attachment('facturas.csv');
     res.send(csv);
   } catch (error) {
-    console.error('❌ Error al exportar facturas:', error);
+    logger.error('❌ Error al exportar facturas:', error);
     res.status(500).json({ error: 'Error al exportar facturas.' });
   }
 };
@@ -48,15 +58,22 @@ export const rectificarFactura = async (req, res) => {
 
   try {
     const facturaOriginal = await FacturaHash.findById(id);
-    if (!facturaOriginal) return res.status(404).json({ error: 'Factura original no encontrada.' });
-    if (facturaOriginal.rectificada) return res.status(400).json({ error: 'Ya fue rectificada.' });
+    if (!facturaOriginal)
+      return res.status(404).json({ error: 'Factura original no encontrada.' });
+    if (facturaOriginal.rectificada)
+      return res.status(400).json({ error: 'Ya fue rectificada.' });
 
     const ultima = await FacturaHash.findOne().sort({ numeroFactura: -1 });
-    const nuevoNum = ultima ? (parseInt(ultima.numeroFactura.split('-')[1]) + 1).toString().padStart(4, '0') : '0001';
+    const nuevoNum = ultima
+      ? (parseInt(ultima.numeroFactura.split('-')[1]) + 1)
+          .toString()
+          .padStart(4, '0')
+      : '0001';
     const numeroFactura = `${new Date().getFullYear()}-${nuevoNum}`;
 
     const existente = await FacturaHash.findOne({ numeroFactura });
-    if (existente) return res.status(400).json({ error: 'Número de factura ya existe.' });
+    if (existente)
+      return res.status(400).json({ error: 'Número de factura ya existe.' });
 
     const nuevaFactura = new FacturaHash({
       numeroFactura,
@@ -65,7 +82,16 @@ export const rectificarFactura = async (req, res) => {
       clienteNIF,
       importeTotal,
       hashAnterior: facturaOriginal.hash,
-      hash: await generarHashFactura({ numeroFactura, fechaExpedicion: new Date(), clienteNombre, clienteNIF, importeTotal }, facturaOriginal.hash),
+      hash: await generarHashFactura(
+        {
+          numeroFactura,
+          fechaExpedicion: new Date(),
+          clienteNombre,
+          clienteNIF,
+          importeTotal,
+        },
+        facturaOriginal.hash
+      ),
     });
 
     await nuevaFactura.save();
@@ -86,15 +112,18 @@ export const rectificarFactura = async (req, res) => {
       facturaRectificativaId: nuevaFactura._id,
     }).save();
 
-    await axios.post('http://100.91.21.52:4000/imprimir-factura-rectificativa', {
-      numeroFactura,
-      fechaExpedicion: nuevaFactura.fechaExpedicion,
-      clienteNombre,
-      clienteNIF,
-      importeTotal,
-      motivo,
-      hash: nuevaFactura.hash,
-    });
+    await axios.post(
+      'http://100.91.21.52:4000/imprimir-factura-rectificativa',
+      {
+        numeroFactura,
+        fechaExpedicion: nuevaFactura.fechaExpedicion,
+        clienteNombre,
+        clienteNIF,
+        importeTotal,
+        motivo,
+        hash: nuevaFactura.hash,
+      }
+    );
 
     res.json({
       message: 'Factura rectificativa generada correctamente.',
@@ -102,7 +131,7 @@ export const rectificarFactura = async (req, res) => {
       facturaRectificativa: nuevaFactura,
     });
   } catch (error) {
-    console.error('❌ Error al rectificar factura:', error);
+    logger.error('❌ Error al rectificar factura:', error);
     res.status(500).json({ error: 'Error al rectificar la factura.' });
   }
 };

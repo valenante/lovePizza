@@ -13,7 +13,7 @@ export function generarHashFactura(factura, hashAnterior) {
     factura.cliente?.nombre || '',
     factura.cliente?.nif || '',
     factura.importeTotal.toFixed(2),
-    hashAnterior
+    hashAnterior,
   ].join('|');
 
   const hash = crypto.createHash('sha256').update(datos).digest('base64');

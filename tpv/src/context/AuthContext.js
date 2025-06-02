@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import renovarToken from "../utils/RenovarToken";
+import * as logger from '../utils/logger';
 import api from "../utils/api";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -23,7 +24,7 @@ export const AuthProvider = ({ children }) => {
           setSessionActive(false);
         }
       } catch (error) {
-        console.error("Error al inicializar la autenticación:", error);
+        logger.error("Error al inicializar la autenticación:", error);
       } finally {
         setLoading(false);
       }
@@ -38,7 +39,7 @@ export const AuthProvider = ({ children }) => {
         const response = await api.get("/auth/me/me", { withCredentials: true });
         setUser(response.data.user);
       } catch (error) {
-        console.error("No autenticado:", error);
+        logger.error("No autenticado:", error);
         navigate("/login");
       }
     };
@@ -65,7 +66,7 @@ export const AuthProvider = ({ children }) => {
       setSessionActive(false);
       navigate("/login");
     } catch (error) {
-      console.error("Error al cerrar sesión:", error);
+      logger.error("Error al cerrar sesión:", error);
     }
   };
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import api from "../../utils/api";
+import * as logger from '../../utils/logger';
 import "./ProductoDetalle.css";
 
 const ProductoDetalle = ({
@@ -29,7 +30,6 @@ const ProductoDetalle = ({
     return typeof inicial === "number" && !isNaN(inicial) ? inicial : 0;
   });
 
-  const [tipoPlato, setTipoPlato] = useState("compartir");
   const categoriasConAcompanante = [
     "vodka",
     "ron",
@@ -99,7 +99,7 @@ const ProductoDetalle = ({
         const nombres = [...new Set(filtrados.map((p) => p.nombre))];
         setAcompanantesDisponibles(nombres);
       } catch (error) {
-        console.error("Error al cargar acompañantes:", error);
+        logger.error("Error al cargar acompañantes:", error);
       }
     };
 
@@ -131,7 +131,6 @@ const ProductoDetalle = ({
       cantidad,
       precioSeleccionado: precioSeleccionado + totalAdicionales,
       tipoPrecio,
-      tipoPlato,
       acompanante,
       opciones: opcionesSeleccionadas,
       ingredientes: producto.ingredientes.filter(
@@ -232,17 +231,6 @@ const ProductoDetalle = ({
               })}
             </select>
           )
-        )}
-
-        {producto.tipo !== "bebida" && (
-          <select
-            className="select-tipoPlato--productoDetalle"
-            value={tipoPlato}
-            onChange={(e) => setTipoPlato(e.target.value)}
-          >
-            <option value="compartir">Compartir</option>
-            <option value="individual">Individual</option>
-          </select>
         )}
 
         {producto.tipo === "bebida" &&

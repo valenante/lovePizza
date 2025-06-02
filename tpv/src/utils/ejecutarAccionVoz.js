@@ -1,4 +1,6 @@
 import api from './api';
+import * as logger from './logger';
+
 function determinarTipoPrecioDefault(producto, tipoPrecioDetectado) {
   if (tipoPrecioDetectado) return tipoPrecioDetectado;
 
@@ -86,7 +88,7 @@ export async function ejecutarAccionVoz(accion) {
       return res.data;
 
     } catch (err) {
-      console.error("❌ Error al enviar pedido:", err.response?.data || err.message);
+      logger.error("❌ Error al enviar pedido:", err.response?.data || err.message);
       throw err;
     }
   }

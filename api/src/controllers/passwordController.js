@@ -12,7 +12,7 @@ export const obtenerPassword = async (req, res) => {
 
     res.status(200).json({ password: config.valor });
   } catch (error) {
-    console.error('Error al obtener la contraseña:', error);
+    logger.error('Error al obtener la contraseña:', error);
     res.status(500).json({ error: 'Error al obtener la contraseña' });
   }
 };
@@ -38,7 +38,7 @@ export const crearActualizarPassword = async (req, res) => {
       password: config.valor,
     });
   } catch (error) {
-    console.error('Error al crear/actualizar la contraseña:', error);
+    logger.error('Error al crear/actualizar la contraseña:', error);
     res.status(500).json({ error: 'Error al crear/actualizar la contraseña' });
   }
 };
@@ -70,7 +70,7 @@ export const actualizarPassword = async (req, res) => {
       password: config.valor,
     });
   } catch (error) {
-    console.error('Error al actualizar la contraseña:', error);
+    logger.error('Error al actualizar la contraseña:', error);
     res.status(500).json({ error: 'Error al actualizar la contraseña' });
   }
 };
@@ -89,7 +89,7 @@ export const validarPassword = async (req, res) => {
     }
     res.status(200).json({ valid: false });
   } catch (error) {
-    console.error('❌ Error al validar la contraseña:', error);
+    logger.error('❌ Error al validar la contraseña:', error);
     res.status(500).json({ error: 'Error al validar la contraseña' });
   }
 };

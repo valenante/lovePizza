@@ -40,7 +40,7 @@ export const enviarEmail = async ({ to, subject, html, attachments = [] }) => {
       }
     );
   } catch (err) {
-    console.error(
+    logger.error(
       'Error al enviar correo con Mailgun:',
       err.response?.data || err
     );

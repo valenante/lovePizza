@@ -160,7 +160,7 @@ export const crearReserva = async (req, res) => {
       mensaje: 'Tu solicitud ha sido enviada. Te confirmaremos pronto.',
     });
   } catch (error) {
-    console.error('Error al crear reserva:', error);
+    logger.error('Error al crear reserva:', error);
     res.status(500).json({ mensaje: 'Error al crear la reserva.' });
   }
 };
@@ -177,7 +177,7 @@ export const obtenerReservas = async (req, res) => {
 
     res.json(reservas);
   } catch (error) {
-    console.error('Error al obtener reservas:', error);
+    logger.error('Error al obtener reservas:', error);
     res.status(500).json({ mensaje: 'Error al obtener reservas.' });
   }
 };
@@ -226,7 +226,7 @@ export const confirmarReserva = async (req, res) => {
 
     res.json({ mensaje: 'Reserva confirmada y correo enviado.' });
   } catch (error) {
-    console.error('Error al confirmar reserva:', error);
+    logger.error('Error al confirmar reserva:', error);
     res.status(500).json({ mensaje: 'Error al confirmar la reserva.' });
   }
 };
@@ -273,7 +273,7 @@ export const cancelarReserva = async (req, res) => {
 
     res.json({ mensaje: 'Reserva cancelada y correo enviado al cliente.' });
   } catch (error) {
-    console.error('Error al cancelar reserva:', error);
+    logger.error('Error al cancelar reserva:', error);
     res.status(500).json({ mensaje: 'Error al cancelar la reserva.' });
   }
 };
@@ -301,7 +301,7 @@ export const obtenerReservasPorFecha = async (req, res) => {
     'Reservas encontradas:', reservas.length;
     res.json(reservas);
   } catch (error) {
-    console.error('Error al obtener reservas:', error);
+    logger.error('Error al obtener reservas:', error);
     res.status(500).json({ mensaje: 'Error al obtener reservas.' });
   }
 };
@@ -335,7 +335,7 @@ export const obtenerFechasConReservas = async (req, res) => {
     'Fechas con reservas:', fechas;
     res.json(fechas);
   } catch (error) {
-    console.error('Error al obtener fechas con reservas:', error);
+    logger.error('Error al obtener fechas con reservas:', error);
     res.status(500).json({ mensaje: 'Error al obtener las fechas.' });
   }
 };

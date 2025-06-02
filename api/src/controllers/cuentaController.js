@@ -11,9 +11,11 @@ export const pedirCuenta = async (req, res) => {
     if (!mesa) return res.status(404).json({ error: 'Mesa no encontrada.' });
 
     io.emit('cuentaSolicitada', { numeroMesa });
-    res.status(200).json({ message: `Cuenta solicitada para la mesa ${numeroMesa}` });
+    res
+      .status(200)
+      .json({ message: `Cuenta solicitada para la mesa ${numeroMesa}` });
   } catch (error) {
-    console.error('❌ Error al solicitar la cuenta:', error);
+    logger.error('❌ Error al solicitar la cuenta:', error);
     res.status(500).json({ error: 'Error al solicitar la cuenta.' });
   }
 };
@@ -33,15 +35,16 @@ export const imprimirCuenta = async (req, res) => {
 
     if (!mesa) return res.status(404).json({ error: 'Mesa no encontrada.' });
 
-    const productos = [...mesa.pedidos, ...mesa.pedidosBebidas].flatMap(pedido =>
-      pedido.productos.map(p => ({
-        nombre: p.producto?.nombre || 'Producto sin nombre',
-        cantidad: p.cantidad,
-        opcionesPersonalizables: p.opcionesPersonalizables || [],
-        alergiasComensal: p.alergiasComensal || '',
-        tipoPrecio: p.tipoPrecio || '',
-        precio: p.precioSeleccionado || 0,
-      }))
+    const productos = [...mesa.pedidos, ...mesa.pedidosBebidas].flatMap(
+      (pedido) =>
+        pedido.productos.map((p) => ({
+          nombre: p.producto?.nombre || 'Producto sin nombre',
+          cantidad: p.cantidad,
+          opcionesPersonalizables: p.opcionesPersonalizables || [],
+          alergiasComensal: p.alergiasComensal || '',
+          tipoPrecio: p.tipoPrecio || '',
+          precio: p.precioSeleccionado || 0,
+        }))
     );
 
     await axios.post('http://100.91.21.52:4000/imprimir-cuenta', {
@@ -53,7 +56,7 @@ export const imprimirCuenta = async (req, res) => {
 
     res.status(200).json({ message: 'Cuenta enviada a impresión.' });
   } catch (error) {
-    console.error('❌ Error al imprimir la cuenta:', error);
+    logger.error('❌ Error al imprimir la cuenta:', error);
     res.status(500).json({ error: 'Error al imprimir la cuenta.' });
   }
 };

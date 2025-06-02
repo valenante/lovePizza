@@ -1644,3 +1644,26 @@
 [2025-06-01 18:12:24] INFO: Servidor escuchando en el puerto 3000
 [2025-06-02 09:58:16] INFO: Servidor escuchando en el puerto 3000
 [2025-06-02 10:00:38] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-02T08:00:38.157Z
+[2025-06-02 10:19:24] INFO: Servidor escuchando en el puerto 3000
+[2025-06-02 10:20:22] INFO: Servidor escuchando en el puerto 3000
+[2025-06-02 10:20:26] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-02T08:20:26.199Z
+[2025-06-02 10:20:34] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-02T08:20:34.255Z
+[2025-06-02 10:21:07] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-02T08:21:07.831Z
+[2025-06-02 10:27:49] INFO: Servidor escuchando en el puerto 3000
+[2025-06-02 11:05:24] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:24] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:24] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:24] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:24] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:24] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:24] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:25] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:25] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:26] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:26] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:26] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:27] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:28] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:05:28] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-02 11:08:53] INFO: ✅ Redis conectado correctamente
+[2025-06-02 11:08:53] INFO: Servidor escuchando en el puerto 3000

@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useCategorias } from "../../context/CategoriasContext";
+import * as logger from '../../utils/logger';
 import api from "../../utils/api";
 import "./EstadisticasFinal.css";
 
 const EstadisticasFinal = ({ category }) => {
   const { products, fetchProducts } = useCategorias();
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [ventasDetalles, setVentasDetalles] = useState({}); // Almacenará los detalles de ventas
+  const [setVentasDetalles] = useState({}); // Almacenará los detalles de ventas
   const [estadisticas, setEstadisticas] = useState({}); // Acumuladores por producto
   const [selectedDate, setSelectedDate] = useState(null); // Fecha seleccionada para el filtro
 
@@ -34,7 +35,7 @@ const EstadisticasFinal = ({ category }) => {
               const response = await api.get(`/ventas/${ventaId}`);
               return response.data; // Datos de la venta
             } catch (error) {
-              console.error(`Error al obtener la venta ${ventaId}:`, error);
+              logger.error(`Error al obtener la venta ${ventaId}:`, error);
               return null; // Maneja errores para ventas individuales
             }
           })

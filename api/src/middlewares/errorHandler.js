@@ -1,12 +1,12 @@
-import { error as _error } from '../../utils/logger.js'; // Asegúrate de tener `winston` configurado
+import logger from '../../utils/logger.js'; // Importar el logger
 
 const errorHandler = (err, req, res) => {
   // Determina el estado HTTP (500 si no se especifica)
   const status = err.status || 500;
 
   // Loggea el error en consola y en el logger
-  _error(`[${req.method}] ${req.url} - ${err.message}`);
-  console.error(err.stack);
+  logger.error(`[${req.method}] ${req.url} - ${err.message}`);
+  logger.error(err.stack);
 
   // Responde al cliente con un mensaje estándar
   res.status(status).json({

@@ -30,7 +30,7 @@ export const valorarPedido = async (req, res) => {
 
     res.status(200).json(productos);
   } catch (err) {
-    console.error('Error al obtener productos para valorar:', err);
+    logger.error('Error al obtener productos para valorar:', err);
     res.status(500).json({ error: 'Error al obtener productos para valorar.' });
   }
 };
@@ -87,7 +87,7 @@ export const crearValoraciones = async (req, res) => {
       valoraciones: valoracionesGuardadas,
     });
   } catch (error) {
-    console.error('Error al guardar las valoraciones:', error);
+    logger.error('Error al guardar las valoraciones:', error);
     res.status(500).json({ error: 'Error al guardar las valoraciones.' });
   }
 };
@@ -120,7 +120,7 @@ export const obtenerProductosValorados = async (req, res) => {
 
     res.status(200).json(productosConValoraciones);
   } catch (error) {
-    console.error('Error al obtener productos valorados:', error);
+    logger.error('Error al obtener productos valorados:', error);
     res.status(500).json({ error: 'Error al obtener productos valorados.' });
   }
 };

@@ -1,14 +1,15 @@
 import React, { useState, useContext } from 'react';
 import { useEffect } from 'react';
 import { ProductosContext } from '../../context/ProductosContext';
-import { ImageContext } from '../../context/ImagesContext'; // ✅ Importa el contexto de imágenes
+import { ImageContext } from '../../context/ImagesContext'; 
+import * as logger from '../../utils/logger';
 import api from '../../utils/api';
 import './CrearProducto.css';
 
 const CrearProducto = ({ onClose }) => {
   const { cargarProductos } = useContext(ProductosContext);
   const { dragging, handleDragOver, handleDragLeave, handleDrop, handleFileChange } = useContext(ImageContext);
-  const [imageFile, setImageFile] = useState(null);
+  const [imageFile] = useState(null);
   const [categorias, setCategorias] = useState([]);
   const [usarOtraCategoria, setUsarOtraCategoria] = useState(false);
   const [formData, setFormData] = useState({
@@ -42,7 +43,7 @@ const CrearProducto = ({ onClose }) => {
 
         setCategorias(categoriasUnicas);
       } catch (error) {
-        console.error("Error al cargar categorías:", error);
+        logger.error("Error al cargar categorías:", error);
       }
     };
     fetchCategorias();
@@ -110,7 +111,7 @@ const CrearProducto = ({ onClose }) => {
         onClose(); // Cierra el modal
       }
     } catch (error) {
-      console.error("Error al crear el producto:", error.response?.data || error.message);
+      logger.error("Error al crear el producto:", error.response?.data || error.message);
     }
   };
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useCategorias } from "../../context/CategoriasContext";
+import * as logger from '../../utils/logger';
 import EditProduct from "./EditProducts";
 import CrearProducto from "./CrearProducto"
 import AlertaMensaje from "../AlertaMensaje/AlertaMensaje"; // Componente para mostrar alertas
@@ -28,7 +29,7 @@ const Categories = ({ category }) => {
       await updateProduct(updatedProduct); // Usa el método del contexto
       setEditingProduct(null); // Cierra el editor
     } catch (error) {
-      console.error("Error al guardar producto:", error);
+      logger.error("Error al guardar producto:", error);
     }
   };
 
@@ -41,7 +42,7 @@ const Categories = ({ category }) => {
       await fetchProducts(category); // Refresca los productos después de eliminar
       setMensajeAlerta({ tipo: "exito", mensaje: "Producto eliminado con exito" });
     } catch (error) {
-      console.error("Error al eliminar producto:", error);
+      logger.error("Error al eliminar producto:", error);
     }
   };
 

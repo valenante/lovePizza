@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../utils/api"; // Asegúrate de configurar tu cliente API
+import * as logger from '../../utils/logger';
 import "./PasswordModal.css"; // Estilos CSS para el modal
 import AlertaMensaje from "../AlertaMensaje/AlertaMensaje"; // Componente de alerta
 
@@ -20,7 +21,7 @@ const PasswordModal = ({ onClose }) => {
           setIsNewPassword(false);
         }
       } catch (error) {
-        console.error("Error al obtener la contraseña:", error);
+        logger.error("Error al obtener la contraseña:", error);
       }
     };
 
@@ -50,7 +51,7 @@ const PasswordModal = ({ onClose }) => {
         onClose();
       }, 2000); // Cierra después de 2 segundos
     } catch (error) {
-      console.error("Error al guardar la contraseña:", error);
+      logger.error("Error al guardar la contraseña:", error);
       setMensajeAlerta({ tipo: "error", mensaje: "Error al guardar la contraseña." });
     } finally {
       setIsLoading(false);

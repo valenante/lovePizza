@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import * as logger from '../utils/logger';
 import "../styles/Login.css";
 
 const Login = () => {
@@ -56,7 +57,7 @@ const Login = () => {
           throw new Error("Rol de usuario desconocido");
       }
     } catch (error) {
-      console.error("Error al iniciar sesión:", error);
+      logger.error("Error al iniciar sesión:", error);
 
       if (error.name === 'TypeError') {
         setError("No se pudo conectar al servidor. Intenta más tarde.");

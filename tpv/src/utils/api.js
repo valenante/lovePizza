@@ -1,5 +1,6 @@
 import axios from 'axios';
 import renovarToken from './RenovarToken';
+import * as logger from './logger';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -54,7 +55,7 @@ api.interceptors.response.use(
         failedRequestsQueue.forEach((req) => req.reject(refreshError));
         failedRequestsQueue = [];
 
-        console.error('🚨 Error al renovar el token:', refreshError);
+        logger.error('🚨 Error al renovar el token:', refreshError);
         
         // Forzar cierre de sesión si la renovación falla
         window.location.href = "/login";

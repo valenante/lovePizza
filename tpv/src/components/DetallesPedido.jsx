@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import * as logger from '../utils/logger';
 import api from '../utils/api';
 
 const DetallePedido = () => {
@@ -12,7 +13,7 @@ const DetallePedido = () => {
         const { data } = await api.get(`/pedidos/${id}`); // Obtener detalles del pedido
         setPedido(data);
       } catch (error) {
-        console.error('Error al obtener los detalles del pedido:', error);
+        logger.error('Error al obtener los detalles del pedido:', error);
       }
     };
 

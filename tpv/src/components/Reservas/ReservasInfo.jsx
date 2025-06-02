@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import api from "../../utils/api";
 import "../../styles/ReservasInfo.css";
+import * as logger from '../../utils/logger';
 import ReactCalendar from "react-calendar";
 import AlertaMensaje from "../AlertaMensaje/AlertaMensaje"; // Componente para mostrar alertas
 import "react-calendar/dist/Calendar.css";
@@ -27,7 +28,7 @@ const ReservasInfo = () => {
 
       setReservas([...res.data, ...pendientesFiltradas]);
     } catch (error) {
-      console.error("Error al obtener reservas:", error);
+      logger.error("Error al obtener reservas:", error);
     }
   };
 
@@ -36,7 +37,7 @@ const ReservasInfo = () => {
       const res = await api.get("/reservas/fechasReserva");
       setFechasConReservas(res.data);
     } catch (error) {
-      console.error("Error al obtener fechas con reservas:", error);
+      logger.error("Error al obtener fechas con reservas:", error);
     }
   };
 
@@ -56,7 +57,7 @@ const ReservasInfo = () => {
       await api.put(`/reservas/${id}/cancelar`, { razon });
       obtenerReservas(fechaSeleccionada);
     } catch (error) {
-      console.error("Error al cancelar reserva:", error);
+      logger.error("Error al cancelar reserva:", error);
     }
   };
 
@@ -65,7 +66,7 @@ const ReservasInfo = () => {
       await api.put(`/reservas/${id}/confirmar`);
       obtenerReservas(fechaSeleccionada);
     } catch (error) {
-      console.error("Error al confirmar reserva:", error);
+      logger.error("Error al confirmar reserva:", error);
     }
   };
 

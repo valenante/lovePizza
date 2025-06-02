@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import * as logger from '../utils/logger';
+
 
 const MesasContext = createContext();
 
@@ -37,7 +39,7 @@ export const MesasProvider = ({ children }) => {
                 }
 
             } catch (error) {
-                console.error("❌ Error al obtener mesas:", error.message);
+                logger.error("❌ Error al obtener mesas:", error.message);
             }
         };
 

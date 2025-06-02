@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from '../../utils/api'; // Asegúrate de que el path sea correcto
+import * as logger from '../../utils/logger';
 import "./Navbar.css";
 import logo from "../../images/LovePizzaLogo.png"; // Asegúrate de que el path sea correcto
 
@@ -24,7 +25,7 @@ const Navbar = () => {
       const res = await api.get("/configuracion-global");
       setConfig(res.data);
     } catch (error) {
-      console.error("Error al obtener configuración:", error);
+      logger.error("Error al obtener configuración:", error);
     }
   };
 
@@ -36,7 +37,7 @@ const Navbar = () => {
       });
       setConfig(res.data);
     } catch (error) {
-      console.error("Error al actualizar configuración:", error);
+      logger.error("Error al actualizar configuración:", error);
     }
   };
 

@@ -4,16 +4,18 @@ import ReactDOM from "react-dom";
 import api from "../../utils/api";
 import { useSearchParams, useParams } from "react-router-dom";
 import { toast } from "react-toastify"; // Importar toast
+import * as logger from '../../utils/logger';
 import "../../styles/ModalCroquetas.css";
 
 const ModalCroquetas = ({ producto, cerrarModal, seleccionPrecio, tipoPrecio }) => {
     const [saboresSeleccionados, setSaboresSeleccionados] = useState([]);
-    const [cantidad, setCantidad] = useState(1);
+    const [cantidad
+    ] = useState(1);
     const { numeroMesa } = useParams();
     const mesa = numeroMesa;
     const [searchParams] = useSearchParams();
     const nombre = searchParams.get("nombre");
-    const [tipoPlato, setTipoPlato] = useState("compartir"); // Nuevo estado para "compartir" o "individual"
+    const [tipoPlato] = useState("compartir"); // Nuevo estado para "compartir" o "individual"
     const [error, setError] = useState(null);
 
     // Función para manejar la selección de sabores
@@ -122,7 +124,7 @@ const ModalCroquetas = ({ producto, cerrarModal, seleccionPrecio, tipoPrecio }) 
                 progress: undefined,
             });
 
-            console.error('Error al agregar al carrito:', error);
+            logger.error('Error al agregar al carrito:', error);
         }
     };
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
+import * as logger from '../../utils/logger';
 import "./CerrarCajaModal.css";
 import AlertaMensaje from "../AlertaMensaje/AlertaMensaje";
 import ModalConfirmacion from "../Modal/ModalConfirmacion";
@@ -15,7 +16,7 @@ const CerrarCajaModal = ({ onClose }) => {
     tarjeta: 0,
     propina: 0,
   });
-  const [accion, setAccion] = useState(""); // Acción: "retirar" o "integrar"
+  const [accion] = useState(""); // Acción: "retirar" o "integrar"
   const [monto, setMonto] = useState(""); // Monto para modificar caja
   const [razon, setRazon] = useState(""); // Razón para modificar caja
   const [isLoading, setIsLoading] = useState(true);
@@ -43,7 +44,7 @@ const CerrarCajaModal = ({ onClose }) => {
 
         setIsLoading(false);
       } catch (error) {
-        console.error("❌ Error al obtener el estado de la caja:", error);
+        logger.error("❌ Error al obtener el estado de la caja:", error);
         setError("No se pudo cargar el estado de la caja.");
       }
     };
@@ -89,7 +90,7 @@ const CerrarCajaModal = ({ onClose }) => {
           setMensajeAlerta({ tipo: "exito", mensaje: `Dinero ${tipo === "retirar" ? "retirado" : "integrado"} correctamente.` });
           window.location.reload();
         } catch (error) {
-          console.error(`Error al ${tipo} dinero:`, error);
+          logger.error(`Error al ${tipo} dinero:`, error);
           setError(`Error al ${tipo} dinero.`);
         } finally {
           setIsLoading(false);
@@ -118,7 +119,7 @@ const CerrarCajaModal = ({ onClose }) => {
         }, 2000);
       }
     } catch (error) {
-      console.error("Error al cerrar la caja:", error);
+      logger.error("Error al cerrar la caja:", error);
       if (error.response?.status === 401) {
         setError("Contraseña incorrecta. Por favor, inténtalo de nuevo.");
       } else {

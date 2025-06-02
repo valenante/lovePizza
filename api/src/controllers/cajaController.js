@@ -16,7 +16,6 @@ import MesaCerrada from '../models/MesaCerrada.js';
 import Eliminaciones from '../models/Eliminacion.js';
 import Password from '../models/Password.js';
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const MAILGUN_API_KEY = process.env.MAILGUN_API_KEY;
@@ -34,7 +33,7 @@ export const obtenerCajaAbierta = async (req, res) => {
       return res.status(200).json({ abierta: false });
     }
   } catch (error) {
-    console.error('[ERROR] Al verificar caja abierta:', error);
+    logger.error('[ERROR] Al verificar caja abierta:', error);
     return res
       .status(500)
       .json({ error: 'Error al verificar el estado de la caja.' });
@@ -67,7 +66,7 @@ export const obtenerCaja = async (req, res) => {
     // Devolver los datos de las cajas encontradas
     res.json(cajas);
   } catch (error) {
-    console.error(
+    logger.error(
       'Error al obtener las cajas en el rango especificado:',
       error
     );
@@ -121,7 +120,7 @@ export const integrarDinero = async (req, res) => {
       metodoPago: caja.detallesMetodoPago,
     });
   } catch (error) {
-    console.error('Error al integrar dinero:', error);
+    logger.error('Error al integrar dinero:', error);
     res.status(500).json({ error: 'Error al integrar dinero.' });
   }
 };
@@ -161,7 +160,6 @@ export const retirarDinero = async (req, res) => {
     caja.detallesMetodoPago.efectivo -= montoNumerico;
     caja.total -= montoNumerico;
 
-
     // Registrar la operación
     caja.operaciones.push({
       tipo: 'retirar',
@@ -177,7 +175,7 @@ export const retirarDinero = async (req, res) => {
       metodoPago: caja.detallesMetodoPago,
     });
   } catch (error) {
-    console.error('Error al retirar dinero:', error);
+    logger.error('Error al retirar dinero:', error);
     res.status(500).json({ error: 'Error al retirar dinero.' });
   }
 };
@@ -277,7 +275,7 @@ export const cerrarCaja = async (req, res) => {
     try {
       await enviarEmailConPDF(pdfBuffer);
     } catch (emailError) {
-      console.error('Error enviando el email con el informe:', emailError);
+      logger.error('Error enviando el email con el informe:', emailError);
     }
 
     // 📌 **AHORA SÍ, ELIMINAMOS LOS DATOS**
@@ -302,7 +300,7 @@ export const cerrarCaja = async (req, res) => {
 
     res.json({ message: 'Caja cerrada y nueva caja creada correctamente.' });
   } catch (error) {
-    console.error('Error al cerrar la caja:', error);
+    logger.error('Error al cerrar la caja:', error);
     res.status(500).json({ message: 'Error al cerrar la caja.' });
   }
 };
@@ -323,7 +321,7 @@ const generarPDF = (mesasCerradas, total, totalesMetodoPago) => {
       // 📌 **LOGO COMO ENCABEZADO (parte superior)**
       doc.image(logoPath, 50, 30, { width: 100 }); // Posición (x, y) y tamaño
     } catch (error) {
-      console.error('⚠️ Error cargando la imagen del logo:', error);
+      logger.error('⚠️ Error cargando la imagen del logo:', error);
     }
 
     // Encabezado
@@ -468,7 +466,7 @@ export const enviarEmailConPDF = async (pdfBuffer) => {
       headers: form.getHeaders(),
     });
   } catch (err) {
-    console.error(
+    logger.error(
       '❌ Error al enviar correo con Mailgun:',
       err.response?.data || err
     );

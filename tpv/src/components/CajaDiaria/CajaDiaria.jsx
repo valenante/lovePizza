@@ -11,6 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import { obtenerCajasPorRango } from "./ObtenerCajasPorRango";
+import * as logger from '../../utils/logger';
 import "./CajaDiaria.css";
 
 // Registrar componentes necesarios de Chart.js
@@ -61,7 +62,7 @@ useEffect(() => {
       setDatos(cajas || []); // Asegúrate de establecer un array
       setError(null);
     } catch (err) {
-      console.error("Error al obtener las cajas:", err);
+      logger.error("Error al obtener las cajas:", err);
       setDatos([]); // Reestablece un array vacío en caso de error
       setError("No se pudieron cargar los datos.");
     }

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Mesa from '../models/Mesa.js';
 import MesaCerrada from '../models/MesaCerrada.js';
 import Pedido from '../models/Pedido.js';
@@ -29,7 +28,7 @@ export const verificarTokenLider = async (req, res) => {
     }
     res.status(200).json({ tokenLider: mesaDoc.tokenLider });
   } catch (error) {
-    console.error('Error al verificar el tokenLider:', error);
+    logger.error('Error al verificar el tokenLider:', error);
     res.status(500).json({ error: 'Error al procesar la solicitud' });
   }
 };
@@ -54,7 +53,7 @@ export const verificarTokenLiderPorNumero = async (req, res) => {
     // Retornar el tokenLider si existe o null si no existe
     res.status(200).json({ tokenLider: mesaDoc.tokenLider || null });
   } catch (error) {
-    console.error('Error al verificar el tokenLider:', error);
+    logger.error('Error al verificar el tokenLider:', error);
     res.status(500).json({ error: 'Error al procesar la solicitud' });
   }
 };
@@ -105,7 +104,7 @@ export const crearTokenLider = async (req, res) => {
       sesionActiva: nuevaSesion._id,
     });
   } catch (error) {
-    console.error('Error al crear el tokenLider:', error);
+    logger.error('Error al crear el tokenLider:', error);
     res.status(500).json({ error: 'Error al procesar la solicitud' });
   }
 };
@@ -116,7 +115,7 @@ export const obtenerMesas = async (req, res) => {
     const mesas = await Mesa.find().populate('pedidos');
     res.status(200).json(mesas);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: 'Error al obtener las mesas activas' });
   }
 };
@@ -131,7 +130,7 @@ export const obtenerMesaPorId = async (req, res) => {
     }
     res.status(200).json(mesa);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: 'Error al obtener la mesa' });
   }
 };
@@ -167,7 +166,7 @@ export const abrirMesaCamarero = async (req, res) => {
 
     res.status(200).json(mesa);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: 'Error al reabrir la mesa' });
   }
 };
@@ -252,11 +251,13 @@ export const cerrarMesa = async (req, res) => {
       const nuevaCaja = new Caja({
         total: totalMesa,
         detallesMetodoPago: { efectivo, tarjeta, propina: propinaCalculada },
-        operaciones: [{
-          tipo: 'cierre',
-          monto: totalMesa,
-          razon: `Cierre de la mesa número ${mesa.numero}`,
-        }],
+        operaciones: [
+          {
+            tipo: 'cierre',
+            monto: totalMesa,
+            razon: `Cierre de la mesa número ${mesa.numero}`,
+          },
+        ],
       });
       await nuevaCaja.save();
     }
@@ -304,7 +305,10 @@ export const cerrarMesa = async (req, res) => {
 
     await eventoFactura.save();
 
-    const sesionActiva = await SesionMesa.findOne({ mesa: mesa._id, estado: 'activa' });
+    const sesionActiva = await SesionMesa.findOne({
+      mesa: mesa._id,
+      estado: 'activa',
+    });
     if (sesionActiva) {
       sesionActiva.estado = 'cerrada';
       sesionActiva.cierre = ahora;
@@ -346,7 +350,7 @@ export const cerrarMesa = async (req, res) => {
       },
     });
   } catch (error) {
-    console.error('Error al cerrar la mesa:', error);
+    logger.error('Error al cerrar la mesa:', error);
     res.status(500).json({ error: 'Error al cerrar la mesa' });
   }
 };
@@ -367,7 +371,7 @@ export const getHistorialMesas = async (req, res) => {
     const historial = await MesaCerrada.find(filtros).populate('pedidos');
     res.status(200).json(historial);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: 'Error al obtener el historial de mesas' });
   }
 };
@@ -382,7 +386,7 @@ export const obtenerMesaPorNumero = async (req, res) => {
     }
     res.status(200).json(mesa);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: 'Error al obtener la mesa' });
   }
 };
@@ -405,7 +409,7 @@ export const obtenerMesasCerradas = async (req, res) => {
 
     res.status(200).json(mesasCerradas);
   } catch (error) {
-    console.error('Error al obtener las mesas cerradas:', error);
+    logger.error('Error al obtener las mesas cerradas:', error);
     res.status(500).json({ error: 'Error al obtener las mesas cerradas.' });
   }
 };
@@ -417,7 +421,7 @@ export const obtenerMesasAbiertas = async (req, res) => {
     );
     res.status(200).json(mesasAbiertas);
   } catch (error) {
-    console.error('Error al obtener las mesas abiertas:', error);
+    logger.error('Error al obtener las mesas abiertas:', error);
     res.status(500).json({ error: 'Error al obtener las mesas abiertas.' });
   }
 };
@@ -437,7 +441,10 @@ export const recuperarMesa = async (req, res) => {
     }
 
     // 3️⃣ Buscar y reactivar la sesión anterior si existe
-    const sesionAnterior = await SesionMesa.findOne({ mesa: mesaActiva._id, estado: 'cerrada' }).sort({ cierre: -1 });
+    const sesionAnterior = await SesionMesa.findOne({
+      mesa: mesaActiva._id,
+      estado: 'cerrada',
+    }).sort({ cierre: -1 });
 
     if (sesionAnterior) {
       sesionAnterior.estado = 'activa';
@@ -448,7 +455,7 @@ export const recuperarMesa = async (req, res) => {
 
     // 4️⃣ Transferir los datos de la mesa cerrada a la activa
     mesaActiva.pedidos = mesaCerrada.pedidos;
-    mesaActiva.pedidosBebidas = mesaCerrada.pedidoBebidas;  // ✅ También las bebidas
+    mesaActiva.pedidosBebidas = mesaCerrada.pedidoBebidas; // ✅ También las bebidas
     mesaActiva.sesionActiva = mesaActiva.sesionId; // Mantener la sesión activa
     mesaActiva.total = mesaCerrada.total;
     mesaActiva.inicio = mesaCerrada.inicio;
@@ -459,8 +466,22 @@ export const recuperarMesa = async (req, res) => {
 
     // 5️⃣ Ajustar la caja actual restando el total de la mesa
     const hoy = new Date();
-    const inicioDelDia = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate(), 0, 0, 0);
-    const finDelDia = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate(), 23, 59, 59);
+    const inicioDelDia = new Date(
+      hoy.getFullYear(),
+      hoy.getMonth(),
+      hoy.getDate(),
+      0,
+      0,
+      0
+    );
+    const finDelDia = new Date(
+      hoy.getFullYear(),
+      hoy.getMonth(),
+      hoy.getDate(),
+      23,
+      59,
+      59
+    );
 
     const cajaActual = await Caja.findOne({
       fechaApertura: { $gte: inicioDelDia, $lte: finDelDia },
@@ -469,9 +490,12 @@ export const recuperarMesa = async (req, res) => {
 
     if (cajaActual) {
       cajaActual.total -= mesaCerrada.total;
-      cajaActual.detallesMetodoPago.efectivo -= mesaCerrada.metodoPago.efectivo || 0;
-      cajaActual.detallesMetodoPago.tarjeta -= mesaCerrada.metodoPago.tarjeta || 0;
-      cajaActual.detallesMetodoPago.propina -= mesaCerrada.metodoPago.propina || 0;
+      cajaActual.detallesMetodoPago.efectivo -=
+        mesaCerrada.metodoPago.efectivo || 0;
+      cajaActual.detallesMetodoPago.tarjeta -=
+        mesaCerrada.metodoPago.tarjeta || 0;
+      cajaActual.detallesMetodoPago.propina -=
+        mesaCerrada.metodoPago.propina || 0;
       cajaActual.operaciones.push({
         tipo: 'ajuste',
         monto: -mesaCerrada.total,
@@ -488,7 +512,7 @@ export const recuperarMesa = async (req, res) => {
       sesionId: sesionAnterior ? sesionAnterior._id : null,
     });
   } catch (error) {
-    console.error('❌ Error al recuperar la mesa:', error);
+    logger.error('❌ Error al recuperar la mesa:', error);
     res.status(500).json({ error: 'Error al recuperar la mesa.' });
   }
 };
@@ -522,7 +546,7 @@ export const crearMesa = async (req, res) => {
       .status(201)
       .json({ message: 'Mesa creada exitosamente', mesa: nuevaMesa });
   } catch (error) {
-    console.error('Error al crear la mesa:', error);
+    logger.error('Error al crear la mesa:', error);
     res.status(500).json({ error: 'Hubo un problema al crear la mesa.' });
   }
 };
@@ -553,7 +577,7 @@ export const eliminarMesa = async (req, res) => {
       mesa: mesaEliminada,
     });
   } catch (error) {
-    console.error('Error al eliminar la mesa:', error);
+    logger.error('Error al eliminar la mesa:', error);
     res.status(500).json({ error: 'Hubo un problema al eliminar la mesa.' });
   }
 };
@@ -580,47 +604,73 @@ export const registrarComensal = async (req, res) => {
     await nuevoComensal.save();
     res.status(201).json({ message: 'Comensal registrado correctamente.' });
   } catch (error) {
-    console.error('Error al guardar comensal:', error);
+    logger.error('Error al guardar comensal:', error);
     res.status(500).json({ message: 'Error interno del servidor.' });
   }
 };
 export const transferirProducto = async (req, res) => {
   const { productoId, pedidoId, desde, hacia, tipoPedido, cantidad } = req.body;
 
-  if (!productoId || !pedidoId || !desde || !hacia || !tipoPedido || !cantidad) {
-    return res.status(400).json({ error: 'Faltan datos: productoId, pedidoId, desde, hacia, tipoPedido y cantidad son obligatorios.' });
+  if (
+    !productoId ||
+    !pedidoId ||
+    !desde ||
+    !hacia ||
+    !tipoPedido ||
+    !cantidad
+  ) {
+    return res.status(400).json({
+      error:
+        'Faltan datos: productoId, pedidoId, desde, hacia, tipoPedido y cantidad son obligatorios.',
+    });
   }
 
   try {
-    const campoPopulate = tipoPedido === 'bebida' ? 'pedidosBebidas' : 'pedidos';
+    const campoPopulate =
+      tipoPedido === 'bebida' ? 'pedidosBebidas' : 'pedidos';
     const mesaOrigen = await Mesa.findById(desde).populate(campoPopulate);
     const mesaDestino = await Mesa.findById(hacia).populate(campoPopulate);
 
     if (!mesaOrigen || !mesaDestino) {
-      return res.status(404).json({ error: 'Mesa origen o destino no encontrada.' });
+      return res
+        .status(404)
+        .json({ error: 'Mesa origen o destino no encontrada.' });
     }
 
-    const pedidosOrigen = tipoPedido === 'bebida' ? mesaOrigen.pedidosBebidas : mesaOrigen.pedidos;
-    const pedidosDestino = tipoPedido === 'bebida' ? mesaDestino.pedidosBebidas : mesaDestino.pedidos;
+    const pedidosOrigen =
+      tipoPedido === 'bebida' ? mesaOrigen.pedidosBebidas : mesaOrigen.pedidos;
+    const pedidosDestino =
+      tipoPedido === 'bebida'
+        ? mesaDestino.pedidosBebidas
+        : mesaDestino.pedidos;
 
-    const pedidoOrigen = pedidosOrigen.find(p => p._id.toString() === pedidoId);
+    const pedidoOrigen = pedidosOrigen.find(
+      (p) => p._id.toString() === pedidoId
+    );
     if (!pedidoOrigen) {
       return res.status(404).json({ error: 'Pedido origen no encontrado.' });
     }
 
-    const productoIndex = pedidoOrigen.productos.findIndex(p => p._id.toString() === productoId);
+    const productoIndex = pedidoOrigen.productos.findIndex(
+      (p) => p._id.toString() === productoId
+    );
     if (productoIndex === -1) {
-      return res.status(404).json({ error: 'Producto no encontrado en el pedido origen.' });
+      return res
+        .status(404)
+        .json({ error: 'Producto no encontrado en el pedido origen.' });
     }
 
     const productoOriginal = pedidoOrigen.productos[productoIndex];
 
     // Validar cantidad
     if (cantidad > productoOriginal.cantidad) {
-      return res.status(400).json({ error: 'Cantidad a transferir mayor que la disponible.' });
+      return res
+        .status(400)
+        .json({ error: 'Cantidad a transferir mayor que la disponible.' });
     }
 
-    const precioUnitario = (productoOriginal.total || 0) / productoOriginal.cantidad;
+    const precioUnitario =
+      (productoOriginal.total || 0) / productoOriginal.cantidad;
     const totalTransferido = +(precioUnitario * cantidad).toFixed(2);
 
     // Restar cantidad al producto original
@@ -628,7 +678,9 @@ export const transferirProducto = async (req, res) => {
       pedidoOrigen.productos.splice(productoIndex, 1); // eliminar si se transfiere todo
     } else {
       productoOriginal.cantidad -= cantidad;
-      productoOriginal.total = +(precioUnitario * productoOriginal.cantidad).toFixed(2);
+      productoOriginal.total = +(
+        precioUnitario * productoOriginal.cantidad
+      ).toFixed(2);
     }
 
     pedidoOrigen.total = +(pedidoOrigen.total - totalTransferido).toFixed(2);
@@ -642,13 +694,13 @@ export const transferirProducto = async (req, res) => {
     });
 
     // Buscar o crear pedido destino
-    let pedidoDestino = pedidosDestino.find(p => p.estado === 'pendiente');
+    let pedidoDestino = pedidosDestino.find((p) => p.estado === 'pendiente');
     if (!pedidoDestino) {
       pedidoDestino = new ModeloPedido({
         mesa: mesaDestino._id,
         productos: [],
         estado: 'pendiente',
-        total: 0
+        total: 0,
       });
       await pedidoDestino.save();
       if (tipoPedido === 'bebida') {
@@ -676,12 +728,20 @@ export const transferirProducto = async (req, res) => {
     await mesaOrigen.save();
     await mesaDestino.save();
 
-    req.io.emit('productoTransferido', { desde, hacia, productoId, pedidoId, tipoPedido, cantidad });
+    req.io.emit('productoTransferido', {
+      desde,
+      hacia,
+      productoId,
+      pedidoId,
+      tipoPedido,
+      cantidad,
+    });
 
     return res.json({ mensaje: 'Producto transferido con éxito.' });
-
   } catch (error) {
-    console.error('❌ Error al transferir producto:', error);
-    return res.status(500).json({ error: 'Error interno al transferir el producto.' });
+    logger.error('❌ Error al transferir producto:', error);
+    return res
+      .status(500)
+      .json({ error: 'Error interno al transferir el producto.' });
   }
 };

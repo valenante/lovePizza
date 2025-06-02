@@ -18,7 +18,11 @@ const mesaCerradaSchema = new Schema({
     },
     propina: { type: Number, default: 0 }, // Campo para la propina
   },
-  sesionActiva: { type: Schema.Types.ObjectId, ref: 'SesionMesa', default: null },  // ✅ Consistente
+  sesionActiva: {
+    type: Schema.Types.ObjectId,
+    ref: 'SesionMesa',
+    default: null,
+  }, // ✅ Consistente
 });
 
 export default model('MesaCerrada', mesaCerradaSchema);

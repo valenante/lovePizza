@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../utils/api';
+import * as logger from '../../utils/logger';
 import './PedidosFinalizados.css';
 
 const PedidosFinalizados = ({ onClose }) => {
@@ -10,7 +11,7 @@ const PedidosFinalizados = ({ onClose }) => {
       const response = await api.get('/pedidos/finalizados/finalizados');
        setPedidosFinalizados(response.data);
     } catch (error) {
-      console.error('Error al cargar pedidos finalizados:', error);
+      logger.error('Error al cargar pedidos finalizados:', error);
     }
   };
 

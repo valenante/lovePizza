@@ -18,13 +18,12 @@ export const obtenerDisponibilidad = async (req, res) => {
     }
 
     // Devolver solo los días, sin _id ni __v
-    const {
-      domingo, lunes, martes, miércoles, jueves, viernes, sábado
-    } = disponibilidad;
+    const { domingo, lunes, martes, miércoles, jueves, viernes, sábado } =
+      disponibilidad;
 
     res.json({ domingo, lunes, martes, miércoles, jueves, viernes, sábado });
   } catch (error) {
-    console.error('❌ Error al obtener disponibilidad:', error);
+    logger.error('❌ Error al obtener disponibilidad:', error);
     res.status(500).json({ mensaje: 'Error al obtener la disponibilidad.' });
   }
 };
@@ -32,7 +31,15 @@ export const obtenerDisponibilidad = async (req, res) => {
 // Actualizar días habilitados
 export const actualizarDisponibilidad = async (req, res) => {
   try {
-    const valores = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+    const valores = [
+      'domingo',
+      'lunes',
+      'martes',
+      'miércoles',
+      'jueves',
+      'viernes',
+      'sábado',
+    ];
     const nuevosValores = Object.fromEntries(
       valores.map((dia) => [dia, !!req.body[dia]])
     );
@@ -49,7 +56,7 @@ export const actualizarDisponibilidad = async (req, res) => {
     await disponibilidad.save();
     res.json({ mensaje: 'Disponibilidad actualizada correctamente.' });
   } catch (error) {
-    console.error('❌ Error al actualizar disponibilidad:', error);
+    logger.error('❌ Error al actualizar disponibilidad:', error);
     res.status(500).json({ mensaje: 'Error al actualizar la disponibilidad.' });
   }
 };

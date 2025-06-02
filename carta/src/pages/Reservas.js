@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../utils/api";
+import * as logger from '../utils/logger';
 import TopBar from "../components/Navbar/Topbar";
 import "../styles/Reserva.css";
 
@@ -79,7 +80,7 @@ const Reserva = () => {
         setDisponibilidad(diasHabilitados);
       }
     } catch (err) {
-      console.error("Error al obtener datos:", err);
+      logger.error("Error al obtener datos:", err);
     }
   };
 
@@ -94,7 +95,7 @@ const Reserva = () => {
       );
       setReservasEnFranja(res.data?.length || 0);
     } catch (err) {
-      console.error("Error al contar reservas:", err);
+      logger.error("Error al contar reservas:", err);
       setReservasEnFranja(0);
     }
   };
@@ -195,7 +196,7 @@ const Reserva = () => {
       setReservasEnFranja(0);
       setAceptaTerminos(false);
     } catch (error) {
-      console.error(error);
+      logger.error(error);
       setMensaje(
         error.response?.data?.mensaje || "Hubo un error al procesar la reserva."
       );

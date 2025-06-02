@@ -3,6 +3,7 @@ import api from "../../utils/api";
 import Papa from "papaparse";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import * as logger from '../../utils/logger';
 import AlertaMensaje from "../AlertaMensaje/AlertaMensaje";
 import ModalConfirmacion from "../Modal/ModalConfirmacion";
 import "./FacturasPage.css";
@@ -24,7 +25,7 @@ const FacturasPage = () => {
             setTotalPaginas(data.totalPaginas);
             setPaginaActual(pagina);
         } catch (error) {
-            console.error("Error al cargar facturas:", error);
+            logger.error("Error al cargar facturas:", error);
         }
     };
 
@@ -84,7 +85,7 @@ const FacturasPage = () => {
             });
             cargarFacturas();
         } catch (error) {
-            console.error("Error al rectificar la factura:", error);
+            logger.error("Error al rectificar la factura:", error);
             setMensajeAlerta({
                 tipo: "error",
                 mensaje: error.response?.data?.error || "Hubo un problema al rectificar la factura."

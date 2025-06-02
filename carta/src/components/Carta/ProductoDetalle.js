@@ -5,6 +5,7 @@ import { toast } from "react-toastify"; // Importar toast
 import { useMesas } from "../../context/MesasContext"; // 👈 Importar el hook
 import { useComensal } from "../../context/ComensalesContext"; // 👈 Importar el hook
 import api from "../../utils/api";
+import * as logger from '../../utils/logger';
 import "../../styles/ModalDetalle.css";
 
 const ProductoDetalle = ({ producto, cerrarModal }) => {
@@ -23,7 +24,6 @@ const ProductoDetalle = ({ producto, cerrarModal }) => {
   const [acompanantesDisponibles, setAcompanantesDisponibles] = useState([]);
   const [seleccionPrecio, setSeleccionPrecio] = useState(null);
   const [tipoPrecio, setTipoPrecio] = useState(null);
-  const [adicionalesSeleccionados, setAdicionalesSeleccionados] = useState({});
 
   const categoriasConAcompanante = [
     "vodka",
@@ -59,7 +59,7 @@ const ProductoDetalle = ({ producto, cerrarModal }) => {
 
         setAcompanantesDisponibles(nombres);
       } catch (error) {
-        console.error("Error al cargar acompañantes:", error);
+        logger.error("Error al cargar acompañantes:", error);
       }
     };
 
@@ -161,7 +161,7 @@ const ProductoDetalle = ({ producto, cerrarModal }) => {
     };
 
     try {
-      const response = await api.post("/cart", {
+      await api.post("/cart", {
         mesa: numeroMesa, // 🔹 Enviar `mesa` en la raíz
         items: [pedido], // 🔹 Enviar el producto dentro de `items`
       });
@@ -190,7 +190,7 @@ const ProductoDetalle = ({ producto, cerrarModal }) => {
         progress: undefined,
       });
 
-      console.error("Error al agregar al carrito:", error);
+      logger.error("Error al agregar al carrito:", error);
     }
   };
 

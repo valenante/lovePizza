@@ -3,6 +3,7 @@ import { ProductosContext } from "../../context/ProductosContext";
 import ProductoCard from "./ProductoCard";
 import "../../styles/Carta.css"; // Asegúrate de que el path sea correcto
 import api from "../../utils/api";
+import * as logger from '../../utils/logger';
 import Navbar from "../Navbar/Navbar";
 
 const Carta = () => {
@@ -21,7 +22,7 @@ const Carta = () => {
         }, {});
         setValoraciones(valoracionesMapeadas);
       } catch (error) {
-        console.error("Error al cargar valoraciones:", error);
+        logger.error("Error al cargar valoraciones:", error);
       }
     };
 

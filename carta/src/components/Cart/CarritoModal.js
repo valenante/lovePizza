@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { ProductosContext } from "../../context/ProductosContext";
 import { useComensal } from "../../context/ComensalesContext"; // 👈 Importar el hook
 import api from "../../utils/api";
+import * as logger from '../../utils/logger';
 import AlertaMensaje from "../AlertaMensaje/AlertaMensaje";
 import "../../styles/CarritoModal.css";
 
@@ -12,7 +13,7 @@ const CarritoModal = ({ cerrarModal }) => {
   const [searchParams] = useSearchParams();
   const numeroMesa = searchParams.get("mesa");
   const { comensal } = useComensal();
-  const { comensales, alergias } = comensal;
+  const { comensales } = comensal;
   const [mensajeAlerta, setMensajeAlerta] = useState(null);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const CarritoModal = ({ cerrarModal }) => {
       const tokenLider = response.data.tokenLider;
       return tokenLocal === tokenLider; // Retorna true si es líder
     } catch (error) {
-      console.error("Error al verificar el tokenLider:", error);
+      logger.error("Error al verificar el tokenLider:", error);
       return false; // Asume que no es líder si ocurre un error
     }
   };
@@ -43,7 +44,7 @@ const CarritoModal = ({ cerrarModal }) => {
     try {
       const cartId = carrito._id;
       if (!cartId) {
-        console.error("No se encontró el identificador del carrito.");
+        logger.error("No se encontró el identificador del carrito.");
         return;
       }
 
@@ -59,7 +60,7 @@ const CarritoModal = ({ cerrarModal }) => {
         cargarCarrito();
       }
     } catch (error) {
-      console.error("Error al eliminar el producto:", error);
+      logger.error("Error al eliminar el producto:", error);
     }
   };
 
@@ -76,7 +77,7 @@ const CarritoModal = ({ cerrarModal }) => {
         total,
       });
     } catch (error) {
-      console.error(`Error al imprimir el pedido de ${tipo}:`, error.message);
+      logger.error(`Error al imprimir el pedido de ${tipo}:`, error.message);
     }
   };
 
@@ -182,7 +183,7 @@ const CarritoModal = ({ cerrarModal }) => {
       cargarCarrito();
       cerrarModal();
     } catch (error) {
-      console.error("Error al enviar el pedido:", error);
+      logger.error("Error al enviar el pedido:", error);
     }
   };
 

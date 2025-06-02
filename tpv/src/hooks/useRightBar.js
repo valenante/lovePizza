@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../utils/api";
+import * as logger from '../utils/logger';
 import { useCategorias } from "../context/CategoriasContext";
 
 export const useRightBar = (mesaId) => {
@@ -95,7 +96,7 @@ export const useRightBar = (mesaId) => {
       setCarritoBebidas([]);
       setMensajeAlerta({ tipo: "exito", mensaje: "Pedido enviado correctamente." });
     } catch (error) {
-      console.error("Error al enviar el pedido:", error);
+      logger.error("Error al enviar el pedido:", error);
       setMensajeAlerta({ tipo: "error", mensaje: "Error al enviar el pedido." });
     } finally {
       setIsLoading(false);
@@ -111,7 +112,7 @@ export const useRightBar = (mesaId) => {
       const { data } = await api.get(`/pedidos/mesa/${mesaId}`);
       setProductosYaPedidos(data || []);
     } catch (error) {
-      console.error("Error al obtener el pedido de la mesa:", error);
+      logger.error("Error al obtener el pedido de la mesa:", error);
       setProductosYaPedidos([]);
     }
 

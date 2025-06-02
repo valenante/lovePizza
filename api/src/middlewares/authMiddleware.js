@@ -21,7 +21,7 @@ export const authMiddleware = (req, res, next) => {
     req.user = verified; // Guardar los datos del usuario en la solicitud
     next();
   } catch (error) {
-    console.error('❌ Error al verificar el token:', error.message);
+    logger.error('❌ Error al verificar el token:', error.message);
     res.status(401).json({ error: 'Token inválido o expirado.' });
   }
 };

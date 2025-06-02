@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
 import api from "../utils/api";
+import * as logger from '../utils/logger';
 
 export const CategoriasContext = createContext();
 
@@ -9,7 +10,7 @@ export const CategoriasProvider = ({ children }) => {
 
   const fetchCategories = async (type) => {
     if (!type) {
-      console.error("Tipo inválido:", type);
+      logger.error("Tipo inválido:", type);
       return;
     }
 
@@ -24,13 +25,13 @@ export const CategoriasProvider = ({ children }) => {
         return prevCategories; // Mantén las categorías actuales
       });
     } catch (error) {
-      console.error("Error al obtener categorías:", error);
+      logger.error("Error al obtener categorías:", error);
     }
   };
 
   const fetchProducts = async (category) => {
     if (!category) {
-      console.error("Categoría inválida:", category);
+      logger.error("Categoría inválida:", category);
       return [];
     }
 
@@ -40,7 +41,7 @@ export const CategoriasProvider = ({ children }) => {
       setProducts(loadedProducts);
       return loadedProducts;  // ✅ Devuelve los productos
     } catch (error) {
-      console.error("Error al obtener productos:", error);
+      logger.error("Error al obtener productos:", error);
       return [];
     }
   };
@@ -52,7 +53,7 @@ export const CategoriasProvider = ({ children }) => {
         prev.map((p) => (p._id === product._id ? product : p))
       );
     } catch (error) {
-      console.error("Error al actualizar producto:", error);
+      logger.error("Error al actualizar producto:", error);
       throw error;
     }
   };
@@ -62,7 +63,7 @@ export const CategoriasProvider = ({ children }) => {
       await api.delete(`/productos/${id}`);
       setProducts((prev) => prev.filter((product) => product._id !== id));
     } catch (error) {
-      console.error("Error al eliminar producto:", error);
+      logger.error("Error al eliminar producto:", error);
       throw error;
     }
   };

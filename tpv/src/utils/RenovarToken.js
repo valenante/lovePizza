@@ -1,3 +1,5 @@
+import * as logger from './logger';
+
 const renovarToken = async (setAccessToken) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/refresh-token`, {
@@ -17,7 +19,7 @@ const renovarToken = async (setAccessToken) => {
 
     return data.accessToken;
   } catch (error) {
-    console.error('Error al renovar el token:', error);
+    logger.error('Error al renovar el token:', error);
     return null;
   }
 };

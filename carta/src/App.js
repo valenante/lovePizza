@@ -23,7 +23,7 @@ const locales = {
 function App() {
   // Cargar idioma desde localStorage o usar "es" por defecto
   const storedLocale = localStorage.getItem("locale") || "es";
-  const [locale, setLocale] = useState(storedLocale);
+  const [locale] = useState(storedLocale);
   
 
   useEffect(() => {

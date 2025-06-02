@@ -1,31 +1,25 @@
 // config/redisClient.js
 import { createClient } from 'redis';
+import logger from '../utils/logger.js'; // ✅ Esto faltaba
 
-// Puedes usar variables de entorno para mayor seguridad y flexibilidad
 const redisClient = createClient({
-  url: process.env.REDIS_URL || 'redis://127.0.0.1:6379',
+  url: process.env.REDIS_URL ,
   socket: {
-    reconnectStrategy: (retries) => Math.min(retries * 50, 2000), // reconexión progresiva
+    reconnectStrategy: (retries) => Math.min(retries * 50, 2000),
   },
 });
 
 redisClient.on('connect', () => {
   console.log('🔗 Conectado a Redis');
 });
-
 redisClient.on('ready', () => {
   console.log('✅ Redis listo para usar');
 });
-
 redisClient.on('error', (err) => {
-  console.error('❌ Error en Redis:', err);
+  logger.error('❌ Error en Redis:', err); // ya no dará error
 });
-
 redisClient.on('end', () => {
   console.log('🔌 Conexión con Redis finalizada');
 });
-
-// Nos aseguramos de conectar de forma asíncrona
-await redisClient.connect();
 
 export default redisClient;

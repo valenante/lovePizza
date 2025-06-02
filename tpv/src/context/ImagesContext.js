@@ -1,6 +1,8 @@
 import { createContext } from "react";
 import { useState } from "react";
 import api from "../utils/api";
+import * as logger from '../utils/logger';
+
 
 export const ImageContext = createContext();
 
@@ -35,7 +37,7 @@ export const ImagesProvider = ({ children }) => {
         setImageFile(file);
       }
     } catch (error) {
-      console.error("Error al subir la imagen:", error);
+      logger.error("Error al subir la imagen:", error);
     }
   };
 
@@ -53,7 +55,7 @@ export const ImagesProvider = ({ children }) => {
         setImageFile(file);
       }
     } catch (error) {
-      console.error("Error al subir la imagen:", error);
+      logger.error("Error al subir la imagen:", error);
     }
   };
 
@@ -74,11 +76,11 @@ export const ImagesProvider = ({ children }) => {
       if (data.filename) {
         return data.imageUrl;
       } else {
-        console.error("❌ Error al subir la imagen");
+        logger.error("❌ Error al subir la imagen");
         return null;
       }
     } catch (err) {
-      console.error("❌ Error en la solicitud:", err);
+      logger.error("❌ Error en la solicitud:", err);
       return null;
     }
   };

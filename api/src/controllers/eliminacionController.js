@@ -11,7 +11,7 @@ export const obtenerEliminaciones = async (req, res) => {
 
     res.json(eliminaciones);
   } catch (error) {
-    console.error('❌ Error al obtener eliminaciones:', error);
+    logger.error('❌ Error al obtener eliminaciones:', error);
     res.status(500).json({ error: 'Error al obtener eliminaciones.' });
   }
 };

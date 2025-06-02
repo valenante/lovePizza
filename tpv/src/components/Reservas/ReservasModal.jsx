@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
+import * as logger from '../../utils/logger';
 import AlertaMensaje from "../AlertaMensaje/AlertaMensaje"; // Componente para mostrar alertas
 import "../../styles/ReservasModal.css";
 
@@ -22,7 +23,7 @@ const FormularioReservaModal = ({ visible, onClose, onSuccess }) => {
       api
         .get(`/reservasConfiguracion?fecha=${fechaHoy}`)
         .then((res) => setFranjas(res.data.franjas || []))
-        .catch((err) => console.error("Error obteniendo franjas", err));
+        .catch((err) => logger.error("Error obteniendo franjas", err));
     }
   }, [visible, fechaHoy]);
 
@@ -61,7 +62,7 @@ const FormularioReservaModal = ({ visible, onClose, onSuccess }) => {
       onSuccess();
       onClose();
     } catch (err) {
-      console.error("Error al crear reserva:", err);
+      logger.error("Error al crear reserva:", err);
       setMensajeAlerta({ tipo: "error", mensaje: "Hubo un error al crear la reserva" });
     }
   };

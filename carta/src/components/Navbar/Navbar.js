@@ -6,6 +6,7 @@ import CarritoModal from "../Cart/CarritoModal";
 import { ProductosContext } from "../../context/ProductosContext";
 import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
+import * as logger from '../../utils/logger';
 import "../../styles/Navbar.css";
 import { useSearchParams } from 'react-router-dom';
 import socket from "../../utils/socket";
@@ -43,7 +44,7 @@ const Navbar = ({ setMostrarSoloBebidas, mostrarSoloBebidas }) => {
         const response = await api.get(`/pedidos/pedidos/estado/${numeroMesa}`);
         setPedidosListos(response.data?.todosListos || false);
       } catch (error) {
-        console.error("Error al verificar el estado de los pedidos:", error);
+        logger.error("Error al verificar el estado de los pedidos:", error);
         setPedidosListos(false);
       }
     };
@@ -79,7 +80,7 @@ const Navbar = ({ setMostrarSoloBebidas, mostrarSoloBebidas }) => {
       await api.post(`/cuenta/pedir-cuenta/${numeroMesa}`);
       navigate("/valoraciones");
     } catch (error) {
-      console.error("Error al pedir la cuenta:", error);
+      logger.error("Error al pedir la cuenta:", error);
     }
   };
 

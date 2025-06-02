@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import MetodoPago from "../components/DetallesMesa/MetodoPago";
 import RightBar from "../components/RightBar/RightBar";

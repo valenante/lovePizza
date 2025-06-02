@@ -34,7 +34,7 @@ const productoSchema = new Schema(
   {
     // Información general
     nombre: { type: String, required: true },
-    aliases: [{ type: String}], // Nombres alternativos o abreviaciones
+    aliases: [{ type: String }], // Nombres alternativos o abreviaciones
     tipo: {
       type: String,
       enum: ['plato', 'tapaRacion', 'bebida', 'extra', 'postre'],
@@ -42,7 +42,7 @@ const productoSchema = new Schema(
     }, // Diferencia entre plato y bebida
     categoria: { type: String, required: true }, // Ej: "entrante", "plato principal", "refresco", "licor"
     descripcion: { type: String, default: '' },
-    img: { type: String},
+    img: { type: String },
 
     // Traducciones
     traducciones: {

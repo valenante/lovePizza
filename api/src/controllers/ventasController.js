@@ -8,7 +8,7 @@ export const obtenerVentas = async (req, res) => {
     const ventas = await Venta.find().populate('producto');
     res.status(200).json(ventas);
   } catch (error) {
-    console.error('Error al obtener las ventas:', error);
+    logger.error('Error al obtener las ventas:', error);
     res.status(500).json({ error: 'Error al obtener las ventas' });
   }
 };
@@ -23,7 +23,7 @@ export const obtenerVentasPorId = async (req, res) => {
     }
     res.status(200).json(venta);
   } catch (error) {
-    console.error('Error al obtener la venta:', error);
+    logger.error('Error al obtener la venta:', error);
     res.status(500).json({ error: 'Error al obtener la venta' });
   }
 };
@@ -64,7 +64,7 @@ export const crearVenta = async (req, res) => {
       .status(201)
       .json({ message: 'Venta creada con éxito', venta: nuevaVenta });
   } catch (error) {
-    console.error('Error al crear la venta:', error);
+    logger.error('Error al crear la venta:', error);
     res
       .status(400)
       .json({ error: 'Error al crear la venta. Verifica los datos enviados.' });
@@ -99,7 +99,7 @@ export const actualizarVenta = async (req, res) => {
 
     res.status(200).json({ message: 'Venta actualizada con éxito', venta });
   } catch (error) {
-    console.error('Error al actualizar la venta:', error);
+    logger.error('Error al actualizar la venta:', error);
     res.status(400).json({ error: 'Error al actualizar la venta.' });
   }
 };
@@ -124,7 +124,7 @@ export const eliminarVenta = async (req, res) => {
 
     res.status(200).json({ message: 'Venta eliminada con éxito', venta });
   } catch (error) {
-    console.error('Error al eliminar la venta:', error);
+    logger.error('Error al eliminar la venta:', error);
     res.status(500).json({ error: 'Error al eliminar la venta.' });
   }
 };

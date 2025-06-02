@@ -2,6 +2,7 @@ import React, { createContext, useState, useCallback, useEffect } from 'react';
 import api from '../utils/api';
 import { useSearchParams } from 'react-router-dom';
 import socket from '../utils/socket';
+import * as logger from '../utils/logger';
 
 export const ProductosContext = createContext();
 
@@ -23,7 +24,7 @@ export const ProductosProvider = ({ children }) => {
         console.warn(`No se encontró un carrito para la mesa ${numeroMesa}. Inicializando vacío...`);
         setCarrito({ items: [] });
       } else {
-        console.error('Error al cargar el carrito:', error);
+        logger.error('Error al cargar el carrito:', error);
       }
     }
   }, [numeroMesa]);
@@ -56,7 +57,7 @@ export const ProductosProvider = ({ children }) => {
       const categoriasUnicas = [...new Set(data.map((producto) => producto.categoria))];
       setCategorias(categoriasUnicas);
     } catch (error) {
-      console.error('Error al cargar productos:', error);
+      logger.error('Error al cargar productos:', error);
     }
   }, []);
 
@@ -80,7 +81,7 @@ export const ProductosProvider = ({ children }) => {
             console.warn(`⚠️ No se encontró una mesa con el número ${numeroMesa}`);
         }
     } catch (error) {
-        console.error(`❌ Error al obtener el ID de la mesa ${numeroMesa}:`, error);
+        logger.error(`❌ Error al obtener el ID de la mesa ${numeroMesa}:`, error);
     }
 }, []);
 

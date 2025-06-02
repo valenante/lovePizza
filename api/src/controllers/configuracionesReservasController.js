@@ -11,8 +11,10 @@ export const obtenerConfiguracionPorFecha = async (req, res) => {
     const config = await ConfiguracionReserva.findOne({ fecha });
     res.json({ franjas: config?.franjas || franjasPredeterminadas });
   } catch (error) {
-    console.error('❌ Error al obtener configuración:', error);
-    res.status(500).json({ mensaje: 'Error al obtener configuración de reservas.' });
+    logger.error('❌ Error al obtener configuración:', error);
+    res
+      .status(500)
+      .json({ mensaje: 'Error al obtener configuración de reservas.' });
   }
 };
 
@@ -28,7 +30,7 @@ export const guardarConfiguracion = async (req, res) => {
 
     res.json({ mensaje: 'Configuración guardada correctamente', config });
   } catch (error) {
-    console.error('❌ Error al guardar configuración:', error);
+    logger.error('❌ Error al guardar configuración:', error);
     res.status(500).json({ mensaje: 'Error al guardar la configuración' });
   }
 };

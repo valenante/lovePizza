@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../utils/api";
+import * as logger from '../utils/logger';
 
 const useMesa = (id, socket) => {
   const [mesa, setMesa] = useState(null);
@@ -45,7 +46,7 @@ const useMesa = (id, socket) => {
         setProductosDetalles(productosMap);
       }
     } catch (error) {
-      console.error("Error al obtener los detalles de la mesa:", error);
+      logger.error("Error al obtener los detalles de la mesa:", error);
     }
   };
 

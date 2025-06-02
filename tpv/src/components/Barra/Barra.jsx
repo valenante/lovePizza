@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import api from "../../utils/api";
 import { SocketContext } from "../../utils/socket";
+import * as logger from '../../utils/logger';
 import "./Barra.css";
 
 const Barra = () => {
@@ -23,7 +24,7 @@ const Barra = () => {
       });
       setPedidos(response.data);
     } catch (error) {
-      console.error("Error al cargar pedidos de bebidas:", error);
+      logger.error("Error al cargar pedidos de bebidas:", error);
     }
   };
 
@@ -64,7 +65,7 @@ const Barra = () => {
         })
       );
     } catch (error) {
-      console.error("Error al marcar producto como listo:", error);
+      logger.error("Error al marcar producto como listo:", error);
     }
   };
 
@@ -78,7 +79,7 @@ const Barra = () => {
         prevPedidos.filter((pedido) => pedido._id !== pedidoId)
       );
     } catch (error) {
-      console.error("Error al marcar pedido como listo:", error);
+      logger.error("Error al marcar pedido como listo:", error);
     }
   };
 

@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Trans } from "@lingui/react";
 import DOMPurify from "dompurify"; // Para sanitizar entradas de texto
 import api from "../utils/api"; // Configuración de Axios
 import { useMesas } from "../context/MesasContext"; // ✅ Importar el hook useMesas
 import AlertaMensaje from "../components/AlertaMensaje/AlertaMensaje"; // Componente para mostrar alertas
+import * as logger from '../utils/logger';
 import "../styles/Valoraciones.css"; // Archivo de estilos
 
 const Valoraciones = () => {
@@ -40,7 +41,7 @@ const Valoraciones = () => {
           }))
         );
       } catch (err) {
-        console.error("Error al cargar productos:", err);
+        logger.error("Error al cargar productos:", err);
         setError("No se pudieron cargar los productos.");
       }
     };
@@ -90,7 +91,7 @@ const Valoraciones = () => {
       localStorage.clear();
       window.location.href = "https://www.google.com/search?client=safari&sca_esv=e6182da575e8b716&rls=en&sxsrf=AHTn8zqqgHqdZwmypsIJqc9la2CMPknULw:1739570436727&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzX5KKmkHLDdoPn7kYismFYbhKPchvUpAro8JFhU7uCggslmn8wuQxGhNj-JBF61qAnaIxihmVEG7vfCsKZRB89gYAR-NY-OZxafcF_nrV8K130Xwf3VoTmwAwoC0TcuNXfCM-tAp1Kt8tr2E_RRGxHp4_0LX&q=ZABOR+FETEN+-+Restaurante,+Bar+y+Tapas+en+Torremolinos+Rese%C3%B1as&sa=X&ved=2ahUKEwjHjMXvlMSLAxUR9LsIHSuEK7IQ0bkNegQILBAE&biw=1470&bih=840&dpr=2";
     } catch (error) {
-      console.error("Error al enviar las valoraciones:", error);
+      logger.error("Error al enviar las valoraciones:", error);
       setMensajeAlerta({ tipo: "error", mensaje: "Hubo en error al enviar las valoraciones" });
     }
   };

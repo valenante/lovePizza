@@ -1,7 +1,6 @@
 // models/ConfiguracionRestaurante.js (ejemplo)
-import mongoose from "mongoose";
-import { Schema, model } from 'mongoose';
-
+import mongoose from 'mongoose';
+import { model } from 'mongoose';
 
 const configuracionRestauranteSchema = new mongoose.Schema({
   permitePedidosComida: { type: Boolean, default: true },
@@ -9,4 +8,7 @@ const configuracionRestauranteSchema = new mongoose.Schema({
   // otras configuraciones...
 });
 
-export default model('configuracionRestaurante', configuracionRestauranteSchema);
+export default model(
+  'configuracionRestaurante',
+  configuracionRestauranteSchema
+);

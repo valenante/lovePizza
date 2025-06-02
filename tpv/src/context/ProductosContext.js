@@ -1,5 +1,6 @@
 import React, { createContext, useState, useCallback, useEffect, useContext } from 'react';
 import api from '../utils/api';
+import * as logger from '../utils/logger';
 import { SocketContext } from '../utils/socket'; // Importa el contexto de Socket.IO
 
 export const ProductosContext = createContext();
@@ -18,7 +19,7 @@ export const ProductosProvider = ({ children }) => {
     try {
       const cartId = localStorage.getItem('carritoMongoId');
       if (!cartId) {
-        console.error('No se encontró el identificador del carrito.');
+        logger.error('No se encontró el identificador del carrito.');
         return;
       }
 
@@ -31,7 +32,7 @@ export const ProductosProvider = ({ children }) => {
         console.warn('No se encontró un carrito. Inicializando vacío...');
         setCarrito({ items: [] });
       } else {
-        console.error('Error al cargar el carrito:', error);
+        logger.error('Error al cargar el carrito:', error);
       }
     }
   }, []);
@@ -65,7 +66,7 @@ export const ProductosProvider = ({ children }) => {
       const categoriasUnicas = [...new Set(data.map((producto) => producto.categoria))];
       setCategorias(categoriasUnicas);
     } catch (error) {
-      console.error('Error al cargar productos:', error);
+      logger.error('Error al cargar productos:', error);
     }
   }, []);
 
@@ -81,7 +82,7 @@ export const ProductosProvider = ({ children }) => {
         console.warn(`No se encontró una mesa con el número ${numeroMesa}`);
       }
     } catch (error) {
-      console.error(`Error al obtener el ID de la mesa ${numeroMesa}:`, error);
+      logger.error(`Error al obtener el ID de la mesa ${numeroMesa}:`, error);
     }
   }, []);
   

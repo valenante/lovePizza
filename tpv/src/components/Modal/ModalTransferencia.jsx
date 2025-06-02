@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import * as logger from '../../utils/logger';
 import api from "../../utils/api";
 import "./ModalTransferencia.css";
 
@@ -94,7 +95,6 @@ export default function ModalTransferirArticulos({ mesaOrigen, onClose }) {
         // DESTINO -> ORIGEN (revertir transferencia)
         if (sourceId === "destino" && destId === "origen") {
             const movedItem = productosDestino[result.source.index];
-            const precioUnitario = movedItem.total / movedItem.cantidad;
 
             // Buscar si ya existe uno igual en origen
             const indexExistente = productosOrigen.findIndex(p =>
@@ -139,7 +139,7 @@ export default function ModalTransferirArticulos({ mesaOrigen, onClose }) {
             }
             onClose();
         } catch (error) {
-            console.error("Error al transferir productos:", error);
+            logger.error("Error al transferir productos:", error);
         }
     };
 

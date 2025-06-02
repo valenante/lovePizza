@@ -13,7 +13,7 @@ const verificarLider = async (req, res, next) => {
     }
     next();
   } catch (error) {
-    console.error('Error al verificar el tokenLider:', error);
+    logger.error('Error al verificar el tokenLider:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api"; // Importa la configuración de axios
+import * as logger from '../../utils/logger';
 import "./MesasCerradas.css"; // Importa el archivo de estilos
 import ModalConfirmacion from "../Modal/ModalConfirmacion"; // Importa el componente de modal
 import AlertaMensaje from "../AlertaMensaje/AlertaMensaje";
@@ -19,7 +20,7 @@ const MesasCerradas = () => {
         const response = await api.get("/mesas/mesas-cerradas/mesas-cerradas"); // Ajusta el endpoint para obtener mesas activas
         setMesas(response.data);
       } catch (error) {
-        console.error("Error al obtener las mesas cerradas:", error);
+        logger.error("Error al obtener las mesas cerradas:", error);
         setError("Error al obtener las mesas cerradas.");
       }
     };
@@ -41,10 +42,10 @@ const MesasCerradas = () => {
 
         try {
           setIsLoading(true);
-          const response = await api.post("/mesas/crear-mesa/crear-mesa", { numero: parseInt(numeroMesaInput, 10) });
+            await api.post("/mesas/crear-mesa/crear-mesa", { numero: parseInt(numeroMesaInput, 10) });
           setMensajeAlerta({ tipo: "exito", mensaje: "Mesa creada exitosamente." });
         } catch (error) {
-          console.error("Error al crear la mesa:", error);
+          logger.error("Error al crear la mesa:", error);
           setMensajeAlerta({ tipo: "error", mensaje: error.response?.data?.error || "Error al crear la mesa." });
         } finally {
           setIsLoading(false);
@@ -72,7 +73,7 @@ const MesasCerradas = () => {
           await api.delete(`/mesas/eliminar-mesa?numero=${numeroMesaInput}`);
           setMensajeAlerta({ tipo: "exito", mensaje: "Mesa eliminada exitosamente." });
         } catch (error) {
-          console.error("Error al eliminar la mesa:", error);
+          logger.error("Error al eliminar la mesa:", error);
           setMensajeAlerta({ tipo: "error", mensaje: error.response?.data?.error || "Error al eliminar la mesa." });
         } finally {
           setIsLoading(false);

@@ -1,4 +1,4 @@
-import ConfiguracionPedidos from "../models/ConfiguracionPedidos.js";
+import ConfiguracionPedidos from '../models/ConfiguracionPedidos.js';
 
 export const obtenerConfiguracion = async (req, res) => {
   try {
@@ -8,8 +8,8 @@ export const obtenerConfiguracion = async (req, res) => {
     }
     res.json(config);
   } catch (error) {
-    console.error("Error al obtener configuración:", error);
-    res.status(500).json({ mensaje: "Error del servidor" });
+    logger.error('Error al obtener configuración:', error);
+    res.status(500).json({ mensaje: 'Error del servidor' });
   }
 };
 
@@ -24,14 +24,16 @@ export const actualizarConfiguracion = async (req, res) => {
         permitirPedidosBebida,
       });
     } else {
-      config.permitirPedidosComida = permitirPedidosComida ?? config.permitirPedidosComida;
-      config.permitirPedidosBebida = permitirPedidosBebida ?? config.permitirPedidosBebida;
+      config.permitirPedidosComida =
+        permitirPedidosComida ?? config.permitirPedidosComida;
+      config.permitirPedidosBebida =
+        permitirPedidosBebida ?? config.permitirPedidosBebida;
       await config.save();
     }
 
     res.json(config);
   } catch (error) {
-    console.error("Error al actualizar configuración:", error);
-    res.status(500).json({ mensaje: "Error del servidor" });
+    logger.error('Error al actualizar configuración:', error);
+    res.status(500).json({ mensaje: 'Error del servidor' });
   }
 };

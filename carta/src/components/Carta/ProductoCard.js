@@ -4,6 +4,7 @@ import { Trans, useLingui } from "@lingui/react";
 import ProductoDetalle from "./ProductoDetalle";
 import ModalCroquetas from "./ModalCroquetas";
 import api from "../../utils/api";
+import * as logger from '../../utils/logger';
 import "../../styles/ProductoCard.css";
 
 const ProductoCard = ({ producto, estrellas }) => {
@@ -50,7 +51,7 @@ const ProductoCard = ({ producto, estrellas }) => {
         setPermitePedidosComida(res.data.permitePedidosComida);
         setPermitePedidosBebida(res.data.permitePedidosBebida);
       } catch (err) {
-        console.error("Error al obtener configuración global:", err);
+        logger.error("Error al obtener configuración global:", err);
       }
     };
     fetchConfiguracion();

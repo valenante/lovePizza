@@ -3,12 +3,13 @@ import { useContext } from "react";
 import api from '../../utils/api';
 import { SocketContext } from "../../utils/socket";
 import PedidosFinalizados from './PedidosFinalizados';
+import * as logger from '../../utils/logger';
 import './Cocina.css';
 
 const Cocina = () => {
   const [pedidos, setPedidos] = useState([]);
   const [mostrarFinalizados, setMostrarFinalizados] = useState(false);
-  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+  const [productoSeleccionado] = useState(null);
   const { socket } = useContext(SocketContext);
   const [mesas, setMesas] = useState([]);
 
@@ -18,7 +19,7 @@ const Cocina = () => {
       const response = await api.get('/mesas/mesas-abiertas/mesas-abiertas');
       setMesas(response.data);
     } catch (error) {
-      console.error('Error al cargar mesas:', error);
+      logger.error('Error al cargar mesas:', error);
     }
   };
 
@@ -36,7 +37,7 @@ const Cocina = () => {
       });
       setPedidos(response.data);
     } catch (error) {
-      console.error('Error al cargar pedidos:', error);
+      logger.error('Error al cargar pedidos:', error);
     }
   };
 
@@ -59,7 +60,7 @@ const Cocina = () => {
       await api.put(`/pedidos/${pedidoId}/producto/${productoId}`, { estadoPreparacion: 'listo' });
       cargarPedidos();
     } catch (error) {
-      console.error('Error al marcar producto como listo:', error);
+      logger.error('Error al marcar producto como listo:', error);
     }
   };
 
@@ -68,7 +69,7 @@ const Cocina = () => {
       await api.put(`/pedidos/${pedidoId}`, { estado: 'listo' });
       cargarPedidos();
     } catch (error) {
-      console.error('Error al marcar pedido como listo:', error);
+      logger.error('Error al marcar pedido como listo:', error);
     }
   };
 

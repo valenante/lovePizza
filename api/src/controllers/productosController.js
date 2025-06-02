@@ -10,7 +10,7 @@ export const obtenerProductos = async (req, res) => {
     const productos = await Producto.find();
     res.status(200).json(productos);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: 'Error al obtener los productos' });
   }
 };
@@ -25,7 +25,7 @@ export const obtenerProductoPorId = async (req, res) => {
     }
     res.status(200).json(producto);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: 'Error al obtener el producto' });
   }
 };
@@ -41,7 +41,7 @@ export const obtenerCategoriasPorTipo = async (req, res) => {
 
     res.status(200).json({ categories: categorias });
   } catch (error) {
-    console.error('Error al obtener categorías:', error);
+    logger.error('Error al obtener categorías:', error);
     res.status(500).json({ error: 'Error al obtener las categorías' });
   }
 };
@@ -62,7 +62,7 @@ export const editarProducto = async (req, res) => {
     }
     res.status(200).json(productoActualizado);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(400).json({
       error: 'Error al actualizar el producto. Verifica los datos enviados.',
     });
@@ -77,7 +77,7 @@ export const obtenerProductosPorCategoria = async (req, res) => {
 
     res.status(200).json({ products: productos });
   } catch (error) {
-    console.error('Error al obtener productos por categoría:', error);
+    logger.error('Error al obtener productos por categoría:', error);
     res.status(500).json({ error: 'Error al obtener los productos' });
   }
 };
@@ -96,7 +96,7 @@ export const crearProducto = async (req, res) => {
 
     res.status(201).json(nuevoProducto);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(400).json({
       error: 'Error al crear el producto. Verifica los datos enviados.',
     });
@@ -113,7 +113,7 @@ export const eliminarProducto = async (req, res) => {
     }
     res.status(200).json({ message: 'Producto eliminado con éxito' });
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: 'Error al eliminar el producto' });
   }
 };
@@ -265,31 +265,34 @@ export const eliminarProductoPedido = async (req, res) => {
       },
     });
   } catch (error) {
-    console.error('Error al eliminar producto/bebida:', error);
+    logger.error('Error al eliminar producto/bebida:', error);
     res.status(500).json({ error: 'Error al eliminar producto/bebida.' });
   }
 };
 
 export const buscarProductoPorNombre = async (req, res) => {
   let nombre = req.query.nombre;
-  if (!nombre) return res.status(400).json({ error: 'Falta el nombre del producto' });
+  if (!nombre)
+    return res.status(400).json({ error: 'Falta el nombre del producto' });
 
-  const nombreNormalizado = nombre.toLowerCase().replace(/[\s\-]+/g, '');
+  const nombreNormalizado = nombre.toLowerCase().replace(/[\s-]+/g, '');
 
   try {
     const productos = await Producto.find({
       $or: [
         { nombreNormalizado: { $regex: nombreNormalizado, $options: 'i' } },
-        { aliases: { $elemMatch: { $regex: nombreNormalizado, $options: 'i' } } },
-      ]
+        {
+          aliases: { $elemMatch: { $regex: nombreNormalizado, $options: 'i' } },
+        },
+      ],
     });
 
-    if (productos.length === 0) return res.status(404).json({ error: 'Producto no encontrado' });
+    if (productos.length === 0)
+      return res.status(404).json({ error: 'Producto no encontrado' });
 
     res.json(productos[0]);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     res.status(500).json({ error: 'Error al buscar producto' });
   }
 };
-

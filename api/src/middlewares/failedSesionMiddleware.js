@@ -1,4 +1,4 @@
-import { info, warn, error } from '../../utils/logger.js';
+import logger from '../../utils/logger.js'; 
 import nodemailer from 'nodemailer';
 
 // Configuración del transporte de nodemailer
@@ -30,7 +30,7 @@ export const logAndNotifyLogin = async (req, res, next) => {
   }
 
   if (!req.session) {
-    error('[LOGIN] No se encontró la sesión en la solicitud.');
+    logger.error('[LOGIN] No se encontró la sesión en la solicitud.');
     return next(); // Puedes opcionalmente bloquear aquí si es crítico
   }
 

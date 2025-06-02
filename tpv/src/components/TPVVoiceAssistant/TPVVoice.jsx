@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { interpretarComando } from '../../utils/parserVoz';
 import { ejecutarAccionVoz } from '../../utils/ejecutarAccionVoz';
+import * as logger from '../../utils/logger';
 import AlertaMensaje from '../AlertaMensaje/AlertaMensaje'; // Ajusta la ruta si hace falta
 import './TPVVoice.css';
 
@@ -38,7 +39,7 @@ const TPVVoice = () => {
           setAlerta({ visible: true, tipo: 'exito', mensaje: `${accion.producto} agregado a la mesa ${accion.mesa}` });
         } catch (err) {
           setAlerta({ visible: true, tipo: 'error', mensaje: 'Error al ejecutar la acción.' });
-          console.error(err);
+          logger.error(err);
         }
         setProcesando(false);
         resetTranscript();

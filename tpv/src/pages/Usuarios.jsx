@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import api from "../utils/api";
 import AlertaMensaje from "../components/AlertaMensaje/AlertaMensaje"; // Componente para mostrar alertas
+import * as logger from '../utils/logger';
 import "../styles/Usuarios.css";
 
 const CrearUsuario = () => {
@@ -75,7 +76,7 @@ const CrearUsuario = () => {
       setMensajeAlerta({ tipo: "exito", mensaje: "Usuario creado exitosamente" });
       setFormData({ name: "", password: "", confirmPassword: "", role: "" });
     } catch (error) {
-      console.error("Error al crear el usuario:", error);
+      logger.error("Error al crear el usuario:", error);
       setMensajeAlerta({ tipo: "error", mensaje: "Error al crear el usuario" });
     } finally {
       setIsLoading(false);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../utils/api";
 import DatePicker from "react-datepicker";
+import * as logger from '../../utils/logger';
 import "react-datepicker/dist/react-datepicker.css";
 import AlertaMensaje from "../AlertaMensaje/AlertaMensaje"; // Componente para mostrar alertas
 import "../../styles/ConfiguracionReservas.css";
@@ -25,7 +26,7 @@ const ConfiguracionReservas = () => {
   });
 
   const diasSemana = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
-  const fechaActual = new Date().toISOString().slice(0, 10);
+  new Date().toISOString().slice(0, 10);
 
   useEffect(() => {
     const fetchDatos = async () => {
@@ -41,7 +42,7 @@ const ConfiguracionReservas = () => {
           setDiasHabilitados(resDisp.data);
         }
       } catch (error) {
-        console.error("Error al obtener configuración:", error);
+        logger.error("Error al obtener configuración:", error);
       }
     };
 
@@ -81,7 +82,7 @@ const ConfiguracionReservas = () => {
 
       setMensajeAlerta({ tipo: "exito", mensaje: "Configuración y disponibilidad guardadas correctamente" });
     } catch (err) {
-      console.error("Error al guardar:", err);
+      logger.error("Error al guardar:", err);
       setMensajeAlerta({ tipo: "error", mensaje: "Error al guardar la configuración" });
     }
   };

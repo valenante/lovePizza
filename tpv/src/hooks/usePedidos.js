@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../utils/api";
+import * as logger from '../utils/logger';
 
 const usePedidosMesa = (mesa, setMesa) => {
   const [mensajeAlerta, setMensajeAlerta] = useState(null);
@@ -47,7 +48,7 @@ const usePedidosMesa = (mesa, setMesa) => {
 
       window.location.reload();
     } catch (error) {
-      console.error("Error al agregar el producto al pedido:", error);
+      logger.error("Error al agregar el producto al pedido:", error);
       setMensajeAlerta({
         tipo: "error",
         mensaje: error.response?.data?.error || "Hubo un problema.",
@@ -71,7 +72,7 @@ const usePedidosMesa = (mesa, setMesa) => {
 
         window.location.reload();
       } catch (error) {
-        console.error("Error al eliminar el producto:", error);
+        logger.error("Error al eliminar el producto:", error);
         setMensajeAlerta({
           tipo: "error",
           mensaje: "Hubo un problema al eliminar el producto.",

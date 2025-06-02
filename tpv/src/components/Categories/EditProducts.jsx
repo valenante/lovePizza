@@ -11,7 +11,6 @@ const EditProduct = ({ product, onSave, onCancel, onDelete }) => {
     handleDrop,
     handleFileChange,
   } = useContext(ImageContext);
-  const [imageFile, setImageFile] = useState(null);
   const [formData, setFormData] = useState({ ...product });
   const [errors, setErrors] = useState({});
 
@@ -97,12 +96,6 @@ const EditProduct = ({ product, onSave, onCancel, onDelete }) => {
       return;
     }
     onSave(formData); // Llama a la función onSave con los datos válidos
-  };
-
-  const handleDelete = () => {
-    if (window.confirm("¿Estás seguro de que deseas eliminar este producto?")) {
-      onDelete(product._id); // Llama a la función onDelete con el ID del producto
-    }
   };
 
   const hasErrors = Object.values(errors).some((error) => error);
@@ -241,7 +234,7 @@ const EditProduct = ({ product, onSave, onCancel, onDelete }) => {
               <label className="label--editar">
                 Precio Ración:
                 <input
-                  type="number"
+                  type="number"m
                   name="precios.racion"
                   value={formData.precios.racion || ""}
                   onChange={handleChange}

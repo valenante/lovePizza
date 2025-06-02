@@ -3,8 +3,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { i18n } from "@lingui/core";  // Importa i18n
 import { useComensal } from "../../context/ComensalesContext"; // Contexto para manejar comensales
 import { LanguageContext } from "../../context/LanguageContext"; // Contexto para cambiar el idioma
-import AlertaMensaje from "../../components/AlertaMensaje/AlertaMensaje"; // Componente para mostrar alertas
 import api from "../../utils/api";
+import * as logger from '../../utils/logger';
 import './PreMenu.css'
 
 const PreMenu = () => {
@@ -32,7 +32,7 @@ const PreMenu = () => {
         const tokenLider = response.data.tokenLider;
         setEsLider(!tokenLider); // Si no hay tokenLider, el usuario será el líder
       } catch (error) {
-        console.error("Error al verificar el tokenLider:", error);
+        logger.error("Error al verificar el tokenLider:", error);
       setMensajeAlerta({ tipo: "error", mensaje: "No se pudo verificar la mesa" });
         navigate("/");
       }
@@ -153,7 +153,7 @@ const PreMenu = () => {
 
       navigate(`/carta?mesa=${mesa}`);
     } catch (error) {
-      console.error("❌ Error al procesar la solicitud:", error);
+      logger.error("❌ Error al procesar la solicitud:", error);
       setMensajeAlerta({ tipo: "error", mensaje: "Hubo un error al procesar la solicitud." });
     } finally {
       setIsLoading(false);
