@@ -1718,3 +1718,419 @@
 [2025-06-04 17:07:23] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:23.764Z
 [2025-06-04 17:07:24] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:24.148Z
 [2025-06-04 17:07:29] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:29.467Z
+[2025-06-04 17:17:35] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:17:35] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:18:29] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:29.633Z
+[2025-06-04 17:18:33] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:33.620Z
+[2025-06-04 17:18:34] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:34.526Z
+[2025-06-04 17:18:34] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:34.878Z
+[2025-06-04 17:18:35] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:35.204Z
+[2025-06-04 17:18:35] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:35.540Z
+[2025-06-04 17:18:35] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:35.895Z
+[2025-06-04 17:18:36] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:36.244Z
+[2025-06-04 17:18:36] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:36.606Z
+[2025-06-04 17:18:36] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:36.980Z
+[2025-06-04 17:18:37] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:37.365Z
+[2025-06-04 17:18:37] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:37.756Z
+[2025-06-04 17:18:38] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:38.133Z
+[2025-06-04 17:18:38] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:38.494Z
+[2025-06-04 17:18:38] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:38.892Z
+[2025-06-04 17:18:39] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:39.252Z
+[2025-06-04 17:18:39] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:39.596Z
+[2025-06-04 17:18:39] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:39.958Z
+[2025-06-04 17:18:40] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:40.310Z
+[2025-06-04 17:18:40] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:18:40.654Z
+[2025-06-04 17:19:21] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:19:21.003Z
+[2025-06-04 17:19:25] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:19:25.136Z
+[2025-06-04 17:19:32] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:19:32.891Z
+[2025-06-04 17:19:33] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:19:33.357Z
+[2025-06-04 17:19:34] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:19:34.198Z
+[2025-06-04 17:19:43] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:19:43.219Z
+[2025-06-04 17:20:56] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:20:56] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:21:15] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:21:15.522Z
+[2025-06-04 17:21:16] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:21:16.561Z
+[2025-06-04 17:21:17] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:21:17.271Z
+[2025-06-04 17:21:17] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:21:17.792Z
+[2025-06-04 17:21:18] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:21:18.208Z
+[2025-06-04 17:21:18] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:21:18.720Z
+[2025-06-04 17:21:19] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:21:19.104Z
+[2025-06-04 17:22:36] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:22:36] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:22:41] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:22:41.573Z
+[2025-06-04 17:22:41] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:22:41] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:22:41] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:22:42] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:22:42.419Z
+[2025-06-04 17:22:42] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:22:42] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:22:42] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:22:43] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:22:43.594Z
+[2025-06-04 17:22:43] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:22:43] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:22:43] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:22:45] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:22:45.588Z
+[2025-06-04 17:22:45] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:22:45] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:22:45] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:22:46] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:22:46.869Z
+[2025-06-04 17:22:46] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:22:46] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:22:46] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:22:47] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:22:47.994Z
+[2025-06-04 17:22:47] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:22:47] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:22:47] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:22:48] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:22:48.947Z
+[2025-06-04 17:22:48] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:22:48] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:22:48] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:22:49] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:22:49.810Z
+[2025-06-04 17:22:49] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:22:49] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:22:49] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:24:05] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:24:05] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:24:09] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:24:09.040Z
+[2025-06-04 17:24:09] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:24:09] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:24:09] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:24:10] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:24:10.300Z
+[2025-06-04 17:24:10] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:24:10] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:24:10] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:24:11] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:24:11.677Z
+[2025-06-04 17:24:11] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:24:11] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:24:11] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:24:12] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:24:12.596Z
+[2025-06-04 17:24:12] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:24:12] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:24:12] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:24:13] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:24:13.268Z
+[2025-06-04 17:24:13] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:24:13] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:24:13] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:24:13] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:24:13.765Z
+[2025-06-04 17:24:13] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:24:13] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:24:13] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:26:59] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:26:59] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:27:05] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:27:05.891Z
+[2025-06-04 17:27:05] DEBUG: [SESSION] Estado inicial → failedAttempts=undefined, lockedUntil=undefined
+[2025-06-04 17:27:05] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=1
+[2025-06-04 17:27:05] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:27:07] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:27:07.138Z
+[2025-06-04 17:27:07] DEBUG: [SESSION] Estado inicial → failedAttempts=2, lockedUntil=undefined
+[2025-06-04 17:27:07] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=3
+[2025-06-04 17:27:07] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:27:07] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:27:07.892Z
+[2025-06-04 17:27:07] DEBUG: [SESSION] Estado inicial → failedAttempts=4, lockedUntil=undefined
+[2025-06-04 17:27:07] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=5
+[2025-06-04 17:27:07] WARN: [LOGIN BLOQUEADO] Valen ha alcanzado 5 intentos. Bloqueado por 15 minutos.
+[2025-06-04 17:27:07] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:27:11] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:27:11.785Z
+[2025-06-04 17:27:11] DEBUG: [SESSION] Estado inicial → failedAttempts=5, lockedUntil=undefined
+[2025-06-04 17:27:11] DEBUG: [SESSION] Intento fallido actualizado → failedAttempts=6
+[2025-06-04 17:27:11] WARN: [LOGIN BLOQUEADO] Valen ha alcanzado 6 intentos. Bloqueado por 15 minutos.
+[2025-06-04 17:27:11] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:27:24] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:27:24.899Z
+[2025-06-04 17:27:24] DEBUG: [SESSION] Estado inicial → failedAttempts=6, lockedUntil=1749051731785
+[2025-06-04 17:27:24] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:28:35] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:28:35.708Z
+[2025-06-04 17:28:35] DEBUG: [SESSION] Estado inicial → failedAttempts=6, lockedUntil=1749051731785
+[2025-06-04 17:28:35] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (14 minutos restantes).
+[2025-06-04 17:31:46] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:31:46] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:31:49] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:31:49.727Z
+[2025-06-04 17:31:49] DEBUG: [USUARIO] Estado → failedAttempts=0, blockedUntil=null
+[2025-06-04 17:31:49] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Bau.
+[2025-06-04 17:31:57] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:31:57.102Z
+[2025-06-04 17:31:57] DEBUG: [USUARIO] Estado → failedAttempts=0, blockedUntil=null
+[2025-06-04 17:31:57] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:32:02] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:32:02.761Z
+[2025-06-04 17:32:02] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=null
+[2025-06-04 17:32:02] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:32:03] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:32:03.934Z
+[2025-06-04 17:32:03] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=null
+[2025-06-04 17:32:04] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:32:04] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:32:04.980Z
+[2025-06-04 17:32:05] DEBUG: [USUARIO] Estado → failedAttempts=3, blockedUntil=null
+[2025-06-04 17:32:05] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:32:05] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:32:05.997Z
+[2025-06-04 17:32:06] DEBUG: [USUARIO] Estado → failedAttempts=4, blockedUntil=null
+[2025-06-04 17:32:06] WARN: [LOGIN BLOQUEADO] Valen ha alcanzado 5 intentos. Bloqueado por 15 minutos.
+[2025-06-04 17:32:06] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:32:16] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:32:16.757Z
+[2025-06-04 17:32:16] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=null
+[2025-06-04 17:32:16] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Bau.
+[2025-06-04 17:32:27] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:32:27.621Z
+[2025-06-04 17:32:27] DEBUG: [USUARIO] Estado → failedAttempts=5, blockedUntil=1749052025997
+[2025-06-04 17:32:27] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:32:31] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:32:31.283Z
+[2025-06-04 17:32:31] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=null
+[2025-06-04 17:32:31] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Bau.
+[2025-06-04 17:33:46] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:33:46] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:33:56] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:33:56.578Z
+[2025-06-04 17:33:56] DEBUG: [USUARIO] Estado → failedAttempts=3, blockedUntil=null
+[2025-06-04 17:33:56] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Bau.
+[2025-06-04 17:34:16] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:34:16.188Z
+[2025-06-04 17:34:16] DEBUG: [USUARIO] Estado → failedAttempts=4, blockedUntil=null
+[2025-06-04 17:34:16] WARN: [LOGIN BLOQUEADO] Bau ha alcanzado 5 intentos. Bloqueado por 15 minutos.
+[2025-06-04 17:34:16] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Bau: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:37:26] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:37:26] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:37:28] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:37:28.755Z
+[2025-06-04 17:37:28] DEBUG: [USUARIO] Estado → failedAttempts=5, blockedUntil=1749052156188
+[2025-06-04 17:37:28] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (12 minutos restantes).
+[2025-06-04 17:37:55] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:37:55.532Z
+[2025-06-04 17:37:55] DEBUG: [USUARIO] Estado → failedAttempts=0, blockedUntil=null
+[2025-06-04 17:37:55] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:37:56] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:37:56.847Z
+[2025-06-04 17:37:56] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=null
+[2025-06-04 17:37:56] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:37:57] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:37:57.671Z
+[2025-06-04 17:37:57] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=null
+[2025-06-04 17:37:57] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:37:58] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:37:58.696Z
+[2025-06-04 17:37:58] DEBUG: [USUARIO] Estado → failedAttempts=3, blockedUntil=null
+[2025-06-04 17:37:58] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:37:59] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:37:59.631Z
+[2025-06-04 17:37:59] DEBUG: [USUARIO] Estado → failedAttempts=4, blockedUntil=null
+[2025-06-04 17:37:59] WARN: [LOGIN BLOQUEADO] Valen ha alcanzado 5 intentos. Bloqueado por 15 minutos.
+[2025-06-04 17:37:59] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:38:00] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:38:00.554Z
+[2025-06-04 17:38:00] DEBUG: [USUARIO] Estado → failedAttempts=5, blockedUntil=1749052379631
+[2025-06-04 17:38:00] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:38:02] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:38:02.527Z
+[2025-06-04 17:38:02] DEBUG: [USUARIO] Estado → failedAttempts=5, blockedUntil=1749052379631
+[2025-06-04 17:38:02] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:38:06] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:38:06.641Z
+[2025-06-04 17:38:06] DEBUG: [USUARIO] Estado → failedAttempts=5, blockedUntil=1749052379631
+[2025-06-04 17:38:06] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:39:05] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:39:05] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:39:20] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:39:20.865Z
+[2025-06-04 17:39:20] DEBUG: [USUARIO] Estado → failedAttempts=0, blockedUntil=null
+[2025-06-04 17:39:20] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:39:22] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:39:22.597Z
+[2025-06-04 17:39:22] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052461183
+[2025-06-04 17:39:22] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:39:23] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:39:23.806Z
+[2025-06-04 17:39:23] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052461183
+[2025-06-04 17:39:23] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:39:32] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:39:32] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:39:51] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:39:51.697Z
+[2025-06-04 17:39:51] DEBUG: [USUARIO] Estado → failedAttempts=0, blockedUntil=null
+[2025-06-04 17:39:51] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:39:53] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:39:53.080Z
+[2025-06-04 17:39:53] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=null
+[2025-06-04 17:39:53] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:39:53] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:39:53.680Z
+[2025-06-04 17:39:53] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=null
+[2025-06-04 17:39:53] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:39:54] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:39:54.331Z
+[2025-06-04 17:39:54] DEBUG: [USUARIO] Estado → failedAttempts=3, blockedUntil=null
+[2025-06-04 17:39:54] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:39:54] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:39:54.911Z
+[2025-06-04 17:39:54] DEBUG: [USUARIO] Estado → failedAttempts=4, blockedUntil=null
+[2025-06-04 17:39:55] WARN: [LOGIN BLOQUEADO] Valen ha alcanzado 5 intentos. Bloqueado por 15 minutos.
+[2025-06-04 17:39:55] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:42:18] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:42:18] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:42:21] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:42:21.836Z
+[2025-06-04 17:42:21] DEBUG: [USUARIO] Estado → failedAttempts=5, blockedUntil=1749052494911
+[2025-06-04 17:42:21] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (13 minutos restantes).
+[2025-06-04 17:42:45] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:42:45.495Z
+[2025-06-04 17:42:45] DEBUG: [USUARIO] Estado → failedAttempts=0, blockedUntil=null
+[2025-06-04 17:42:45] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:42:48] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:42:48.782Z
+[2025-06-04 17:42:48] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052665798
+[2025-06-04 17:42:48] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:42:52] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:42:52.129Z
+[2025-06-04 17:42:52] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052665798
+[2025-06-04 17:42:52] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:42:52] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:42:52.949Z
+[2025-06-04 17:42:52] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052665798
+[2025-06-04 17:42:52] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:42:55] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:42:55] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:43:07] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:43:07] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:43:11] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:11.761Z
+[2025-06-04 17:43:11] DEBUG: [USUARIO] Estado → failedAttempts=0, blockedUntil=null
+[2025-06-04 17:43:11] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:43:16] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:16.747Z
+[2025-06-04 17:43:16] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052692079
+[2025-06-04 17:43:16] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:18] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:18.358Z
+[2025-06-04 17:43:18] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052692079
+[2025-06-04 17:43:18] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:19] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:19.863Z
+[2025-06-04 17:43:19] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052692079
+[2025-06-04 17:43:19] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:21] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:21.095Z
+[2025-06-04 17:43:21] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052692079
+[2025-06-04 17:43:21] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:49] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:49.029Z
+[2025-06-04 17:43:49] DEBUG: [USUARIO] Estado → failedAttempts=0, blockedUntil=null
+[2025-06-04 17:43:49] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Bau.
+[2025-06-04 17:43:50] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:50.143Z
+[2025-06-04 17:43:50] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:43:50] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:50] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:50.704Z
+[2025-06-04 17:43:50] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:43:50] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:51] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:51.208Z
+[2025-06-04 17:43:51] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:43:51] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:51] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:51.617Z
+[2025-06-04 17:43:51] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:43:51] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:51] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:51.951Z
+[2025-06-04 17:43:51] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:43:51] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:52] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:52.273Z
+[2025-06-04 17:43:52] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:43:52] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:52] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:52.631Z
+[2025-06-04 17:43:52] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:43:52] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:52] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:52.984Z
+[2025-06-04 17:43:53] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:43:53] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:53] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:53.190Z
+[2025-06-04 17:43:53] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:43:53] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:53] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:53.383Z
+[2025-06-04 17:43:53] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:43:53] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:53] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:53.776Z
+[2025-06-04 17:43:53] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:43:53] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:43:54] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:43:54.657Z
+[2025-06-04 17:43:54] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:43:54] WARN: [LOGIN BLOQUEADO] Bau aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:44:35] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:44:35] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:44:40] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:44:40.978Z
+[2025-06-04 17:44:41] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=null
+[2025-06-04 17:44:41] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:44:47] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:44:47.005Z
+[2025-06-04 17:44:47] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=null
+[2025-06-04 17:44:47] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:44:48] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:44:48.412Z
+[2025-06-04 17:44:48] DEBUG: [USUARIO] Estado → failedAttempts=3, blockedUntil=null
+[2025-06-04 17:44:48] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:44:49] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:44:49.322Z
+[2025-06-04 17:44:49] DEBUG: [USUARIO] Estado → failedAttempts=4, blockedUntil=null
+[2025-06-04 17:44:49] WARN: [LOGIN BLOQUEADO] Valen ha alcanzado 5 intentos. Bloqueado por 15 minutos.
+[2025-06-04 17:44:49] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:45:42] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:45:42] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:46:03] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:46:03] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:46:06] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:46:06.415Z
+[2025-06-04 17:46:06] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=null
+[2025-06-04 17:46:06] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:46:10] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:46:10.137Z
+[2025-06-04 17:46:10] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=null
+[2025-06-04 17:46:10] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:46:11] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:46:11.224Z
+[2025-06-04 17:46:11] DEBUG: [USUARIO] Estado → failedAttempts=3, blockedUntil=null
+[2025-06-04 17:46:11] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:46:12] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:46:12.035Z
+[2025-06-04 17:46:12] DEBUG: [USUARIO] Estado → failedAttempts=4, blockedUntil=null
+[2025-06-04 17:46:12] WARN: [LOGIN BLOQUEADO] Valen ha alcanzado 5 intentos. Bloqueado por 15 minutos.
+[2025-06-04 17:46:12] DEBUG: enviarEmail llamado con to=undefined, subject=⚠️ Cuenta bloqueada por intentos fallidos
+[2025-06-04 17:46:12] ERROR: Error al hacer append básico en form-data: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:46:12] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:47:19] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:47:19] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:47:34] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:47:34] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:47:38] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:47:38.098Z
+[2025-06-04 17:47:38] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=null
+[2025-06-04 17:47:38] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:47:39] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:47:39.330Z
+[2025-06-04 17:47:39] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=null
+[2025-06-04 17:47:39] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:47:40] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:47:40.043Z
+[2025-06-04 17:47:40] DEBUG: [USUARIO] Estado → failedAttempts=3, blockedUntil=null
+[2025-06-04 17:47:40] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:47:40] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:47:40.970Z
+[2025-06-04 17:47:41] DEBUG: [USUARIO] Estado → failedAttempts=4, blockedUntil=1749052960345
+[2025-06-04 17:47:41] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:47:46] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:47:46.062Z
+[2025-06-04 17:47:46] DEBUG: [USUARIO] Estado → failedAttempts=4, blockedUntil=1749052960345
+[2025-06-04 17:47:46] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:47:46] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:47:46.753Z
+[2025-06-04 17:47:46] DEBUG: [USUARIO] Estado → failedAttempts=4, blockedUntil=1749052960345
+[2025-06-04 17:47:46] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:48:26] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:48:26] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:48:30] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:30.119Z
+[2025-06-04 17:48:30] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=null
+[2025-06-04 17:48:30] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Valen.
+[2025-06-04 17:48:32] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:32.608Z
+[2025-06-04 17:48:32] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=1749053010440
+[2025-06-04 17:48:32] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:48:33] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:33.278Z
+[2025-06-04 17:48:33] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=1749053010440
+[2025-06-04 17:48:33] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:48:33] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:33.794Z
+[2025-06-04 17:48:33] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=1749053010440
+[2025-06-04 17:48:33] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:48:34] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:34.066Z
+[2025-06-04 17:48:34] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=1749053010440
+[2025-06-04 17:48:34] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:48:34] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:34.445Z
+[2025-06-04 17:48:34] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=1749053010440
+[2025-06-04 17:48:34] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:48:34] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:34.825Z
+[2025-06-04 17:48:34] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=1749053010440
+[2025-06-04 17:48:34] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:48:35] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:35.179Z
+[2025-06-04 17:48:35] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=1749053010440
+[2025-06-04 17:48:35] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:48:35] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:35.519Z
+[2025-06-04 17:48:35] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=1749053010440
+[2025-06-04 17:48:35] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:48:35] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:35.871Z
+[2025-06-04 17:48:35] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=1749053010440
+[2025-06-04 17:48:35] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:48:36] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:36.233Z
+[2025-06-04 17:48:36] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=1749053010440
+[2025-06-04 17:48:36] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:48:36] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:36.567Z
+[2025-06-04 17:48:36] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=1749053010440
+[2025-06-04 17:48:36] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:48:36] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:48:36.919Z
+[2025-06-04 17:48:36] DEBUG: [USUARIO] Estado → failedAttempts=2, blockedUntil=1749053010440
+[2025-06-04 17:48:36] WARN: [LOGIN BLOQUEADO] Valen aún está bloqueado (15 minutos restantes).
+[2025-06-04 17:49:05] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:49:05] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:51:48] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:51:48] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:51:52] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:51:52.287Z
+[2025-06-04 17:51:52] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:51:57] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:51:57.423Z
+[2025-06-04 17:51:57] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:52:00] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:52:00] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:52:01] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:52:01.483Z
+[2025-06-04 17:52:01] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:56:04] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:56:04.922Z
+[2025-06-04 17:56:04] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:58:47] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:58:47.171Z
+[2025-06-04 17:58:47] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:59:06] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:59:06.804Z
+[2025-06-04 17:59:06] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=1749052729328
+[2025-06-04 17:59:06] INFO: [LOGIN] Desbloqueando automáticamente a Bau (bloqueo expirado).
+[2025-06-04 17:59:06] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Bau.
+[2025-06-04 17:59:12] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:59:12.043Z
+[2025-06-04 17:59:12] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=null
+[2025-06-04 17:59:12] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Bau.

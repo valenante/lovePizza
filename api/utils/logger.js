@@ -11,13 +11,13 @@ const logFormat = format.combine(
 
 // Crear el logger
 const logger = createLogger({
-  level: 'info',
+  level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
   format: logFormat,
   transports: [
     new transports.Console(),
-    new transports.File({ filename: 'logs/error.log', level: 'error' }), // Guardar errores
-    new transports.File({ filename: 'logs/combined.log' }), // Guardar todos los logs
-    new transports.File({ filename: 'logs/rate-limit.log', level: 'warn' }), // Guardar intentos bloqueados
+    new transports.File({ filename: 'logs/error.log', level: 'error' }),
+    new transports.File({ filename: 'logs/combined.log' }),
+    new transports.File({ filename: 'logs/rate-limit.log', level: 'warn' }),
   ],
 });
 

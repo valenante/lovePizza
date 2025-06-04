@@ -80,3 +80,12 @@
 [2025-06-02 15:02:54] ERROR: Promesa no manejada: ReferenceError: info is not defined
 [2025-06-02 15:03:11] ERROR: Promesa no manejada: ReferenceError: info is not defined
 [2025-06-04 17:00:24] ERROR: Error al registrar el usuario: E11000 duplicate key error collection: LovePizza.users index: email_1 dup key: { email: null }
+[2025-06-04 17:27:07] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:27:11] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:32:06] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:34:16] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Bau: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:37:59] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:39:55] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:44:49] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:46:12] ERROR: Error al hacer append básico en form-data: Cannot read properties of undefined (reading 'name')
+[2025-06-04 17:46:12] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')

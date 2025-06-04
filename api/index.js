@@ -37,7 +37,6 @@ import disponibilidadRoutes from './src/routes/disponibilidadRoutes.js'; // ✅ 
 import facturasRoutes from './src/routes/facturasRoutes.js'; // ✅ Importamos las rutas de facturas
 import imprimirRoutes from './src/routes/imprimirRoutes.js'; // ✅ Importamos las rutas de impresión
 import configuracionRoutes from './src/routes/configuracionRoutes.js'; // Importar las rutas de configuración global
-
 // Configurar dotenv
 config();
 
@@ -45,13 +44,19 @@ config();
 const app = express();
 const server = createServer(app);
 
-// Middleware para parsear cookies
+// Middleware de compresión HTTP
+app.use(compression());
+
+// Middleware para parsear JSON y formularios (PRIMERO)
+app.use(express.json({ limit: '10kb' }));
+app.use(express.urlencoded({ extended: true }));
+
+// Cookies y sesión (DESPUÉS de parsear)
 app.use(cookieParser());
-// Configurar CORS
 app.use(cors(corsOptions));
-// Configurar sesión
 app.use(session(sessionConfig));
 
+// (OPCIONAL - para debug o tracking de sesiones)
 app.use((req, res, next) => {
   if (!req.session.views) {
     req.session.views = 1;
@@ -60,13 +65,6 @@ app.use((req, res, next) => {
   }
   next();
 });
-
-// Middleware de compresión HTTP
-app.use(compression());
-
-// Middleware para parsear JSON y formularios
-app.use(express.json({ limit: '10kb' }));
-app.use(express.urlencoded({ extended: true }));
 
 // Middleware de seguridad
 app.use(helmet());
