@@ -11,14 +11,6 @@ import {
 import { logAndNotifyLogin } from '../middlewares/failedSesionMiddleware.js';
 import rateLimit from 'express-rate-limit';
 
-// Middleware para limitar intentos de inicio de sesión
-const loginLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 5, // Límite de 5 intentos
-  message:
-    'Demasiados intentos fallidos. Por favor, inténtalo de nuevo más tarde.',
-});
-
 // Middleware para registrar intentos de inicio de sesión
 const logIntentoLogin = (req, res, next) => {
   next();
@@ -27,7 +19,6 @@ const logIntentoLogin = (req, res, next) => {
 // Ruta de inicio de sesión
 router.post(
   '/login',
-  loginLimiter,
   logIntentoLogin,
   logAndNotifyLogin,
   [check('password', 'La contraseña es obligatoria').notEmpty()],

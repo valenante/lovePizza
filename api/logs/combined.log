@@ -1679,3 +1679,42 @@
 [2025-06-02 15:03:31] INFO: ✅ Redis conectado correctamente
 [2025-06-02 15:03:31] INFO: Servidor escuchando en el puerto 3000
 [2025-06-02 15:03:32] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-02T13:03:32.637Z
+[2025-06-04 16:56:13] INFO: ✅ Redis conectado correctamente
+[2025-06-04 16:56:13] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 16:58:13] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T14:58:13.908Z
+[2025-06-04 16:58:26] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T14:58:26.905Z
+[2025-06-04 16:58:27] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T14:58:27.966Z
+[2025-06-04 16:58:28] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T14:58:28.320Z
+[2025-06-04 16:58:28] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T14:58:28.673Z
+[2025-06-04 17:00:07] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:00:07] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:00:24] ERROR: Error al registrar el usuario: E11000 duplicate key error collection: LovePizza.users index: email_1 dup key: { email: null }
+[2025-06-04 17:02:59] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:02:59] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:04:40] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:04:40] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:04:41] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:04:41.756Z
+[2025-06-04 17:04:45] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:04:45.264Z
+[2025-06-04 17:04:46] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:04:46.216Z
+[2025-06-04 17:04:46] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:04:46.712Z
+[2025-06-04 17:04:47] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:04:47.340Z
+[2025-06-04 17:06:52] INFO: ✅ Redis conectado correctamente
+[2025-06-04 17:06:52] INFO: Servidor escuchando en el puerto 3000
+[2025-06-04 17:06:54] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:06:54.988Z
+[2025-06-04 17:07:02] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:02.078Z
+[2025-06-04 17:07:02] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:02.907Z
+[2025-06-04 17:07:03] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:03.445Z
+[2025-06-04 17:07:04] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:04.068Z
+[2025-06-04 17:07:04] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:04.661Z
+[2025-06-04 17:07:05] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:05.523Z
+[2025-06-04 17:07:06] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:06.267Z
+[2025-06-04 17:07:06] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:06.894Z
+[2025-06-04 17:07:21] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:21.480Z
+[2025-06-04 17:07:21] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:21.822Z
+[2025-06-04 17:07:22] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:22.211Z
+[2025-06-04 17:07:22] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:22.587Z
+[2025-06-04 17:07:22] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:22.989Z
+[2025-06-04 17:07:23] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:23.380Z
+[2025-06-04 17:07:23] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:23.764Z
+[2025-06-04 17:07:24] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:24.148Z
+[2025-06-04 17:07:29] INFO: [LOGIN ATTEMPT] Usuario: Valen, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:07:29.467Z
