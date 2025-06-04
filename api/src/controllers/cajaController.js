@@ -2,6 +2,8 @@
 import { fileURLToPath } from 'url';
 import path from 'path';
 
+
+import logger from '../../utils/logger.js';
 // Terceros
 import axios from 'axios';
 import PDFDocument from 'pdfkit';

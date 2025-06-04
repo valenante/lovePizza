@@ -2,7 +2,6 @@ import express from 'express';
 import { config } from 'dotenv';
 import compression from 'compression';
 import logger from './utils/logger.js';
-console.log('¿logger está definido?', logger);
 import { createServer } from 'http';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
