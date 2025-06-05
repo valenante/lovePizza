@@ -1,4 +1,5 @@
 import Mesa from '../models/Mesa.js';
+import logger from '../../utils/logger.js'; // Asegúrate de tener un logger configurado
 
 const verificarLider = async (req, res, next) => {
   const { mesa } = req.query; // O req.body si el ID está en el cuerpo

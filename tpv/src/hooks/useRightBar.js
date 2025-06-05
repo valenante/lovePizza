@@ -112,10 +112,14 @@ export const useRightBar = (mesaId) => {
       const { data } = await api.get(`/pedidos/mesa/${mesaId}`);
       setProductosYaPedidos(data || []);
     } catch (error) {
-      logger.error("Error al obtener el pedido de la mesa:", error);
-      setProductosYaPedidos([]);
+      if (error.response?.status === 404) {
+        // 🟡 La mesa aún no tiene pedidos, es totalmente normal
+        setProductosYaPedidos([]);
+        console.info(`[TPV ℹ️] Mesa ${mesaId} sin pedidos actuales.`);
+      } else {
+        logger.error("❌ Error real al obtener el pedido de la mesa:", error);
+      }
     }
-
     setMostrarModalCategoria(true);
   };
 

@@ -2,35 +2,21 @@
 import { Server } from 'socket.io';
 import { config } from 'dotenv';
 import { connect } from 'mongoose';
+import logger from '../utils/logger.js';
 import MongoStore from 'connect-mongo';
 
-// Cargar variables de entorno
 config();
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 // Configuración de CORS
 export const corsOptions = {
   origin: [
-    'http://localhost:3002',
-    'http://172.20.10.7:3002',
-    'http://localhost:3001',
-    'http://172.20.10.7:3001',
     'http://localhost:3000',
-    'http://172.20.10.7:3000',
-    'http://172.20.10.18:3000',
-    'http://172.20.10.18:3001',
-    'http://172.20.10.18:3002',
-    'http://192.168.98.203:3000',
-    'http://192.168.98.203:3001',
-    'http://192.168.98.203:3002',
-    'http://192.168.1.142:3001',
-    'http://192.168.1.142:3002',
-    'http://192.168.18.26:3001',
-    'http://192.168.18.26:3000',
-    'http://192.168.18.26:3002',
-    'http://192.168.1.150:3000',
-    'http://192.168.1.150:3001',
-    'http://192.168.1.150:3002',
+    'http://localhost:3001',
+    'http://localhost:3002',
     'https://valenante.info',
+    // Otros dominios permitidos (IPs locales si las usás en desarrollo)
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Cart-ID'],
@@ -44,25 +30,25 @@ export const sessionConfig = {
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    secure: false,
-    sameSite: 'lax',
+    secure: isProduction, // Solo true en producción
+    sameSite: isProduction ? 'None' : 'Lax',
     maxAge: 15 * 60 * 1000, // 15 minutos
   },
   store: MongoStore.create({
-    mongoUrl: process.env.MONGO_URI, // tu conexión a Mongo Atlas o local
+    mongoUrl: process.env.MONGO_URI,
     collectionName: 'sessions',
-    ttl: 15 * 60, // duración de la sesión en segundos (15 min)
+    ttl: 15 * 60, // en segundos
   }),
 };
 
-// Configuración de Socket.IO
+// Socket.IO
 export const configureSocketIO = (server) => {
   return new Server(server, {
     cors: corsOptions,
   });
 };
 
-// Configuración de MongoDB
+// MongoDB
 const MONGO_URI = process.env.MONGO_URI;
 
 export const connectToDatabase = async () => {
@@ -70,11 +56,12 @@ export const connectToDatabase = async () => {
     await connect(MONGO_URI, {
       useNewUrlParser: true,
     });
+    logger.info('✅ Conectado a MongoDB');
   } catch (error) {
     logger.error('❌ Error al conectar a MongoDB:', error);
-    process.exit(1); // Salir de la aplicación en caso de error crítico
+    process.exit(1);
   }
 };
 
-// Configuración del puerto
+// Puerto
 export const PORT = process.env.PORT || 3000;

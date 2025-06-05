@@ -1,4 +1,5 @@
 import Pedido from '../models/Pedido.js';
+import logger from '../../utils/logger.js'; // Asegúrate de tener un logger configurado
 import Valoracion from '../models/Valoracion.js';
 import Mesa from '../models/Mesa.js';
 import validator from 'validator';

@@ -1,4 +1,5 @@
 import Eliminacion from '../models/Eliminacion.js';
+import logger from '../../utils/logger.js'; // Asegúrate de tener un logger configurado
 
 export const obtenerEliminaciones = async (req, res) => {
   try {

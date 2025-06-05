@@ -184,7 +184,6 @@
 }
 
 .boton-cancelar--productoDetalle:hover {
-  background-color: #e35d00;
   transform: scale(1.05);
 }
 
@@ -202,7 +201,6 @@
 }
 
 .boton-agregar--productoDetalle:hover {
-  background-color: #5c0998;
   transform: scale(1.05);
 }
 

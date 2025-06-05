@@ -2134,3 +2134,54 @@
 [2025-06-04 17:59:12] INFO: [LOGIN ATTEMPT] Usuario: Bau, IP: ::ffff:192.168.1.150, Hora: 2025-06-04T15:59:12.043Z
 [2025-06-04 17:59:12] DEBUG: [USUARIO] Estado → failedAttempts=1, blockedUntil=null
 [2025-06-04 17:59:12] DEBUG: [LOGIN] Continuando hacia el siguiente middleware para Bau.
+[2025-06-05 11:16:42] INFO: ✅ Redis conectado correctamente
+[2025-06-05 11:16:42] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 11:19:23] INFO: ✅ Redis conectado correctamente
+[2025-06-05 11:19:23] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 11:20:44] INFO: ✅ Redis conectado correctamente
+[2025-06-05 11:20:44] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 11:39:10] INFO: ✅ Redis conectado correctamente
+[2025-06-05 11:39:10] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 11:42:11] INFO: ✅ Redis conectado correctamente
+[2025-06-05 11:42:11] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 11:46:58] ERROR: Promesa no manejada: ReferenceError: logger is not defined
+[2025-06-05 11:47:15] INFO: ✅ Redis conectado correctamente
+[2025-06-05 11:47:15] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 11:47:29] ERROR: Promesa no manejada: ReferenceError: logger is not defined
+[2025-06-05 11:48:12] INFO: ✅ Redis conectado correctamente
+[2025-06-05 11:48:12] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 11:48:13] ERROR: Promesa no manejada: ReferenceError: logger is not defined
+[2025-06-05 11:48:41] INFO: ✅ Redis conectado correctamente
+[2025-06-05 11:48:41] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 11:48:46] ERROR: Promesa no manejada: ReferenceError: logger is not defined
+[2025-06-05 11:57:04] INFO: ✅ Redis conectado correctamente
+[2025-06-05 11:57:04] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 11:57:16] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 11:58:52] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 11:58:54] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 11:59:03] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 11:59:05] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 12:01:15] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 12:01:28] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 12:01:36] INFO: ✅ Redis conectado correctamente
+[2025-06-05 12:01:36] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 12:01:38] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 12:03:31] ERROR: ❌ Error en Redis: Socket closed unexpectedly
+[2025-06-05 12:03:31] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-05 12:03:31] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-05 12:03:31] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-05 12:03:31] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-05 12:06:07] INFO: ✅ Redis conectado correctamente
+[2025-06-05 12:06:07] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 12:11:11] INFO: ✅ Redis conectado correctamente
+[2025-06-05 12:11:11] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 12:12:17] INFO: ✅ Redis conectado correctamente
+[2025-06-05 12:12:17] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 12:15:51] INFO: ✅ Redis conectado correctamente
+[2025-06-05 12:15:51] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 12:17:35] INFO: ✅ Redis conectado correctamente
+[2025-06-05 12:17:35] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 12:23:12] INFO: ✅ Redis conectado correctamente
+[2025-06-05 12:23:12] INFO: ✅ Conectado a MongoDB
+[2025-06-05 12:23:12] INFO: Servidor escuchando en el puerto 3000
+[2025-06-05 12:23:13] INFO: ✅ Conectado a MongoDB

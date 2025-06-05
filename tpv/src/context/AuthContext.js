@@ -18,13 +18,17 @@ export const AuthProvider = ({ children }) => {
     const initializeAuth = async () => {
       try {
         const token = await renovarToken(setAccessToken);
+
         if (token) {
           setAccessToken(token);
+          const response = await api.get("/auth/me/me", { withCredentials: true });
+          setUser(response.data.user);
         } else {
           setSessionActive(false);
         }
       } catch (error) {
-        logger.error("Error al inicializar la autenticación:", error);
+        logger.warn("[TPV ⚠️] No autenticado al iniciar:", error?.response?.status || error.message);
+        setSessionActive(false);
       } finally {
         setLoading(false);
       }
@@ -32,21 +36,6 @@ export const AuthProvider = ({ children }) => {
 
     initializeAuth();
   }, []);
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await api.get("/auth/me/me", { withCredentials: true });
-        setUser(response.data.user);
-      } catch (error) {
-        logger.error("No autenticado:", error);
-        navigate("/login");
-      }
-    };
-
-    fetchUser();
-  }, []);
-
 
   useEffect(() => {
     if (!sessionActive || location.pathname === "/login") {

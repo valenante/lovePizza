@@ -1,4 +1,5 @@
 import Pedido from '../models/Pedido.js';
+import logger from '../../utils/logger.js'; // Asegúrate de tener un logger configurado
 import PedidoBebida from '../models/PedidoBebidas.js';
 import Mesa from '../models/Mesa.js';
 import Venta from '../models/Ventas.js';

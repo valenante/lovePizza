@@ -1,4 +1,5 @@
 import Password from '../models/Password.js';
+import logger from '../../utils/logger.js'; // Asegúrate de tener un logger configurado
 
 // Obtener la contraseña
 export const obtenerPassword = async (req, res) => {

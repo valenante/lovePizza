@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Mesa from '../models/Mesa.js';
+import logger from '../../utils/logger.js'; // Asegúrate de tener un logger configurado
 import { io } from '../../index.js';
 
 // Solicitar la cuenta

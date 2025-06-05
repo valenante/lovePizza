@@ -1,5 +1,6 @@
 import Reserva from '../models/Reserva.js';
 import Mesa from '../models/Mesa.js';
+import logger from '../../utils/logger.js'; // Asegúrate de tener un logger configurado
 import ConfiguracionReserva from '../models/ConfiguracionReserva.js';
 import { enviarEmail } from '../../utils/enviarEmail.js';
 

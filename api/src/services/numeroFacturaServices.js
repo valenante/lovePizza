@@ -1,3 +1,4 @@
+/*
 // services/numeroFacturaService.js
 import ContadorFactura from '../models/ContadorFactura.js';
 
@@ -14,3 +15,4 @@ export const obtenerNumeroFactura = async () => {
   await contador.save();
   return `${year}-${contador.lastNumber.toString().padStart(4, '0')}`;
 };
+*/

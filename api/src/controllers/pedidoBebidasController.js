@@ -1,4 +1,5 @@
 import axios from 'axios';
+import logger from '../../utils/logger.js';
 import PedidoBebida from '../models/PedidoBebidas.js';
 import Mesa from '../models/Mesa.js';
 import Venta from '../models/Ventas.js';

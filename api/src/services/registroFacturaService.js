@@ -1,11 +1,7 @@
+/*
 import FacturaHash from '../models/FacturaHash.js';
 import { generarHashFactura } from '../../utils/hashFactura.js';
 
-/**
- * Registra una factura generando hash encadenado.
- * @param {Object} datosFactura - Datos básicos de la factura.
- * @returns {Promise<Object>} - FacturaHash guardada.
- */
 export const registrarFacturaConHash = async (datosFactura) => {
   const {
     numeroFactura,
@@ -49,3 +45,4 @@ export const registrarFacturaConHash = async (datosFactura) => {
   await nuevaFactura.save();
   return nuevaFactura;
 };
+ */

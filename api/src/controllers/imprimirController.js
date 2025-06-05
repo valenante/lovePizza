@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Mesa from '../models/Mesa.js';
+import logger from '../../utils/logger.js'; // Asegúrate de tener un logger configurado
 
 const IMPRESION_SERVER = process.env.IMPRESION_SERVER;
 
@@ -51,7 +52,7 @@ export const imprimirBebidas = async (req, res) => {
   }
 };
 
-// Imprimir factura
+/*
 export const imprimirFactura = async (req, res) => {
   const { mesaId } = req.params;
   const {
@@ -91,7 +92,7 @@ export const imprimirFactura = async (req, res) => {
     res.status(500).json({ error: 'Error al imprimir factura' });
   }
 };
-
+*/
 // Imprimir cuenta
 export const imprimirCuenta = async (req, res) => {
   const { mesaId } = req.params;

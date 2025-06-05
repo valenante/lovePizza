@@ -102,6 +102,7 @@ const SubNavbar = () => {
         >
           Cerrar Caja
         </button>
+        {/*
         <div className="subnavbar-button--subnavbar">
           <select
             onChange={(e) => {
@@ -115,9 +116,7 @@ const SubNavbar = () => {
             <option value="" disabled>Más</option>
             <option value="facturas">Facturas</option>
           </select>
-        </div>
-
-
+        </div>*/}
         <button onClick={logout} className="subnavbar-button--subnavbar">
           Cerrar Sesión
         </button>

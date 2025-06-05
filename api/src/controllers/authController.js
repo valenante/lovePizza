@@ -130,54 +130,29 @@ export const registro = async (req, res) => {
     res.status(500).json({ error: 'Error al registrar el usuario.' });
   }
 };
-
 export const login = async (req, res) => {
   const { name, password } = req.body;
 
   try {
     const user = await User.findOne({ name });
     if (!user) {
-      req.session.failedAttempts = (req.session.failedAttempts || 0) + 1;
-      await req.session.save();
       return res
         .status(404)
         .json({ error: 'Usuario o contraseña incorrectos.' });
     }
 
-    if (user.isBlocked) {
-      const timeLeft = Math.ceil((user.blockedUntil - Date.now()) / 60000);
-      return res.status(403).json({
-        error: `Cuenta bloqueada. Intenta nuevamente en ${timeLeft} minutos.`,
-      });
-    }
-
     const isPasswordValid = await user.comparePassword(password);
     if (!isPasswordValid) {
-      req.session.failedAttempts = (req.session.failedAttempts || 0) + 1;
-
-      if (req.session.failedAttempts >= 5) {
-        user.isBlocked = true;
-        user.blockedUntil = new Date(Date.now() + 15 * 60 * 1000);
-        await user.save();
-        await req.session.save();
-        return res
-          .status(403)
-          .json({ error: 'Cuenta bloqueada por múltiples intentos fallidos.' });
-      }
-
-      await req.session.save();
       return res
         .status(401)
         .json({ error: 'Usuario o contraseña incorrectos.' });
     }
 
-    req.session.failedAttempts = 0;
     req.session.user = {
       id: user._id,
       name: user.name,
       role: user.role,
     };
-
     await req.session.save();
 
     const accessToken = generarAccessToken(user);
@@ -200,10 +175,7 @@ export const login = async (req, res) => {
       },
     });
   } catch (error) {
-    logger.error(
-      '[ERROR] Fallo en el inicio de sesión:',
-      error.message || error
-    );
+    logger.error('[ERROR] Fallo en el inicio de sesión:', error.message || error);
     return res.status(500).json({
       error: 'No se pudo completar el inicio de sesión. Intenta más tarde.',
     });

@@ -1,3 +1,4 @@
+/* 
 import Evento from '../models/Evento';
 
 // Función para registrar un evento
@@ -12,3 +13,4 @@ function registrarEvento(tipo, datos) {
 }
 
 export default registrarEvento;
+*/

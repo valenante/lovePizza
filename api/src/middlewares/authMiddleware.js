@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import logger from '../../utils/logger.js'; // Asegúrate de tener un logger configurado
 
 export const authMiddleware = (req, res, next) => {
   const token = req.cookies.token || req.headers.authorization?.split(' ')[1];

@@ -1,4 +1,5 @@
 import Disponibilidad from '../models/Disponibilidad.js';
+import logger from '../../utils/logger.js'; // Asegúrate de tener un logger configurado
 
 // Obtener configuración actual o crear por defecto
 export const obtenerDisponibilidad = async (req, res) => {

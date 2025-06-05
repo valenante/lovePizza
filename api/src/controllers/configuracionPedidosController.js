@@ -1,4 +1,5 @@
 import ConfiguracionPedidos from '../models/ConfiguracionPedidos.js';
+import logger from '../utils/logger.js'; // Asegúrate de tener un logger configurado
 
 export const obtenerConfiguracion = async (req, res) => {
   try {

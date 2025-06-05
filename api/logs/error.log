@@ -89,3 +89,20 @@
 [2025-06-04 17:44:49] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
 [2025-06-04 17:46:12] ERROR: Error al hacer append básico en form-data: Cannot read properties of undefined (reading 'name')
 [2025-06-04 17:46:12] ERROR: [ERROR EMAIL] No se pudo enviar la alerta para Valen: Cannot read properties of undefined (reading 'name')
+[2025-06-05 11:46:58] ERROR: Promesa no manejada: ReferenceError: logger is not defined
+[2025-06-05 11:47:29] ERROR: Promesa no manejada: ReferenceError: logger is not defined
+[2025-06-05 11:48:13] ERROR: Promesa no manejada: ReferenceError: logger is not defined
+[2025-06-05 11:48:46] ERROR: Promesa no manejada: ReferenceError: logger is not defined
+[2025-06-05 11:57:16] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 11:58:52] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 11:58:54] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 11:59:03] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 11:59:05] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 12:01:15] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 12:01:28] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 12:01:38] ERROR: ❌ Error al imprimir la cuenta: Request failed with status code 500
+[2025-06-05 12:03:31] ERROR: ❌ Error en Redis: Socket closed unexpectedly
+[2025-06-05 12:03:31] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-05 12:03:31] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-05 12:03:31] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-05 12:03:31] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379

@@ -1,4 +1,4 @@
-/* === CREAR USUARIO - REGISTER === */
+/*
 .crear-usuario--register {
   background-color: var(--gris-claro);
   padding: 2rem;
@@ -64,7 +64,6 @@
   margin-bottom: 0.5rem;
 }
 
-/* === FACTURAS - VISOR === */
 .facturas-page {
   padding: 2rem;
   background-color: var(--gris-claro);
@@ -182,7 +181,6 @@
   color: var(--color-principal);
 }
 
-/* === Responsive - FACTURAS === */
 @media (max-width: 768px) {
   .facturas-page {
     padding: 1rem;
@@ -244,3 +242,5 @@
     width: 100%;
   }
 }
+
+*/

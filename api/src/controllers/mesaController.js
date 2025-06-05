@@ -5,10 +5,11 @@ import PedidoBebidas from '../models/PedidoBebidas.js';
 import Caja from '../models/Caja.js';
 import Comensal from '../models/Comensal.js';
 import SesionMesa from '../models/SesionMesa.js';
+import logger from '../../utils/logger.js';
 import { v4 as uuidv4 } from 'uuid'; // Generador de UUID
-import { registrarFacturaConHash } from '../services/registroFacturaService.js';
-import EventoFactura from '../models/EventosFactura.js';
-import { obtenerNumeroFactura } from '../services/numeroFacturaServices.js';
+// import { registrarFacturaConHash } from '../services/registroFacturaService.js';
+//import EventoFactura from '../models/EventosFactura.js';
+//import { obtenerNumeroFactura } from '../services/numeroFacturaServices.js';
 
 export const verificarTokenLider = async (req, res) => {
   //Conseguir el mesaId de los params
@@ -176,8 +177,8 @@ export const cerrarMesa = async (req, res) => {
 
   try {
     const ahora = new Date();
-    let numeroFactura = null;
-    let hashFactura = null;
+    //let numeroFactura = null;
+    //let hashFactura = null;
 
     const mesa = await Mesa.findById(id)
       .populate({
@@ -262,7 +263,7 @@ export const cerrarMesa = async (req, res) => {
       await nuevaCaja.save();
     }
 
-    numeroFactura = await obtenerNumeroFactura();
+    //numeroFactura = await obtenerNumeroFactura();
 
     const productosPlatos = mesa.pedidos.flatMap((pedido) =>
       pedido.productos.map((p) => ({
@@ -282,7 +283,7 @@ export const cerrarMesa = async (req, res) => {
 
     const productos = [...productosPlatos, ...productosBebidas];
 
-    hashFactura = await registrarFacturaConHash({
+    /*hashFactura = await registrarFacturaConHash({
       numeroFactura,
       fechaExpedicion: ahora,
       clienteNombre: clienteNombre || 'Consumidor Final',
@@ -304,7 +305,7 @@ export const cerrarMesa = async (req, res) => {
     });
 
     await eventoFactura.save();
-
+    */
     const sesionActiva = await SesionMesa.findOne({
       mesa: mesa._id,
       estado: 'activa',
@@ -333,20 +334,20 @@ export const cerrarMesa = async (req, res) => {
       mesaCerrada,
       propina: propinaCalculada,
       cambio: cambioCalculado,
-      facturaEmitida: !!hashFactura,
-      numeroFactura,
+      //facturaEmitida: !!hashFactura,
+      //numeroFactura,
       hashFactura: hashFactura?.hash || null,
       fechaExpedicion: ahora.toISOString(),
       datosImpresion: {
         mesaNumero: mesa.numero,
         comensales: mesa.comensales || 1,
-        clienteNombre: clienteNombre || 'Consumidor Final',
-        clienteNIF: clienteNIF || 'N/A',
-        numeroFactura,
+        //clienteNombre: clienteNombre || 'Consumidor Final',
+        //clienteNIF: clienteNIF || 'N/A',
+        //numeroFactura,
         fechaExpedicion: ahora.toISOString(),
         productos,
         total: totalMesa,
-        hash: hashFactura.hash,
+        //hash: hashFactura.hash,
       },
     });
   } catch (error) {

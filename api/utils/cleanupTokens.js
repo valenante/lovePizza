@@ -1,4 +1,5 @@
 import TokenRevocado from '../src/models/TokenRevocado.js';
+import logger from '../src/utils/logger.js'; // Asegúrate de tener un logger configurado
 
 const limpiarTokensExpirados = async () => {
   try {
