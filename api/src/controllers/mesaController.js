@@ -336,7 +336,7 @@ export const cerrarMesa = async (req, res) => {
       cambio: cambioCalculado,
       //facturaEmitida: !!hashFactura,
       //numeroFactura,
-      hashFactura: hashFactura?.hash || null,
+      //hashFactura: hashFactura?.hash || null,
       fechaExpedicion: ahora.toISOString(),
       datosImpresion: {
         mesaNumero: mesa.numero,
