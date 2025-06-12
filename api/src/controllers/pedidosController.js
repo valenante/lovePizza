@@ -11,6 +11,8 @@ import { io } from '../../index.js';
 // Crear un nuevo pedido
 import axios from 'axios';
 
+const IMPRESION_SERVER = process.env.IMPRESION_SERVER
+
 // Crear un nuevo pedido
 export const crearPedido = async (req, res) => {
   try {
@@ -216,7 +218,6 @@ export const agregarProductoAlPedido = async (req, res) => {
     };
 
     try {
-      const IMPRESION_SERVER = 'http://100.91.21.52:4000';
       await axios.post(`${IMPRESION_SERVER}/imprimir`, datosRespuesta);
     } catch (error) {
       logger.error('Error al enviar pedido a la impresora:', error.message);

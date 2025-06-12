@@ -16,12 +16,12 @@ const ProductoCard = ({ producto, estrellas }) => {
     producto.precios.tapa != null
       ? "tapa"
       : producto.precios.racion != null
-      ? "racion"
-      : producto.precios.copa != null
-      ? "copa"
-      : producto.precios.botella != null
-      ? "botella"
-      : "precioBase"
+        ? "racion"
+        : producto.precios.copa != null
+          ? "copa"
+          : producto.precios.botella != null
+            ? "botella"
+            : "precioBase"
   );
   const [seleccionPrecio, setSeleccionPrecio] = useState(
     producto.precios?.[tipoPrecio] ?? producto.precios?.precioBase
@@ -61,40 +61,43 @@ const ProductoCard = ({ producto, estrellas }) => {
   const cerrarModal = () => setMostrarModal(false);
 
   const renderPrecio = () => {
-    if (numeroMesa) return null;
+  const precios = producto.precios || {};
+  const opciones = [];
 
-    const precios = producto.precios || {};
-    const opciones = [];
+  if (precios.tapa != null) opciones.push({ key: "tapa", label: `Tapa - ${precios.tapa} €` });
+  if (precios.racion != null) opciones.push({ key: "racion", label: `Ración - ${precios.racion} €` });
+  if (precios.copa != null) opciones.push({ key: "copa", label: `Copa - ${precios.copa} €` });
+  if (precios.botella != null) opciones.push({ key: "botella", label: `Botella - ${precios.botella} €` });
 
-    if (precios.tapa != null) opciones.push({ key: "tapa", label: `Tapa - ${precios.tapa} €` });
-    if (precios.racion != null) opciones.push({ key: "racion", label: `Ración - ${precios.racion} €` });
-    if (precios.copa != null) opciones.push({ key: "copa", label: `Copa - ${precios.copa} €` });
-    if (precios.botella != null) opciones.push({ key: "botella", label: `Botella - ${precios.botella} €` });
-
-    if (opciones.length > 0) {
-      return (
-        <select
-          value={tipoPrecio}
-          onChange={(e) => {
-            setTipoPrecio(e.target.value);
-            setSeleccionPrecio(precios[e.target.value]);
-          }}
-        >
-          {opciones.map((opt) => (
-            <option key={opt.key} value={opt.key}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
-      );
-    }
-
+  // Si hay más de una opción, mostrar selector (solo si NO hay mesa)
+  if (opciones.length > 0 && !numeroMesa) {
     return (
-      <p className="producto-precio">
-        {precios.precioBase ?? "No disponible"} €
-      </p>
+      <select
+        value={tipoPrecio}
+        onChange={(e) => {
+          setTipoPrecio(e.target.value);
+          setSeleccionPrecio(precios[e.target.value]);
+        }}
+      >
+        {opciones.map((opt) => (
+          <option key={opt.key} value={opt.key}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
     );
-  };
+  }
+
+  // Mostrar precio fijo (aunque haya mesa)
+  const precioFinal = precios?.[tipoPrecio] ?? precios?.precioBase ?? null;
+
+  return (
+    <p className="producto-precio">
+      {precioFinal != null ? `${precioFinal} €` : "No disponible"}
+    </p>
+  );
+};
+
 
   const puedeAgregar = () => {
     if (!numeroMesa) return false; // no mostrar botón si no hay mesa
@@ -121,31 +124,21 @@ const ProductoCard = ({ producto, estrellas }) => {
           </div>
           <div className="producto-precio-boton">
             {renderPrecio()}
-            {puedeAgregar() && (
-              <button onClick={abrirModal} className="agregar-carrito-btn-prodCard">
-                <Trans id="agregar-carrito">Agregar al carrito</Trans>
-              </button>
-            )}
           </div>
+          {puedeAgregar() && (
+            <button onClick={abrirModal} className="agregar-carrito-btn-prodCard">
+              <Trans id="agregar-carrito">Agregar al carrito</Trans>
+            </button>
+          )}
         </div>
       ) : (
         <div className="producto-card-content-prodCard">
           <div className="producto-info-prodCard">
             <h3>{nombreTraducido}</h3>
             <p>{descripcionTraducida}</p>
-            <p>
-              <strong>
-                <Trans id="valoracion">Valoración:</Trans>
-              </strong>{" "}
-              {estrellas ? (
-                <>
-                  {estrellas} <Trans id="estrellas">estrellas</Trans>
-                </>
-              ) : (
-                <Trans id="sin-valoraciones">Sin valoraciones</Trans>
-              )}
-            </p>
-            <div className="producto-precio-boton">{renderPrecio()}</div>
+            <div className="producto-precio-boton">
+              {renderPrecio()}
+            </div>
             {puedeAgregar() && (
               <button onClick={abrirModal} className="agregar-carrito-btn-prodCard">
                 <Trans id="agregar-carrito">Agregar al carrito</Trans>

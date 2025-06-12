@@ -2185,3 +2185,7 @@
 [2025-06-05 12:23:12] INFO: ✅ Conectado a MongoDB
 [2025-06-05 12:23:12] INFO: Servidor escuchando en el puerto 3000
 [2025-06-05 12:23:13] INFO: ✅ Conectado a MongoDB
+[2025-06-12 12:01:07] INFO: ✅ Redis conectado correctamente
+[2025-06-12 12:01:07] INFO: ✅ Conectado a MongoDB
+[2025-06-12 12:01:07] INFO: Servidor escuchando en el puerto 3000
+[2025-06-12 12:01:08] INFO: ✅ Conectado a MongoDB
