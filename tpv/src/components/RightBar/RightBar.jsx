@@ -17,19 +17,37 @@ const RightBar = ({ mesaId }) => {
     productosCategoriaActual, productosYaPedidos, setMostrarModalCategoria
   } = useRightBar(mesaId);
 
+  const eliminarBebidaDelCarrito = (indexAEliminar) => {
+    const nuevoCarrito = [...carritoBebidas];
+    nuevoCarrito.splice(indexAEliminar, 1);
+    setCarritoBebidas(nuevoCarrito);
+  };
+
   return (
     <div className="right-bar--rightbar">
       <div className="filtros-tipo--rightbar">
-        <button onClick={() => setTipo("plato")} className={`boton-tipo--rightbar ${tipo === "plato" ? "activo--rightbar" : ""}`}>Platos</button>
-        <button onClick={() => setTipo("bebida")} className={`boton-tipo--rightbar ${tipo === "bebida" ? "activo--rightbar" : ""}`}>Bebidas</button>
+        <button
+          onClick={() => setTipo("plato")}
+          className={`boton-tipo--rightbar ${tipo === "plato" ? "activo--rightbar" : ""}`}
+        >
+          Platos
+        </button>
+        <button
+          onClick={() => setTipo("bebida")}
+          className={`boton-tipo--rightbar ${tipo === "bebida" ? "activo--rightbar" : ""}`}
+        >
+          Bebidas
+        </button>
       </div>
 
       <div className="categorias--rightbar">
         <ul className="lista-categorias--rightbar">
           {categories.map((categoria) => (
-            <li key={categoria}
+            <li
+              key={categoria}
               className={`categoria--rightbar ${categoria === categoriaSeleccionada ? "seleccionada--rightbar" : ""}`}
-              onClick={() => handleClickCategoria(categoria)}>
+              onClick={() => handleClickCategoria(categoria)}
+            >
               {categoria}
             </li>
           ))}
@@ -56,11 +74,11 @@ const RightBar = ({ mesaId }) => {
         <ModalProductosCategoria
           categoria={categoriaSeleccionada}
           productos={productosCategoriaActual}
-          productosPedidoMesa={productosYaPedidos} // ✅ Aqu
+          productosPedidoMesa={productosYaPedidos}
           onClose={() => setMostrarModalCategoria(false)}
           onProductoClick={(producto) => {
             setMostrarModalCategoria(false);
-            abrirModal(producto); // Reutiliza el modal detalle como antes
+            abrirModal(producto);
           }}
         />
       )}
@@ -68,24 +86,48 @@ const RightBar = ({ mesaId }) => {
       {mostrarResumen && (
         <div className="resumen-pedido-panel">
           <h4>Pedido Actual</h4>
+
+          {/* Platos */}
           <CarritoOrganizable
             carrito={carrito}
             setCarrito={setCarrito}
             enviarPedido={enviarPedido}
             isLoading={isLoading}
           />
+
+          {/* Bebidas */}
           {carritoBebidas.length > 0 && (
-            <div style={{ marginTop: "10px" }}>
-              <h4>Bebidas</h4>
-              <ul>
-                {carritoBebidas.map((bebida, index) => (
-                  <li key={index}>
+            <div className="carrito-section">
+              <h4 className="carrito-section-title">Bebidas</h4>
+              {carritoBebidas.map((bebida, index) => (
+                <div key={index} className="carrito-item">
+                  <div className="carrito-item-nombre">
                     {bebida.nombre} x{bebida.cantidad}
-                  </li>
-                ))}
-              </ul>
+                  </div>
+                  <div className="carrito-item-eliminar">
+                    <button
+                      onClick={() => eliminarBebidaDelCarrito(index)}
+                      className="carrito-eliminar-button"
+                      title="Eliminar"
+                    >
+                      ❌
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
+
+          {/* Botón al final */}
+          <div className="carrito-enviar-container">
+            <button
+              onClick={enviarPedido}
+              disabled={isLoading}
+              className="carrito-enviar-button"
+            >
+              {isLoading ? "Enviando..." : "Enviar Pedido"}
+            </button>
+          </div>
         </div>
       )}
 
@@ -98,6 +140,5 @@ const RightBar = ({ mesaId }) => {
       )}
     </div>
   );
-};
-
+}
 export default RightBar;

@@ -4,7 +4,6 @@
   background-color: var(--blanco);
   border-bottom: 1px solid var(--gris-claro);
   padding: 0.5rem 1rem;
-  box-shadow: var(--sombra-suave);
   z-index: 1000;
 }
 

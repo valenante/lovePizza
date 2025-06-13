@@ -27,7 +27,7 @@ const Home = () => {
               <div className="feature-image-wrapper">
                 <img src={Pizza2} alt="Ambiente" />
                 <div className="feature-text">
-                  <h3>AMBIENTE ACOGEDOR</h3>
+                  <h3>PIZZAS CON AMOR</h3>
                 </div>
               </div>
             </div>
@@ -35,7 +35,7 @@ const Home = () => {
               <div className="feature-image-wrapper">
                 <img src={Pizza3} alt="Ubicación" />
                 <div className="feature-text">
-                  <h3>UBICACIÓN ESTRATÉGICA</h3>
+                  <h3>SERVICIO Y GASTRONOMÍA</h3>
                 </div>
               </div>
             </div>
@@ -43,7 +43,7 @@ const Home = () => {
               <div className="feature-image-wrapper">
                 <img src={Pizza4} alt="Gastronomía" />
                 <div className="feature-text">
-                  <h3>SERVICIO Y GASTRONOMÍA</h3>
+                  <h3>LA MEJOR PIZZA DE TORREMOLINOS</h3>
                 </div>
               </div>
             </div>

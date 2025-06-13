@@ -15,7 +15,7 @@ const HomeCarousel = () => {
   const slides = [
     {
       src: Pizza1,
-      text: "Disfruta de las mejores pizzas de Torremolinos",
+      text: "Multiples premios por nuestras pizzas",
     },
     {
       src: Pizza2,

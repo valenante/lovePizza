@@ -48,7 +48,7 @@ export const imprimirCuenta = async (req, res) => {
         }))
     );
 
-    await axios.post('http://100.91.21.52:4000/imprimir-cuenta', {
+    await axios.post(`${process.env.IMPRESION_SERVER}/imprimir-cuenta`, {
       mesaNumero: mesa.numero,
       comensales: mesa.comensales,
       productos,

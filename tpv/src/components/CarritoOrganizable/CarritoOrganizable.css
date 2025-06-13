@@ -1,22 +1,9 @@
-/* Contenedor general */
-.carrito-organizable-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-height: 80vh;
-  /* Limita la altura para que todo se desplace */
-  overflow-y: auto;
-  padding: 12px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  background-color: #fff;
-}
-
 /* Sección de cada grupo */
 .carrito-section {
   border: 2px solid var(--color-principal);
   border-radius: 12px;
   padding: 16px;
+  margin: 1vh;
   background-color: #f8f6ff;
   transition: background-color 0.3s ease;
 }

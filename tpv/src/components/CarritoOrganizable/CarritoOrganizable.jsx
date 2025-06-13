@@ -21,54 +21,45 @@ const CarritoOrganizable = ({ carrito, setCarrito, enviarPedido, isLoading }) =>
 
     return (
         <DragDropContext onDragEnd={onDragEnd}>
-            <div className="carrito-organizable-container">
-                <Droppable droppableId="carrito">
-                    {(provided, snapshot) => (
-                        <div
-                            ref={provided.innerRef}
-                            {...provided.droppableProps}
-                            className={`carrito-section ${snapshot.isDraggingOver ? "drag-over" : ""}`}
-                        >
-                            {carrito.map((item, index) => (
-                                <Draggable key={item._id + index} draggableId={item._id + index} index={index}>
-                                    {(provided, snapshot) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            className={`carrito-item ${snapshot.isDragging ? "dragging" : ""}`}
-                                        >
-                                            <div className="carrito-item-nombre">
-                                                {item.nombre} x{item.cantidad}
+                <div className="carrito-section">
+                    <h4 className="carrito-section-title">Platos</h4>
+                    <Droppable droppableId="carrito">
+                        {(provided, snapshot) => (
+                            <div
+                                ref={provided.innerRef}
+                                {...provided.droppableProps}
+                                className={`carrito-droppable ${snapshot.isDraggingOver ? "drag-over" : ""}`}
+                            >
+                                {carrito.map((item, index) => (
+                                    <Draggable key={item._id + index} draggableId={item._id + index} index={index}>
+                                        {(provided, snapshot) => (
+                                            <div
+                                                ref={provided.innerRef}
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                                className={`carrito-item ${snapshot.isDragging ? "dragging" : ""}`}
+                                            >
+                                                <div className="carrito-item-nombre">
+                                                    {item.nombre} x{item.cantidad}
+                                                </div>
+                                                <div className="carrito-item-eliminar">
+                                                    <button
+                                                        onClick={() => eliminarProducto(index)}
+                                                        className="carrito-eliminar-button"
+                                                        title="Eliminar"
+                                                    >
+                                                        ❌
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div className="carrito-item-eliminar">
-                                                <button
-                                                    onClick={() => eliminarProducto(index)}
-                                                    className="carrito-eliminar-button"
-                                                    title="Eliminar"
-                                                >
-                                                    ❌
-                                                </button>
-                                            </div>
-                                        </div>
-                                    )}
-                                </Draggable>
-                            ))}
-                            {provided.placeholder}
-                        </div>
-                    )}
-                </Droppable>
-            </div>
-
-            <div className="carrito-enviar-container">
-                <button
-                    onClick={enviarPedido}
-                    disabled={isLoading}
-                    className="carrito-enviar-button"
-                >
-                    {isLoading ? "Enviando..." : "Enviar Pedido"}
-                </button>
-            </div>
+                                        )}
+                                    </Draggable>
+                                ))}
+                                {provided.placeholder}
+                            </div>
+                        )}
+                    </Droppable>
+                </div>
         </DragDropContext>
     );
 };

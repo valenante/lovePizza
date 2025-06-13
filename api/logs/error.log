@@ -106,3 +106,6 @@
 [2025-06-05 12:03:31] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
 [2025-06-05 12:03:31] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
 [2025-06-05 12:03:31] ERROR: ❌ Error en Redis: connect ECONNREFUSED 127.0.0.1:6379
+[2025-06-13 11:01:53] ERROR: Error al enviar pedido de bebidas a la impresora:
+[2025-06-13 11:02:45] ERROR: Error al enviar pedido de bebidas a la impresora:
+[2025-06-13 11:32:20] ERROR: ⚠️ Error cargando la imagen del logo: ENOENT: no such file or directory, open '/home/valenante/Desktop/lovePizza/lovePizza/api/public/images/logoZf.jpg'

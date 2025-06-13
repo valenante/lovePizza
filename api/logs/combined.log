@@ -2189,3 +2189,26 @@
 [2025-06-12 12:01:07] INFO: ✅ Conectado a MongoDB
 [2025-06-12 12:01:07] INFO: Servidor escuchando en el puerto 3000
 [2025-06-12 12:01:08] INFO: ✅ Conectado a MongoDB
+[2025-06-13 10:57:48] INFO: ✅ Redis conectado correctamente
+[2025-06-13 10:57:48] INFO: ✅ Conectado a MongoDB
+[2025-06-13 10:57:48] INFO: Servidor escuchando en el puerto 3000
+[2025-06-13 10:57:48] INFO: ✅ Conectado a MongoDB
+[2025-06-13 11:01:31] INFO: ✅ Redis conectado correctamente
+[2025-06-13 11:01:31] INFO: ✅ Conectado a MongoDB
+[2025-06-13 11:01:31] INFO: Servidor escuchando en el puerto 3000
+[2025-06-13 11:01:32] INFO: ✅ Conectado a MongoDB
+[2025-06-13 11:01:53] ERROR: Error al enviar pedido de bebidas a la impresora:
+[2025-06-13 11:02:39] INFO: ✅ Redis conectado correctamente
+[2025-06-13 11:02:39] INFO: ✅ Conectado a MongoDB
+[2025-06-13 11:02:39] INFO: Servidor escuchando en el puerto 3000
+[2025-06-13 11:02:40] INFO: ✅ Conectado a MongoDB
+[2025-06-13 11:02:45] ERROR: Error al enviar pedido de bebidas a la impresora:
+[2025-06-13 11:05:05] INFO: ✅ Redis conectado correctamente
+[2025-06-13 11:05:05] INFO: ✅ Conectado a MongoDB
+[2025-06-13 11:05:05] INFO: Servidor escuchando en el puerto 3000
+[2025-06-13 11:05:06] INFO: ✅ Conectado a MongoDB
+[2025-06-13 11:32:20] ERROR: ⚠️ Error cargando la imagen del logo: ENOENT: no such file or directory, open '/home/valenante/Desktop/lovePizza/lovePizza/api/public/images/logoZf.jpg'
+[2025-06-13 12:03:15] INFO: ✅ Redis conectado correctamente
+[2025-06-13 12:03:15] INFO: ✅ Conectado a MongoDB
+[2025-06-13 12:03:15] INFO: Servidor escuchando en el puerto 3000
+[2025-06-13 12:03:15] INFO: ✅ Conectado a MongoDB

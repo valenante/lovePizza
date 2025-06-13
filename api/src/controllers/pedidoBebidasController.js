@@ -7,6 +7,8 @@ import Cart from '../models/Cart.js';
 import Producto from '../models/Producto.js';
 import SesionMesa from '../models/SesionMesa.js';
 
+const IMPRESION_SERVER = process.env.IMPRESION_SERVER
+
 export const crearPedido = async (req, res) => {
   try {
     const {
@@ -389,7 +391,6 @@ export const agregarProductoBebida = async (req, res) => {
     };
 
     try {
-      const IMPRESION_SERVER = 'http://100.91.21.52:4000'; // Ajusta la IP si es necesario
       await axios.post(`${IMPRESION_SERVER}/imprimir-bebidas`, datosRespuesta);
     } catch (error) {
       logger.error(
