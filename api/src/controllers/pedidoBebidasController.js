@@ -368,8 +368,11 @@ export const agregarProductoBebida = async (req, res) => {
     mesa.total += productosCompletos.reduce((sum, p) => sum + p.total, 0);
     await mesa.save();
 
-    req.io.emit('nuevoPedido', pedidoModificado);
-
+    req.io.emit('nuevoPedido', {
+      ...pedidoModificado.toObject(),
+      mesaId: mesa._id, // ← añadimos explícitamente el campo que necesitas
+    });
+    
     const datosRespuesta = {
       mesaNumero: mesa.numero,
       comensales: mesa.comensales || 0,

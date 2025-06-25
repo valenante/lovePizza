@@ -124,8 +124,8 @@ export const agregarProductoAlPedido = async (req, res) => {
     const mesa = /^[0-9a-fA-F]{24}$/.test(mesaId)
       ? await Mesa.findById(mesaId).populate('pedidos')
       : await Mesa.findOne({ numero: parseInt(mesaId, 10) }).populate(
-          'pedidos'
-        );
+        'pedidos'
+      );
 
     if (!mesa) return res.status(404).json({ error: 'Mesa no encontrada' });
 
@@ -183,8 +183,11 @@ export const agregarProductoAlPedido = async (req, res) => {
     mesa.total += productosCompletos.reduce((sum, p) => sum + p.total, 0);
     await mesa.save();
 
-    req.io.emit('nuevoPedido', pedidoModificado);
-
+    req.io.emit('nuevoPedido', {
+      ...pedidoModificado.toObject(),
+      mesaId: mesa._id, // ← añadimos explícitamente el campo que necesitas
+    });    
+    
     const datosRespuesta = {
       mesaNumero: mesa.numero,
       comensales: mesa.comensales || 0,
@@ -217,21 +220,6 @@ export const agregarProductoAlPedido = async (req, res) => {
         minute: '2-digit',
       }),
     };
-
-    console.log('Datos a enviar a la impresora:', datosRespuesta.productos.map(p => ({
-  nombre: p.nombre,
-  cantidad: p.cantidad,
-  precioSeleccionado: p.precioSeleccionado,
-  opcionesPersonalizables: p.opcionesPersonalizables,
-  alergiasComensal: p.alergiasComensal,
-  tipoPrecio: p.tipoPrecio,
-  extras: Array.isArray(p.extras)
-    ? p.extras.map(extra => ({
-        nombre: extra.nombre,
-        precio: extra.precio,
-      }))
-    : [],
-})));
 
     try {
       await axios.post(`${IMPRESION_SERVER}/imprimir`, datosRespuesta);
