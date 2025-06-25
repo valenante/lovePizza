@@ -2258,3 +2258,16 @@
 [2025-06-25 03:01:43] INFO: ✅ Conectado a MongoDB
 [2025-06-25 03:01:43] INFO: Servidor escuchando en el puerto 3000
 [2025-06-25 03:01:44] INFO: ✅ Conectado a MongoDB
+[2025-06-25 11:56:03] INFO: ✅ Redis conectado correctamente
+[2025-06-25 11:56:03] INFO: ✅ Conectado a MongoDB
+[2025-06-25 11:56:03] INFO: Servidor escuchando en el puerto 3000
+[2025-06-25 11:56:04] INFO: ✅ Conectado a MongoDB
+[2025-06-25 11:57:38] INFO: ✅ Redis conectado correctamente
+[2025-06-25 11:57:38] INFO: ✅ Conectado a MongoDB
+[2025-06-25 11:57:38] INFO: Servidor escuchando en el puerto 3000
+[2025-06-25 11:57:38] INFO: ✅ Conectado a MongoDB
+[2025-06-25 12:28:32] INFO: ✅ Redis conectado correctamente
+[2025-06-25 12:28:32] INFO: ✅ Conectado a MongoDB
+[2025-06-25 12:28:32] INFO: Servidor escuchando en el puerto 3000
+[2025-06-25 12:28:32] INFO: ✅ Conectado a MongoDB
+[2025-06-25 12:29:15] ERROR: Error al enviar pedido a la impresora:

@@ -29,6 +29,7 @@ const Dashboard = () => {
     if (!socket) return;
     const actualizarMesas = () => fetchMesas(setMesas);
     socket.on("mesaAbierta", actualizarMesas);
+
     return () => socket.off("mesaAbierta", actualizarMesas);
   }, [socket]);
 

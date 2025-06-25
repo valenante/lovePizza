@@ -56,22 +56,19 @@ const useMesa = (id, socket) => {
 
   useEffect(() => {
     if (!socket) return;
-
+  
     const manejarNuevoPedido = (pedidoActualizado) => {
       if (pedidoActualizado.mesaId === id) {
-        setMesa((prevMesa) => ({
-          ...prevMesa,
-          pedidos: [...prevMesa.pedidos, pedidoActualizado],
-        }));
+        fetchMesa(); // recarga la mesa completa
       }
     };
-
+  
     socket.on("nuevoPedido", manejarNuevoPedido);
-
+  
     return () => {
       socket.off("nuevoPedido", manejarNuevoPedido);
     };
-  }, [socket, id]);
+  }, [socket, id]);  
 
   return { mesa, setMesa, productosDetalles, fetchMesa };
 };
