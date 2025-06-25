@@ -81,6 +81,12 @@ const PedidoSchema = new Schema({
         default: '',
       },
       total: { type: Number, required: true },
+      extras : [
+        {
+          nombre: { type: String, required: true }, // Nombre del extra
+          precio: { type: Number, required: true }, // Precio del extra
+        },
+      ], // Extras opcionales que el cliente puede agregar
     },
   ],
   total: { type: Number, required: true },

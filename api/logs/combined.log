@@ -2233,3 +2233,28 @@
 [2025-06-25 02:21:16] ERROR: ❌ Error al verificar el token:
 [2025-06-25 02:24:18] ERROR: Error al enviar pedido de bebidas a la impresora:
 [2025-06-25 02:24:31] ERROR: Error al enviar pedido de bebidas a la impresora:
+[2025-06-25 02:45:21] INFO: ✅ Redis conectado correctamente
+[2025-06-25 02:45:21] INFO: ✅ Conectado a MongoDB
+[2025-06-25 02:45:21] INFO: Servidor escuchando en el puerto 3000
+[2025-06-25 02:45:22] INFO: ✅ Conectado a MongoDB
+[2025-06-25 02:55:17] INFO: ✅ Redis conectado correctamente
+[2025-06-25 02:55:17] INFO: ✅ Conectado a MongoDB
+[2025-06-25 02:55:17] INFO: Servidor escuchando en el puerto 3000
+[2025-06-25 02:55:18] INFO: ✅ Conectado a MongoDB
+[2025-06-25 02:56:04] INFO: ✅ Redis conectado correctamente
+[2025-06-25 02:56:04] INFO: ✅ Conectado a MongoDB
+[2025-06-25 02:56:04] INFO: Servidor escuchando en el puerto 3000
+[2025-06-25 02:56:04] INFO: ✅ Conectado a MongoDB
+[2025-06-25 02:56:25] INFO: ✅ Redis conectado correctamente
+[2025-06-25 02:56:25] INFO: ✅ Conectado a MongoDB
+[2025-06-25 02:56:25] INFO: Servidor escuchando en el puerto 3000
+[2025-06-25 02:56:25] INFO: ✅ Conectado a MongoDB
+[2025-06-25 02:57:51] INFO: ✅ Redis conectado correctamente
+[2025-06-25 02:57:51] INFO: ✅ Conectado a MongoDB
+[2025-06-25 02:57:51] INFO: Servidor escuchando en el puerto 3000
+[2025-06-25 02:57:52] INFO: ✅ Conectado a MongoDB
+[2025-06-25 03:00:17] ERROR: Error al enviar pedido a la impresora:
+[2025-06-25 03:01:43] INFO: ✅ Redis conectado correctamente
+[2025-06-25 03:01:43] INFO: ✅ Conectado a MongoDB
+[2025-06-25 03:01:43] INFO: Servidor escuchando en el puerto 3000
+[2025-06-25 03:01:44] INFO: ✅ Conectado a MongoDB

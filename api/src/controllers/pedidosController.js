@@ -208,6 +208,7 @@ export const agregarProductoAlPedido = async (req, res) => {
           alergiasComensal: p.alergiasComensal,
           tipoPrecio: p.tipoPrecio,
           seccion: p.seccion,
+          extras: p.extras || [],
         };
       }),
       total: productosCompletos.reduce((sum, p) => sum + p.total, 0),
@@ -216,6 +217,21 @@ export const agregarProductoAlPedido = async (req, res) => {
         minute: '2-digit',
       }),
     };
+
+    console.log('Datos a enviar a la impresora:', datosRespuesta.productos.map(p => ({
+  nombre: p.nombre,
+  cantidad: p.cantidad,
+  precioSeleccionado: p.precioSeleccionado,
+  opcionesPersonalizables: p.opcionesPersonalizables,
+  alergiasComensal: p.alergiasComensal,
+  tipoPrecio: p.tipoPrecio,
+  extras: Array.isArray(p.extras)
+    ? p.extras.map(extra => ({
+        nombre: extra.nombre,
+        precio: extra.precio,
+      }))
+    : [],
+})));
 
     try {
       await axios.post(`${IMPRESION_SERVER}/imprimir`, datosRespuesta);

@@ -71,6 +71,7 @@ export const useRightBar = (mesaId) => {
             : [],
           mensaje: p.mensaje || "",
           adicionales: p.adicionales || [],
+          extras: p.extras || []
         }));
 
         await api.post(`/pedidos/${mesaId}/agregar-producto`, { productos: payloadPlatos });
