@@ -204,6 +204,56 @@
   transform: scale(1.05);
 }
 
+.lista-extras-seleccionados {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: var(--borde-redondeado);
+  background-color: var(--blanco);
+  box-shadow: var(--sombra-suave);
+}
+
+.lista-extras-seleccionados li {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  color: var(--gris-oscuro);
+}
+
+.lista-extras-seleccionados li:last-child {
+  border-bottom: none;
+}
+
+.lista-extras-seleccionados button {
+  background-color: var(--color-secundario);
+  color: var(--blanco);
+  border: none;
+  border-radius: var(--borde-redondeado);
+  padding: 0.3rem 0.7rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.lista-extras-seleccionados button:hover {
+  filter: brightness(0.95);
+}
+
+.lista-extras-seleccionados::-webkit-scrollbar {
+  width: 8px;
+}
+
+.lista-extras-seleccionados::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
 /* Animación del modal */
 @keyframes slideDown {
   from {

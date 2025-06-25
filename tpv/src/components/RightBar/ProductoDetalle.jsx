@@ -21,6 +21,8 @@ const ProductoDetalle = ({
   const [tipoPrecio, setTipoPrecio] = useState(
     producto.tipoPrecio || "precioBase"
   );
+  const [extrasDisponibles, setExtrasDisponibles] = useState([]);
+  const [extrasSeleccionados, setExtrasSeleccionados] = useState([]);
 
   const [precioSeleccionado, setPrecioSeleccionado] = useState(() => {
     const inicial =
@@ -106,6 +108,19 @@ const ProductoDetalle = ({
     cargarAcompanantes();
   }, []);
 
+  useEffect(() => {
+    const cargarExtras = async () => {
+      try {
+        const res = await api.get("/extras");
+        setExtrasDisponibles(res.data);
+      } catch (error) {
+        logger.error("Error al cargar extras:", error);
+      }
+    };
+
+    cargarExtras();
+  }, []);
+
   const manejarCantidad = (inc) =>
     setCantidad((prev) => Math.max(1, prev + inc));
   const manejarOpciones = (tipo, opcion) =>
@@ -126,10 +141,12 @@ const ProductoDetalle = ({
       0
     );
 
+    const totalExtras = extrasSeleccionados.reduce((acc, e) => acc + e.precio, 0);
+
     const productoPersonalizado = {
       ...producto,
       cantidad,
-      precioSeleccionado: precioSeleccionado + totalAdicionales,
+      precioSeleccionado: precioSeleccionado + totalAdicionales + totalExtras,
       tipoPrecio,
       acompanante,
       opciones: opcionesSeleccionadas,
@@ -138,6 +155,7 @@ const ProductoDetalle = ({
       ),
       mensaje: mensajeProducto,
       adicionales: adicionalesSeleccionados, // Guardamos los adicionales seleccionados
+      extras: extrasSeleccionados, // Guardamos los extras seleccionados
     };
 
     onConfirm(productoPersonalizado);
@@ -274,6 +292,34 @@ const ProductoDetalle = ({
           </>
         )}
 
+        <select onChange={e => {
+          const extraId = e.target.value;
+          const extra = extrasDisponibles.find(e => e._id === extraId);
+          if (extra && !extrasSeleccionados.some(e => e._id === extraId)) {
+            setExtrasSeleccionados(prev => [...prev, extra]);
+          }
+        }}>
+          <option value="">Selecciona un extra</option>
+          {extrasDisponibles.map(extra => (
+            <option key={extra._id} value={extra._id}>
+              {extra.nombre} (+{extra.precio} €)
+            </option>
+          ))}
+        </select>
+
+        <ul className="lista-extras-seleccionados">
+          {extrasSeleccionados.map((extra) => (
+            <li key={extra._id}>
+              {extra.nombre} (+{extra.precio} €)
+              <button onClick={() =>
+                setExtrasSeleccionados(prev => prev.filter(e => e._id !== extra._id))
+              }>
+                Quitar
+              </button>
+            </li>
+          ))}
+        </ul>
+        
         <textarea
           placeholder="Mensaje para cocina/barra sobre este producto (opcional)"
           value={mensajeProducto}

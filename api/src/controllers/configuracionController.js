@@ -17,7 +17,6 @@ export const obtenerConfiguracion = async (req, res) => {
 
 // Actualizar configuración (uno o ambos campos)
 export const actualizarConfiguracion = async (req, res) => {
-  console.log('Actualizando configuración global');
   try {
     const { permitePedidosComida, permitePedidosBebida } = req.body;
     let config = await ConfiguracionRestaurante.findOne();

@@ -1,43 +1,63 @@
 /* Contenedor principal de la página */
 .products-page--productos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh; /* Ocupa toda la altura de la pantalla */
-    max-height: 80vh;
-    background-color: var(--color-principal); /* Gris claro */
-  }
-  
-  /* Contenedor de los botones */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  max-height: 80vh;
+  background-color: var(--color-principal);
+}
+
+/* Contenedor de los botones */
+.buttons--productos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Botones estilizados */
+.button--productos {
+  width: 100%;
+  max-width: 180px; /* Tamaño máximo uniforme */
+  height: 80px; /* Altura uniforme */
+  background-color: var(--color-secundario);
+  color: var(--blanco);
+  border: none;
+  border-radius: 10px;
+  padding: 0 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Hover y efecto de interacción */
+.button--productos:hover {
+  background-color: var(--color-principal);
+  transform: scale(1.05);
+}
+
+.button--productos:active {
+  transform: scale(0.97);
+}
+
+/* Responsive: 2 columnas en tablet */
+@media (max-width: 768px) {
   .buttons--productos {
-    display: grid; /* Cambiamos a grid */
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
-    gap: 20px; /* Espaciado entre los botones */
-    justify-items: center; /* Centrar los botones dentro de cada celda */
-    align-items: center; /* Centrar los botones verticalmente */
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* Botones estilizados */
-  .button--productos {
-    background-color: var(--color-principal); /* Morado profundo */
-    color: #FFFFFF; /* Texto blanco */
-    border: 2px solid var(--color-secundario);
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 15px 30px; /* Tamaño del botón */
-    font-size: 1.2rem; /* Tamaño del texto */
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Responsive: 1 columna en móvil */
+@media (max-width: 480px) {
+  .buttons--productos {
+    grid-template-columns: 1fr;
   }
-  
-  /* Hover y efecto de interacción */
-  .button--productos:hover {
-    background-color: var(--color-secundario); /* Naranja vibrante */
-    transform: scale(1.1); /* Ampliar ligeramente */
-  }
-  
-  /* Animación en el clic */
-  .button--productos:active {
-    transform: scale(0.95); /* Reducir ligeramente */
-  }
-  
+}

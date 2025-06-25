@@ -32,12 +32,12 @@ export const sessionConfig = {
     httpOnly: true,
     secure: isProduction, // Solo true en producción
     sameSite: isProduction ? 'None' : 'Lax',
-    maxAge: 15 * 60 * 1000, // 15 minutos
+    maxAge: 5 * 60 * 60 * 1000, // ⏱️ 5 horas en milisegundos
   },
   store: MongoStore.create({
     mongoUrl: process.env.MONGO_URI,
     collectionName: 'sessions',
-    ttl: 15 * 60, // en segundos
+    ttl: 5 * 60 * 60, // 🧠 5 horas en segundos
   }),
 };
 

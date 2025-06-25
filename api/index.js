@@ -35,8 +35,9 @@ import configuracionesReservasRoutes from './src/routes/configuracionesReservasR
 import reservasRoutes from './src/routes/reservasRoutes.js'; // ✅ Importamos las rutas de reservas
 import disponibilidadRoutes from './src/routes/disponibilidadRoutes.js'; // ✅ Importamos las rutas de disponibilidad
 // import facturasRoutes from './src/routes/facturasRoutes.js'; // ✅ Importamos las rutas de facturas
-import imprimirRoutes from './src/routes/imprimirRoutes.js'; // ✅ Importamos las rutas de impresión
+//import imprimirRoutes from './src/routes/imprimirRoutes.js'; // ✅ Importamos las rutas de impresión
 import configuracionRoutes from './src/routes/configuracionRoutes.js'; // Importar las rutas de configuración global
+import extraRoutes from './src/routes/extraRoutes.js'; // Importar las rutas de extras
 // Configurar dotenv
 config();
 
@@ -121,8 +122,9 @@ app.use('/api/reservasConfiguracion', configuracionesReservasRoutes); // ✅ Reg
 app.use('/api/reservas', reservasRoutes); // ✅ Registrar las rutas de reservas
 app.use('/api/disponibilidad', disponibilidadRoutes); // ✅ Registrar las rutas de disponibilidad
 //app.use('/api/facturas', facturasRoutes); // ✅ Registrar las rutas de facturas
-app.use('/api/imprimir', imprimirRoutes); // ✅ Registrar las rutas de impresión
+//app.use('/api/imprimir', imprimirRoutes); // ✅ Registrar las rutas de impresión
 app.use('/api/configuracion-global', configuracionRoutes); // Registrar las rutas de configuración global
+app.use('/api/extras', extraRoutes); // Registrar las rutas de extras
 
 // Middlewares de error
 app.use(notFoundHandler);
@@ -131,7 +133,7 @@ app.use(errorHandler);
 // Ruta principal
 app.get('/', (req, res) => {
   logger.info('Se recibió una solicitud en la ruta raíz');
-  res.send('¡Bienvenido a la API de ZF!');
+  res.send('¡Bienvenido a la API de LP!');
 });
 
 // Manejo de errores no capturados
