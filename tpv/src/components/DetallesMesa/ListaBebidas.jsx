@@ -1,6 +1,5 @@
-import React from "react";
 
-const ListaBebidas = ({ pedidosBebidas = [], eliminarProducto }) => {
+const ListaBebidas = ({ pedidosBebidas, eliminarProducto }) => {
   return (
     <ul className="lista-pedidos--mesadetalles">
       {pedidosBebidas.length > 0 ? (

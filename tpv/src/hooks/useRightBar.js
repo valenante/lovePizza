@@ -54,46 +54,47 @@ export const useRightBar = (mesaId) => {
     try {
       setIsLoading(true);
 
-      if (carrito.length > 0) {
-        const payloadPlatos = carrito.map(p => ({
-          producto: p._id,
-          cantidad: p.cantidad,
-          total: p.precioSeleccionado * p.cantidad,
-          precioSeleccionado: p.precioSeleccionado,
-          tipoPrecio: p.tipoPrecio,
-          tipoPlato: p.tipoPlato || null,
-          acompanante: p.acompanante || null,
-          tipo: p.tipo,
-          categoria: p.categoria,
-          ingredientes: p.ingredientes || [],
-          opcionesPersonalizables: p.opciones
-            ? Object.entries(p.opciones).map(([tipo, opcion]) => ({ tipo, opcion }))
-            : [],
-          mensaje: p.mensaje || "",
-          adicionales: p.adicionales || [],
-          extras: p.extras || []
-        }));
+      const payloadPlatos = carrito.map(p => ({
+        producto: p._id,
+        cantidad: p.cantidad,
+        total: p.precioSeleccionado * p.cantidad,
+        precioSeleccionado: p.precioSeleccionado,
+        tipoPrecio: p.tipoPrecio,
+        tipoPlato: p.tipoPlato || null,
+        acompanante: p.acompanante || null,
+        tipo: p.tipo,
+        categoria: p.categoria,
+        ingredientes: p.ingredientes || [],
+        opcionesPersonalizables: p.opciones
+          ? Object.entries(p.opciones).map(([tipo, opcion]) => ({ tipo, opcion }))
+          : [],
+        mensaje: p.mensaje || "",
+        adicionales: p.adicionales || [],
+        extras: p.extras || []
+      }));
 
-        await api.post(`/pedidos/${mesaId}/agregar-producto`, { productos: payloadPlatos });
-      }
+      const payloadBebidas = carritoBebidas.map(p => ({
+        producto: p._id,
+        cantidad: p.cantidad,
+        total: p.precioSeleccionado * p.cantidad,
+        precioSeleccionado: p.precioSeleccionado,
+        tipoPrecio: p.tipoPrecio,
+        acompanante: p.acompanante || null,
+        tipo: p.tipo,
+        categoria: p.categoria,
+        mensaje: p.mensaje || "",
+      }));
 
-      if (carritoBebidas.length > 0) {
-        const payloadBebidas = carritoBebidas.map(p => ({
-          producto: p._id,
-          cantidad: p.cantidad,
-          total: p.precioSeleccionado * p.cantidad,
-          precioSeleccionado: p.precioSeleccionado,
-          tipoPrecio: p.tipoPrecio,
-          acompanante: p.acompanante || null,
-          tipo: p.tipo,
-          categoria: p.categoria,
-          mensaje: p.mensaje || "",
-        }));
+      await Promise.all([
+        payloadPlatos.length > 0
+          ? api.post(`/pedidos/${mesaId}/agregar-producto`, { productos: payloadPlatos })
+          : null,
+        payloadBebidas.length > 0
+          ? api.post(`/pedidosBebidas/${mesaId}/agregar-producto`, { productos: payloadBebidas })
+          : null
+      ]);
 
-        await api.post(`/pedidosBebidas/${mesaId}/agregar-producto`, { productos: payloadBebidas });
-      }
-
-      setCarrito([]); // ✅ limpiar carrito plano
+      setCarrito([]);
       setCarritoBebidas([]);
       setMensajeAlerta({ tipo: "exito", mensaje: "Pedido enviado correctamente." });
     } catch (error) {
