@@ -16,7 +16,7 @@ export const corsOptions = {
     'http://localhost:3001',
     'http://localhost:3002',
     'https://valenante.info',
-    'http://192.168.1.142:3001'
+    'http://192.168.1.150:3001'
     // Otros dominios permitidos (IPs locales si las usás en desarrollo)
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],

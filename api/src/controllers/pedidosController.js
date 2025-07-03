@@ -98,15 +98,12 @@ export const crearPedido = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-
 export const agregarProductoAlPedido = async (req, res) => {
-  const { mesaId } = req.params; // puede ser ID o número
+  const { mesaId } = req.params;
   const { productos } = req.body;
 
   if (!Array.isArray(productos) || productos.length === 0) {
-    return res
-      .status(400)
-      .json({ error: 'Debes enviar al menos un producto válido.' });
+    return res.status(400).json({ error: 'Debes enviar al menos un producto válido.' });
   }
 
   const errores = productos.filter(
@@ -114,46 +111,37 @@ export const agregarProductoAlPedido = async (req, res) => {
   );
   if (errores.length > 0) {
     return res.status(400).json({
-      error:
-        'Cada producto debe tener: producto, cantidad, total y precioSeleccionado.',
+      error: 'Cada producto debe tener: producto, cantidad, total y precioSeleccionado.',
     });
   }
 
   try {
-    // Buscar la mesa por ID o por número
     const mesa = /^[0-9a-fA-F]{24}$/.test(mesaId)
       ? await Mesa.findById(mesaId).populate('pedidos')
-      : await Mesa.findOne({ numero: parseInt(mesaId, 10) }).populate(
-        'pedidos'
-      );
+      : await Mesa.findOne({ numero: parseInt(mesaId, 10) }).populate('pedidos');
 
     if (!mesa) return res.status(404).json({ error: 'Mesa no encontrada' });
 
-    // Buscar la sesión activa
     const sesionActiva = await SesionMesa.findOne({
       mesa: mesa._id,
       estado: 'activa',
     });
     if (!sesionActiva) {
       return res.status(400).json({
-        error:
-          'La mesa no tiene una sesión activa. Abre la mesa antes de agregar productos.',
+        error: 'La mesa no tiene una sesión activa.',
       });
     }
 
-    // Obtener datos completos de productos para completar campos obligatorios
     const idsProductos = productos.map((p) => p.producto);
     const productosDB = await Producto.find({ _id: { $in: idsProductos } });
 
-    // Completar productos con datos obligatorios
     const productosCompletos = productos.map((p) => {
       const productoInfo = productosDB.find(
         (prod) => prod._id.toString() === p.producto.toString()
       );
-
       return {
         ...p,
-        tipoPrecio: p.tipoPrecio || productoInfo?.tipoPrecio || 'tapa', // ajustar valor por defecto según convenga
+        tipoPrecio: p.tipoPrecio || productoInfo?.tipoPrecio || 'tapa',
         categoria: p.categoria || productoInfo?.categoria || 'general',
         tipo: p.tipo || productoInfo?.tipo || 'producto',
       };
@@ -180,21 +168,28 @@ export const agregarProductoAlPedido = async (req, res) => {
       mesa.pedidos.push(pedidoModificado._id);
     }
 
-    mesa.total += productosCompletos.reduce((sum, p) => sum + p.total, 0);
+    // 💥 Recalcular total completo (evita errores por concurrencia)
+    const pedidos = await Pedido.find({ mesa: mesa._id });
+    const pedidosBebidas = await PedidoBebida.find({ mesa: mesa._id });
+
+    const totalPedidos = pedidos.reduce((sum, p) => sum + p.total, 0);
+    const totalBebidas = pedidosBebidas.reduce((sum, p) => sum + p.total, 0);
+
+    mesa.total = totalPedidos + totalBebidas;
+
+    console.log(`[DEBUG] Total recalculado (platos): ${mesa.total} €`);
     await mesa.save();
 
     req.io.emit('nuevoPedido', {
       ...pedidoModificado.toObject(),
-      mesaId: mesa._id, // ← añadimos explícitamente el campo que necesitas
-    });    
-    
+      mesaId: mesa._id,
+    });
+
     const datosRespuesta = {
       mesaNumero: mesa.numero,
       comensales: mesa.comensales || 0,
       productos: productosCompletos.map((p) => {
-        const productoInfo = productosDB.find(
-          (prod) => prod._id.toString() === p.producto
-        );
+        const productoInfo = productosDB.find((prod) => prod._id.toString() === p.producto);
         return {
           nombre: productoInfo?.nombre || 'Producto desconocido',
           cantidad: p.cantidad,
@@ -233,6 +228,7 @@ export const agregarProductoAlPedido = async (req, res) => {
     res.status(500).json({ error: 'Error al agregar producto' });
   }
 };
+
 
 // Obtener todos los pedidos
 export const obtenerPedidos = async (req, res) => {

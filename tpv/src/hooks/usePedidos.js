@@ -5,6 +5,15 @@ import * as logger from '../utils/logger';
 const usePedidosMesa = (mesa, setMesa) => {
   const [mensajeAlerta, setMensajeAlerta] = useState(null);
 
+  const refrescarMesa = async () => {
+    try {
+      const { data } = await api.get(`/mesas/${mesa._id}`);
+      setMesa(data); // ← actualiza pedidos, pedidosBebidas y total correctamente
+    } catch (error) {
+      console.error("Error al refrescar la mesa:", error);
+    }
+  };
+
   const agregarProducto = async (productoPersonalizado) => {
     try {
       const esBebida = productoPersonalizado.tipo === "bebida";
@@ -28,25 +37,20 @@ const usePedidosMesa = (mesa, setMesa) => {
           ingredientes: productoPersonalizado.ingredientes || [],
           opcionesPersonalizables:
             productoPersonalizado.opciones &&
-            Object.keys(productoPersonalizado.opciones).length > 0
+              Object.keys(productoPersonalizado.opciones).length > 0
               ? Object.entries(productoPersonalizado.opciones).map(
-                  ([tipo, opcion]) => ({ tipo, opcion })
-                )
+                ([tipo, opcion]) => ({ tipo, opcion })
+              )
               : [],
         },
       });
-
-      setMesa((prevMesa) => ({
-        ...prevMesa,
-        pedidos: data.pedidos,
-      }));
 
       setMensajeAlerta({
         tipo: "exito",
         mensaje: `Producto ${esBebida ? "bebida" : "plato"} agregado al pedido con éxito.`,
       });
 
-      window.location.reload();
+      await refrescarMesa(); // en lugar de window.location.reload()
     } catch (error) {
       logger.error("Error al agregar el producto al pedido:", error);
       setMensajeAlerta({
@@ -86,6 +90,7 @@ const usePedidosMesa = (mesa, setMesa) => {
     eliminarProducto,
     mensajeAlerta,
     setMensajeAlerta,
+    refrescarMesa,
   };
 };
 

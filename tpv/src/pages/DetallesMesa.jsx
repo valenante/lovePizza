@@ -79,7 +79,7 @@ const DetalleMesa = () => {
         <h1 className="titulo-mesa--mesadetalles">Mesa {mesa.numero}</h1>
         <p className="total-mesa--mesadetalles">Total: {mesa.total} €</p>
         <ListaPedidos
-          pedidos={mesa.pedidos}
+          pedidos={mesa.pedidos || []}
           productosDetalles={productosDetalles}
           eliminarProducto={eliminarProducto}
         />
