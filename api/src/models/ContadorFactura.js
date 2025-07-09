@@ -1,4 +1,4 @@
-/*
+
 import { Schema, model } from 'mongoose';
 
 const contadorFacturaSchema = new Schema({
@@ -7,4 +7,3 @@ const contadorFacturaSchema = new Schema({
 });
 
 export default model('ContadorFactura', contadorFacturaSchema);
-*/

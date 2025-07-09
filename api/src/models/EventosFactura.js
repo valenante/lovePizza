@@ -1,4 +1,4 @@
-/*
+
 import mongoose from 'mongoose';
 
 const eventoFacturaSchema = new mongoose.Schema({
@@ -22,4 +22,3 @@ const eventoFacturaSchema = new mongoose.Schema({
 
 const EventoFactura = mongoose.model('EventoFactura', eventoFacturaSchema);
 export default EventoFactura;
-*/
