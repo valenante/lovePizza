@@ -53,9 +53,6 @@ const Navbar = () => {
             <img src={logo} alt="ZF" className="navbar-logo--navbar" />
           </Link>
         </li>
-        <li className="navbar-item--navbar">
-          <Link className="navbar-link--navbar" to="/">Inicio</Link>
-        </li>
 
         <li className="navbar-item--navbar only-desktop">
           <Link className="navbar-link--navbar" to="/products">Productos</Link>
