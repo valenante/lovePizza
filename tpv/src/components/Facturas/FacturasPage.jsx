@@ -1,4 +1,4 @@
-/*
+
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
 import Papa from "papaparse";
@@ -267,4 +267,3 @@ const FacturasPage = () => {
 };
 
 export default FacturasPage;
-*/

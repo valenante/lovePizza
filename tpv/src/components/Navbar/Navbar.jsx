@@ -63,6 +63,11 @@ const Navbar = () => {
         <li className="navbar-item--navbar only-desktop">
           <Link className="navbar-link--navbar" to="/reservas">Reservas</Link>
         </li>
+        <li className="navbar-item--navbar only-desktop">
+          <Link className="navbar-link--navbar" to="/facturas">
+            Facturas
+          </Link>
+        </li>
 
         <li className="navbar-item--navbar only-mobile">
           <select
