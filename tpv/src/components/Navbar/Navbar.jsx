@@ -73,6 +73,7 @@ const Navbar = () => {
             value={selectValue}
           >
             <option value="" disabled>Ir a...</option>
+            <option value="/tpv/">Inicio</option>
             <option value="/tpv/products">Productos</option>
             <option value="/tpv/reservas">Reservas</option>
             <option value="/tpv/facturas">Facturas</option>

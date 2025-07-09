@@ -37,12 +37,11 @@
 
 /* Cuadrados de productos */
 .producto-card--categories {
-    background-color: var(--color-principal);
+    background-color: var(--color-secundario);
     /* Blanco */
     color: white;
     border-radius: 10px;
     /* Bordes redondeados */
-    border: 2px solid var(--color-secundario);
     padding: 15px;
     text-align: center;
     width: 100%;
@@ -67,7 +66,7 @@
 
 .boton-editar--categories,
 .boton-eliminar--categories {
-    background-color: var(--color-secundario);
+    background-color: var(--color-principal);
     /* Naranja vibrante */
     color: #FFFFFF;
     border: none;
@@ -79,7 +78,7 @@
 }
 
 .boton-editar--categories:hover {
-    background-color: var(--color-principal);
+    background-color: var(--color-secundario);
     /* Morado profundo */
 }
 
@@ -113,10 +112,8 @@
 
     /* Contenedor principal */
     .categories--categories {
-        padding: 20px;
         text-align: center;
         border-radius: 10px;
-        margin-top: 20px;
         max-height: 60vh;
         overflow-y: scroll;
     }

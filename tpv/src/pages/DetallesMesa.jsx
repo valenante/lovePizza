@@ -23,7 +23,7 @@ const DetalleMesa = () => {
     mensajeAlerta,
     setMensajeAlerta,
   } = usePedidos(mesa, setMesa);
-  //const [datosFactura, setDatosFactura] = useState({ nombre: "", nif: "" });
+  const [datosFactura, setDatosFactura] = useState({ nombre: "", nif: "" });
   const {
     cerrarMesa,
     emitirFactura,
@@ -31,7 +31,7 @@ const DetalleMesa = () => {
   } = useAccionesMesa(mesa, setMensajeAlerta, navigate, /*datosFactura*/);
   const [showModal, setShowModal] = useState(false);
   const [mostrarFacturaModal, setMostrarFacturaModal] = useState(false);
-  //const [metodoPagoFactura, setMetodoPagoFactura] = useState(null);
+  const [metodoPagoFactura, setMetodoPagoFactura] = useState(null);
   useState(false);
   const [mostrarModalTransferir, setMostrarModalTransferir] = useState(false);
 
@@ -48,7 +48,7 @@ const DetalleMesa = () => {
         <RightBar mesaId={mesa._id} agregarProducto={agregarProducto} />
       </div>
       <div className="contenido-mesa--mesadetalles">
-        {/*
+        
         {mostrarFacturaModal && (
           <div className="modal-factura">
             <div className="modal-contenido">
@@ -75,7 +75,7 @@ const DetalleMesa = () => {
               </button>
             </div>
           </div>
-        )}*/}
+        )}
         <h1 className="titulo-mesa--mesadetalles">Mesa {mesa.numero}</h1>
         <p className="total-mesa--mesadetalles">Total: {mesa.total} €</p>
         <ListaPedidos
@@ -106,12 +106,12 @@ const DetalleMesa = () => {
             >
               Cuenta
             </button>
-            {/*<button
+            <button
               onClick={() => setShowModal("factura")}
               className="boton-factura--mesadetalles"
             >
               Factura
-            </button>*/}
+            </button>
             <button
               onClick={() => setMostrarModalTransferir(true)}
               className="boton-factura--mesadetalles"
@@ -127,11 +127,11 @@ const DetalleMesa = () => {
             onClose={() => setShowModal(false)}
             onConfirm={(metodoPago) => {
               if (showModal === "factura") {
-                //setMetodoPagoFactura(metodoPago);
+                setMetodoPagoFactura(metodoPago);
                 setShowModal(false);
-                //setMostrarFacturaModal(true); // Abre el modal de datos fiscales
+                setMostrarFacturaModal(true); // Abre el modal de datos fiscales
               } else {
-                cerrarMesa(metodoPago, /*"simplificada"*/); // Cierra sin factura
+                cerrarMesa(metodoPago, "simplificada"); // Cierra sin factura
               }
             }}
           />

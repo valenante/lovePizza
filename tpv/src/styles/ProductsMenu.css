@@ -52,6 +52,7 @@
 @media (max-width: 768px) {
   .buttons--productos {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2vh; /* Espacio entre botones */
   }
 }
 
