@@ -3,6 +3,7 @@ import api from "../utils/api";
 import * as logger from '../utils/logger';
 import TopBar from "../components/Navbar/Topbar";
 import "../styles/Reserva.css";
+ console.log(process.env.REACT_APP_NOMBRE_RESTAURANTE);
 
 const Reserva = () => {
   const [franjas, setFranjas] = useState([]);

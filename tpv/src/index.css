@@ -1,13 +1,15 @@
 /* === VARIABLES GLOBALES === */
 :root {
-  --color-principal: #177a2e; /* Verde principal */
-  --color-principal-hover: #155724; /* Verde más oscuro al pasar el ratón */
-  --color-principal-oscuro: #218838; /* Verde más oscuro */
-  --color-secundario: #dc3545; /* Rojo vibrante */
-  --color-secundario-hover: #c82333; /* Rojo más oscuro al pasar el ratón */
+  --color-principal: #2c3e50; /* Azul índigo oscuro */
+  --color-principal-hover: #1a252f; /* Azul más profundo al hacer hover */
+  --color-principal-oscuro: #1e2e3a; /* Versión aún más oscura */
+
+  --color-secundario: #f39c12; /* Naranja vibrante */
+  --color-secundario-hover: #d68910; /* Naranja más oscuro al pasar el ratón */
+
   --blanco: #ffffff;
-  --gris-claro: #f5f5f5;
-  --gris-oscuro: #333333;
+  --gris-claro: #ecf0f1;
+  --gris-oscuro: #2d3436;
 
   --espaciado-base: 1rem;
   --borde-redondeado: 0.5rem;
