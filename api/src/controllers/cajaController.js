@@ -444,7 +444,7 @@ const generarPDF = (mesasCerradas, total, totalesMetodoPago) => {
 export const enviarEmailConPDF = async (pdfBuffer) => {
   const form = new FormData();
 
-  form.append('from', `Love Pizza <no-reply@${MAILGUN_DOMAIN}>`);
+  form.append('from', `${process.env.NOMBRE_RESTAURANTE} <no-reply@${MAILGUN_DOMAIN}>`);
   form.append('to', 'valentinoantenucci1@gmail.com');
   form.append('subject', 'Informe Diario - Cierre de Caja');
   form.append(

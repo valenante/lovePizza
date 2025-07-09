@@ -368,7 +368,7 @@ const Reserva = () => {
           <div className="modal-contenido" onClick={(e) => e.stopPropagation()}>
             <h2>Términos y condiciones</h2>
             <p>
-              En Love Pizza, trabajamos para ofrecerte una experiencia
+              En {process.env.REACT_APP_NOMBRE_RESTAURANTE}, trabajamos para ofrecerte una experiencia
               excepcional en cada visita...
             </p>
             <ul>
@@ -397,7 +397,7 @@ const Reserva = () => {
             </p>
             <p>
               Gracias por tu comprensión y por ayudarnos a seguir ofreciendo un
-              servicio eficiente y de calidad. ¡Te esperamos en Love Pizza para
+              servicio eficiente y de calidad. ¡Te esperamos en {process.env.REACT_APP_NOMBRE_RESTAURANTE} para
               una experiencia gastronómica única! 🍷✨
             </p>
             <button onClick={() => setMostrarTerminos(false)}>Cerrar</button>
@@ -411,12 +411,12 @@ const Reserva = () => {
           onClick={() => setMostrarPrivacidad(false)}
         >
           <div className="modal-contenido" onClick={(e) => e.stopPropagation()}>
-            <h2>Política de Privacidad - Love Pizza</h2>
+            <h2>Política de Privacidad -{process.env.REACT_APP_NOMBRE_RESTAURANTE}</h2>
             <p>
               <strong>Última actualización:</strong> 12/03/2025
             </p>
             <p>
-              En Love Pizza nos comprometemos a proteger la privacidad de
+              En {process.env.REACT_APP_NOMBRE_RESTAURANTE} nos comprometemos a proteger la privacidad de
               nuestros clientes...
             </p>
 

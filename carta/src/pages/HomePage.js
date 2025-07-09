@@ -92,7 +92,7 @@ const Home = () => {
           </div>
 
           <div className="footer-bottom">
-            <p>© {new Date().getFullYear()} Love Pizza. Todos los derechos reservados.</p>
+            <p>© {new Date().getFullYear()} {process.env.REACT_APP_NOMBRE_RESTAURANTE}. Todos los derechos reservados.</p>
           </div>
         </footer>
 

@@ -8,26 +8,26 @@ const enviarConfirmacionEmail = async (reserva) => {
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
       <div style="text-align: center; margin-bottom: 20px;">
-        <img src="cid:logo.png" alt="Love Pizza" style="max-width: 150px;" />
+        <img src="cid:logo.png" alt="${process.env.REACT_APP_NOMBRE_RESTAURANTE}" style="max-width: 150px;" />
       </div>
       <h2 style="color: green;">¡Reserva confirmada!</h2>
       <p>Hola <strong>${reserva.nombre || 'cliente'}</strong>,</p>
       <p>Tu reserva para el <strong>${new Date(reserva.hora).toLocaleString(
-        'es-ES',
-        {
-          hour: '2-digit',
-          minute: '2-digit',
-          day: '2-digit',
-          month: '2-digit',
-          year: 'numeric',
-          hour12: false,
-        }
-      )}</strong> ha sido <strong>confirmada</strong> exitosamente.</p>
-      <p style="margin-top: 20px;">Te esperamos en <strong>Love Pizza</strong> 🥂</p>
+    'es-ES',
+    {
+      hour: '2-digit',
+      minute: '2-digit',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour12: false,
+    }
+  )}</strong> ha sido <strong>confirmada</strong> exitosamente.</p>
+      <p style="margin-top: 20px;">Te esperamos en <strong>process.env.REACT_APP_NOMBRE_RESTAURANTE</strong> 🥂</p>
       <p style="font-size: 0.9em; color: #555; margin-top: 40px;">
         Si necesitas modificar o cancelar tu reserva, contáctanos directamente.
       </p>
-      <p style="margin-top: 10px;"><em>El equipo de <strong>Love Pizza</strong></em></p>
+      <p style="margin-top: 10px;"><em>El equipo de <strong>process.env.REACT_APP_NOMBRE_RESTAURANTE</strong></em></p>
     </div>
   `;
 
@@ -201,26 +201,26 @@ export const confirmarReserva = async (req, res) => {
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
           <div style="text-align: center; margin-bottom: 20px;">
-            <img src="cid:logo.png" alt="Love Pizza" style="max-width: 150px;" />
+        <img src="cid:logo.png" alt="${process.env.REACT_APP_NOMBRE_RESTAURANTE}" style="max-width: 150px;" />
           </div>
           <h2 style="color: green;">¡Reserva confirmada!</h2>
           <p>Hola <strong>${reserva.nombre || 'cliente'}</strong>,</p>
           <p>Tu reserva para el <strong>${new Date(reserva.hora).toLocaleString(
-            'es-ES',
-            {
-              hour: '2-digit',
-              minute: '2-digit',
-              day: '2-digit',
-              month: '2-digit',
-              year: 'numeric',
-              hour12: false,
-            }
-          )}</strong> ha sido <strong>confirmada</strong> exitosamente.</p>
-          <p style="margin-top: 20px;">Te esperamos en <strong>Love Pizza</strong> 🥂</p>
+        'es-ES',
+        {
+          hour: '2-digit',
+          minute: '2-digit',
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour12: false,
+        }
+      )}</strong> ha sido <strong>confirmada</strong> exitosamente.</p>
+          <p style="margin-top: 20px;">Te esperamos en <strong>${process.env.REACT_APP_NOMBRE_RESTAURANTE}</strong> 🥂</p>
           <p style="font-size: 0.9em; color: #555; margin-top: 40px;">
             Si necesitas modificar o cancelar tu reserva, contáctanos directamente.
           </p>
-          <p style="margin-top: 10px;"><em>El equipo de <strong>Love Pizza</strong></em></p>
+          <p style="margin-top: 10px;"><em>El equipo de <strong>${process.env.REACT_APP_NOMBRE_RESTAURANTE}</strong></em></p>
         </div>
       `,
     });
@@ -245,14 +245,14 @@ export const cancelarReserva = async (req, res) => {
   const htmlCancelacion = `
   <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
     <div style="text-align: center; margin-bottom: 20px;">
-      <img src="cid:logo.png" alt="Love Pizza style="max-width: 150px;" />
+      <img src="cid:logo.png" alt="${process.env.REACT_APP_NOMBRE_RESTAURANTE} style="max-width: 150px;" />
     </div>
     <h2 style="color: #B22222;">Hola ${Reserva.nombre || 'cliente'},</h2>
     <p>Lamentamos informarte que tu reserva para el día <strong>${new Date(Reserva.hora).toLocaleString('es-ES')}</strong> ha sido <strong style="color: #B22222;">cancelada</strong>.</p>
     <p><strong>Motivo:</strong> ${razon}</p>
     <p style="margin-top: 20px;">Para más información puedes contactarnos directamente.</p>
     <p>Disculpa las molestias.</p>
-    <p style="margin-top: 30px;"><em>El equipo de <strong>Love Pizza</strong></em></p>
+    <p style="margin-top: 30px;"><em>El equipo de <strong>${process.env.REACT_APP_NOMBRE_RESTAURANTE}</strong></em></p>
   </div>
 `;
 
