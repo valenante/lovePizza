@@ -1,4 +1,3 @@
-/*
 import FacturaHash from '../models/FacturaHash.js';
 import { generarHashFactura } from '../../utils/hashFactura.js';
 
@@ -45,4 +44,3 @@ export const registrarFacturaConHash = async (datosFactura) => {
   await nuevaFactura.save();
   return nuevaFactura;
 };
- */

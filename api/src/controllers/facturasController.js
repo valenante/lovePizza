@@ -1,4 +1,3 @@
-/*
 import axios from 'axios';
 import { Parser } from 'json2csv';
 import FacturaHash from '../models/FacturaHash.js';
@@ -136,4 +135,3 @@ export const rectificarFactura = async (req, res) => {
     res.status(500).json({ error: 'Error al rectificar la factura.' });
   }
 };
-*/

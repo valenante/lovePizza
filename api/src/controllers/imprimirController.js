@@ -53,7 +53,7 @@ export const imprimirBebidas = async (req, res) => {
   }
 };
 
-/*
+
 export const imprimirFactura = async (req, res) => {
   const { mesaId } = req.params;
   const {
@@ -93,7 +93,7 @@ export const imprimirFactura = async (req, res) => {
     res.status(500).json({ error: 'Error al imprimir factura' });
   }
 };
-*/
+
 // Imprimir cuenta
 export const imprimirCuenta = async (req, res) => {
   const { mesaId } = req.params;

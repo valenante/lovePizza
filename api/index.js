@@ -34,7 +34,7 @@ import imagesRoutes from './src/routes/imagesRoutes.js';
 import configuracionesReservasRoutes from './src/routes/configuracionesReservasRoutes.js'; // ✅ Importamos las rutas de configuraciones de reservas
 import reservasRoutes from './src/routes/reservasRoutes.js'; // ✅ Importamos las rutas de reservas
 import disponibilidadRoutes from './src/routes/disponibilidadRoutes.js'; // ✅ Importamos las rutas de disponibilidad
-// import facturasRoutes from './src/routes/facturasRoutes.js'; // ✅ Importamos las rutas de facturas
+import facturasRoutes from './src/routes/facturasRoutes.js'; // ✅ Importamos las rutas de facturas
 import imprimirRoutes from './src/routes/imprimirRoutes.js'; // ✅ Importamos las rutas de impresión
 import configuracionRoutes from './src/routes/configuracionRoutes.js'; // Importar las rutas de configuración global
 import extraRoutes from './src/routes/extraRoutes.js'; // Importar las rutas de extras
@@ -121,7 +121,7 @@ app.use('/api/images', imagesRoutes);
 app.use('/api/reservasConfiguracion', configuracionesReservasRoutes); // ✅ Registrar las rutas de configuraciones de reservas
 app.use('/api/reservas', reservasRoutes); // ✅ Registrar las rutas de reservas
 app.use('/api/disponibilidad', disponibilidadRoutes); // ✅ Registrar las rutas de disponibilidad
-//app.use('/api/facturas', facturasRoutes); // ✅ Registrar las rutas de facturas
+app.use('/api/facturas', facturasRoutes); // ✅ Registrar las rutas de facturas
 app.use('/api/imprimir', imprimirRoutes); // ✅ Registrar las rutas de impresión
 app.use('/api/configuracion-global', configuracionRoutes); // Registrar las rutas de configuración global
 app.use('/api/extras', extraRoutes); // Registrar las rutas de extras

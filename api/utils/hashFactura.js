@@ -1,4 +1,3 @@
-/*
 import crypto from 'crypto';
 
 export function generarHashFactura(factura, hashAnterior) {
@@ -14,4 +13,3 @@ export function generarHashFactura(factura, hashAnterior) {
   const hash = crypto.createHash('sha256').update(datos).digest('base64');
   return hash;
 }
-*/
