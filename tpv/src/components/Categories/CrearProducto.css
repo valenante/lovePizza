@@ -63,6 +63,37 @@
   gap: 5px;
 }
 
+.aliases-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.alias-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.alias-input {
+  flex: 1;
+}
+
+.boton--eliminar-alias,
+.boton--agregar-alias {
+  background-color: var(--color-secundario);
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border-radius: var(--borde-redondeado);
+}
+
+.boton--agregar-alias {
+  background-color: var(--color-principal);
+}
+
+
 /* Inputs y textarea */
 .input--crear,
 .textarea--crear {

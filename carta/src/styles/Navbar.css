@@ -1,5 +1,5 @@
 /* === NAVBAR === */
-.navbar {
+.navbar-navbar-custom {
   width: 100%;
   background-color: var(--blanco);
   border-bottom: 1px solid var(--gris-claro);
@@ -102,9 +102,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .navbar {
-    padding: 0.5rem;
-  }
   .navbar-select,
   .navbar-btn,
   .navbar-check {

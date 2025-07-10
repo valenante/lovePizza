@@ -33,7 +33,7 @@ const PreMenu = () => {
         setEsLider(!tokenLider); // Si no hay tokenLider, el usuario será el líder
       } catch (error) {
         logger.error("Error al verificar el tokenLider:", error);
-      setMensajeAlerta({ tipo: "error", mensaje: "No se pudo verificar la mesa" });
+        setMensajeAlerta({ tipo: "error", mensaje: "No se pudo verificar la mesa" });
         navigate("/");
       }
     };
@@ -180,6 +180,12 @@ const PreMenu = () => {
             onClick={() => cambiarIdioma("en")}
           >
             English
+          </button>
+          <button
+            className={`btn-idioma ${locale === "fr" ? "activo" : ""}`}
+            onClick={() => cambiarIdioma("fr")}
+          >
+            Français
           </button>
         </div>
 

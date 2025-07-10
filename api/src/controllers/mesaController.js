@@ -263,7 +263,7 @@ export const cerrarMesa = async (req, res) => {
       await nuevaCaja.save();
     }
 
-    //numeroFactura = await obtenerNumeroFactura();
+    numeroFactura = await obtenerNumeroFactura();
 
     const productosPlatos = mesa.pedidos.flatMap((pedido) =>
       pedido.productos.map((p) => ({

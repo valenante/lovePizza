@@ -130,6 +130,102 @@ const EditProduct = ({ product, onSave, onCancel, onDelete }) => {
           <p className="error--editar">{errors.descripcion}</p>
         )}
 
+        {/* Traducciones en Inglés */}
+        <fieldset className="fieldset--editar">
+          <legend className="legend--editar">Traducción en Inglés</legend>
+
+          <label className="label--editar">
+            Nombre (EN):
+            <input
+              type="text"
+              value={formData.traducciones?.en?.nombre || ""}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  traducciones: {
+                    ...prev.traducciones,
+                    en: {
+                      ...prev.traducciones?.en,
+                      nombre: e.target.value,
+                    },
+                  },
+                }))
+              }
+              className="input--editar"
+              placeholder="Ej: Ham Croquettes"
+            />
+          </label>
+
+          <label className="label--editar">
+            Descripción (EN):
+            <textarea
+              value={formData.traducciones?.en?.descripcion || ""}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  traducciones: {
+                    ...prev.traducciones,
+                    en: {
+                      ...prev.traducciones?.en,
+                      descripcion: e.target.value,
+                    },
+                  },
+                }))
+              }
+              className="textarea--editar"
+              placeholder="Ej: Delicious ham croquettes..."
+            />
+          </label>
+        </fieldset>
+
+        {/* Traducciones en Francés */}
+        <fieldset className="fieldset--editar">
+          <legend className="legend--editar">Traducción en Francés</legend>
+
+          <label className="label--editar">
+            Nombre (FR):
+            <input
+              type="text"
+              value={formData.traducciones?.fr?.nombre || ""}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  traducciones: {
+                    ...prev.traducciones,
+                    fr: {
+                      ...prev.traducciones?.fr,
+                      nombre: e.target.value,
+                    },
+                  },
+                }))
+              }
+              className="input--editar"
+              placeholder="Ej: Croquettes au jambon"
+            />
+          </label>
+
+          <label className="label--editar">
+            Descripción (FR):
+            <textarea
+              value={formData.traducciones?.fr?.descripcion || ""}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  traducciones: {
+                    ...prev.traducciones,
+                    fr: {
+                      ...prev.traducciones?.fr,
+                      descripcion: e.target.value,
+                    },
+                  },
+                }))
+              }
+              className="textarea--editar"
+              placeholder="Ej: Délicieuses croquettes au jambon..."
+            />
+          </label>
+        </fieldset>
+
         {/* Ingredientes */}
         <label className="label--editar">
           Ingredientes:
@@ -234,7 +330,7 @@ const EditProduct = ({ product, onSave, onCancel, onDelete }) => {
               <label className="label--editar">
                 Precio Ración:
                 <input
-                  type="number"m
+                  type="number" m
                   name="precios.racion"
                   value={formData.precios.racion || ""}
                   onChange={handleChange}
@@ -294,6 +390,27 @@ const EditProduct = ({ product, onSave, onCancel, onDelete }) => {
           />
         </label>
 
+        {/* Aliases */}
+        <label className="label--editar">
+          Aliases (separados por comas):
+          <input
+            type="text"
+            value={formData.aliases?.join(", ") || ""}
+            onChange={(e) => {
+              const input = e.target.value;
+              const nuevosAliases = input
+                .split(",")
+                .map((alias) => alias.trim())
+                .filter((alias) => alias.length > 0);
+              setFormData((prev) => ({
+                ...prev,
+                aliases: nuevosAliases,
+              }));
+            }}
+            className="input--editar"
+            placeholder="Ej: croqueta, jamón, croquetas jamón"
+          />
+        </label>
 
         {/* Editar Stock */}
         <label className="label--editar">

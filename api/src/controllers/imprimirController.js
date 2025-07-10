@@ -13,7 +13,6 @@ const enviarAImpresion = async (endpoint, payload) => {
 export const imprimirPlatos = async (req, res) => {
   try {
     const { mesaNumero, comensales, productos, total } = req.body;
-    console.log(productos);
     const response = await enviarAImpresion('imprimir', {
       mesaNumero,
       comensales,

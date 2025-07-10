@@ -177,8 +177,31 @@ export const agregarProductoAlPedido = async (req, res) => {
 
     mesa.total = totalPedidos + totalBebidas;
 
-    console.log(`[DEBUG] Total recalculado (platos): ${mesa.total} €`);
     await mesa.save();
+
+    // Crear ventas por cada producto agregado
+    for (const producto of productosCompletos) {
+      const venta = new Venta({
+        producto: producto.producto,
+        pedidoId: pedidoModificado._id,
+        cantidad: producto.cantidad,
+        total: producto.total,
+      });
+
+      await venta.save();
+
+      const productoEnDB = productosDB.find(
+        (p) => p._id.toString() === producto.producto.toString()
+      );
+
+      if (productoEnDB) {
+        productoEnDB.ventas.push(venta._id);
+        productoEnDB.stock -= producto.cantidad;
+        await productoEnDB.save();
+      } else {
+        logger.error('Producto no encontrado al registrar venta:', producto.producto);
+      }
+    }
 
     req.io.emit('nuevoPedido', {
       ...pedidoModificado.toObject(),

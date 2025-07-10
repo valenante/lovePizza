@@ -14,20 +14,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/pages/Valoraciones.js:103
+#: src/pages/Valoraciones.js:106
 msgid "valora-experiencia"
 msgstr "Valora tu experiencia"
 
 #. js-lingui-explicit-id
-#: src/pages/Valoraciones.js:107
+#: src/pages/Valoraciones.js:110
 msgid "no-hay-productos"
 msgstr "No hay productos para valorar"
-
-#. js-lingui-explicit-id
-#: src/pages/Valoraciones.js:115
-#: src/components/Carta/ProductoCard.js:79
-msgid "estrellas"
-msgstr "estrellas"
 
 #. js-lingui-explicit-id
 #: src/pages/Valoraciones.js:125
@@ -40,119 +34,125 @@ msgid "estrella"
 msgstr "estrella"
 
 #. js-lingui-explicit-id
-#: src/pages/Valoraciones.js:135
-msgid "comentario"
-msgstr "Comentario"
-
-#. js-lingui-explicit-id
-#: src/pages/Valoraciones.js:150
+#: src/pages/Valoraciones.js:147
 msgid "enviar-valoraciones"
 msgstr "Enviar valoraciones"
 
 #. js-lingui-explicit-id
-#: src/components/PreMenu/PreMenu.jsx:165
+#: src/components/PreMenu/PreMenu.jsx:167
 msgid "Configuración Inicial"
 msgstr "Configuración Inicial"
 
 #. js-lingui-explicit-id
-#: src/components/PreMenu/PreMenu.jsx:191
+#: src/components/PreMenu/PreMenu.jsx:193
 msgid "Nombre"
 msgstr "Nombre"
 
 #. js-lingui-explicit-id
-#: src/components/PreMenu/PreMenu.jsx:204
+#: src/components/PreMenu/PreMenu.jsx:206
 msgid "Alergias"
 msgstr "Alergias"
 
 #. js-lingui-explicit-id
-#: src/components/PreMenu/PreMenu.jsx:218
+#: src/components/PreMenu/PreMenu.jsx:220
 msgid "Número de comensales"
 msgstr "Número de comensales"
 
 #. js-lingui-explicit-id
-#: src/components/PreMenu/PreMenu.jsx:228
+#: src/components/PreMenu/PreMenu.jsx:230
 msgid "Contraseña"
 msgstr "Contraseña"
 
 #. js-lingui-explicit-id
-#: src/components/PreMenu/PreMenu.jsx:238
+#: src/components/PreMenu/PreMenu.jsx:240
 msgid "Procesando..."
 msgstr "Procesando"
 
 #. js-lingui-explicit-id
-#: src/components/PreMenu/PreMenu.jsx:240
+#: src/components/PreMenu/PreMenu.jsx:242
 msgid "Continuar"
 msgstr "Continuar"
 
 #. js-lingui-explicit-id
-#: src/components/Navbar/Navbar.js:102
-#: src/components/Navbar/Navbar.js:173
+#: src/components/Navbar/Navbar.js:104
+#: src/components/Navbar/Navbar.js:187
 msgid "todas-categorias"
 msgstr "categorias"
 
 #. js-lingui-explicit-id
-#: src/components/Navbar/Navbar.js:112
-#: src/components/Navbar/Navbar.js:183
+#: src/components/Navbar/Navbar.js:114
+#: src/components/Navbar/Navbar.js:197
 msgid "platos"
 msgstr "Platos"
 
 #. js-lingui-explicit-id
-#: src/components/Navbar/Navbar.js:112
-#: src/components/Navbar/Navbar.js:183
+#: src/components/Navbar/Navbar.js:114
+#: src/components/Navbar/Navbar.js:197
 msgid "bebidas"
 msgstr "Bebidas"
 
 #. js-lingui-explicit-id
-#: src/components/Navbar/Navbar.js:117
-#: src/components/Navbar/Navbar.js:197
+#: src/components/Navbar/Navbar.js:119
+#: src/components/Navbar/Navbar.js:211
 msgid "cuenta"
 msgstr "Cuenta"
 
 #. js-lingui-explicit-id
-#: src/components/Carta/ProductoCard.js:63
-#: src/components/Carta/ProductoCard.js:87
+#: src/components/Carta/ProductoCard.js:130
+#: src/components/Carta/ProductoCard.js:144
 msgid "agregar-carrito"
 msgstr "Agregar al carrito"
 
 #. js-lingui-explicit-id
-#: src/components/Carta/ProductoCard.js:75
-msgid "valoracion"
-msgstr "Valoración"
-
-#. js-lingui-explicit-id
-#: src/components/Carta/ProductoCard.js:82
-msgid "sin-valoraciones"
-msgstr "Sin valoraciones"
-
-#. js-lingui-explicit-id
-#: src/components/Carta/ModalCroquetas.js:132
+#: src/components/Carta/ModalCroquetas.js:134
 msgid "personalizar-croquetas"
 msgstr "Personalizar Croquetas"
 
 #. js-lingui-explicit-id
-#: src/components/Carta/ModalCroquetas.js:134
+#: src/components/Carta/ModalCroquetas.js:136
 msgid "seleccionar-sabores"
 msgstr "Seleccionar sabores"
 
 #. js-lingui-explicit-id
-#: src/components/Carta/ModalCroquetas.js:180
+#: src/components/Carta/ModalCroquetas.js:182
 msgid "seleccionar-exactamente-6-sabores"
 msgstr "Seleccionar 6 sabores"
 
 #. js-lingui-explicit-id
-#: src/components/Carta/ModalCroquetas.js:187
+#: src/components/Carta/ModalCroquetas.js:189
 msgid "cancelar"
 msgstr "cancelar"
 
 #. js-lingui-explicit-id
-#: src/components/Carta/ModalCroquetas.js:194
+#: src/components/Carta/ModalCroquetas.js:196
 msgid "agregar-al-carrito"
 msgstr "agregar al carrito"
 
+#. js-lingui-explicit-id
+#: src/pages/Valoraciones.js:115
+#: src/components/Carta/ProductoCard.js:79
+#~ msgid "estrellas"
+#~ msgstr "estrellas"
+
+#. js-lingui-explicit-id
+#: src/pages/Valoraciones.js:135
+#~ msgid "comentario"
+#~ msgstr "Comentario"
+
+#. js-lingui-explicit-id
+#: src/components/Carta/ProductoCard.js:75
+#~ msgid "valoracion"
+#~ msgstr "Valoración"
+
+#. js-lingui-explicit-id
+#: src/components/Carta/ProductoCard.js:82
+#~ msgid "sin-valoraciones"
+#~ msgstr "Sin valoraciones"
+
 #. placeholder {0}: producto.nombre
 #. placeholder {0}: opcion.tipo
-#: src/components/Carta/ProductoDetalle.js:193
-#: src/components/Carta/ProductoDetalle.js:225
+#: src/components/Carta/ProductoDetalle.js:201
+#: src/components/Carta/ProductoDetalle.js:233
 msgid "{0}"
 msgstr "{0}"
 
@@ -160,7 +160,7 @@ msgstr "{0}"
 msgid "{nombre}"
 msgstr ""
 
-#: src/components/Carta/ProductoDetalle.js:236
+#: src/components/Carta/ProductoDetalle.js:244
 msgid "{op}"
 msgstr "{op}"
 
@@ -168,19 +168,19 @@ msgstr "{op}"
 msgid "Acompañante:"
 msgstr ""
 
-#: src/components/Carta/ProductoDetalle.js:405
+#: src/components/Carta/ProductoDetalle.js:430
 msgid "Agregar al carrito"
 msgstr "Agregar al carrito"
 
-#: src/components/Carta/ProductoDetalle.js:337
+#: src/components/Carta/ProductoDetalle.js:340
 msgid "Botella"
 msgstr ""
 
-#: src/components/Carta/ProductoDetalle.js:400
+#: src/components/Carta/ProductoDetalle.js:425
 msgid "Cancelar"
 msgstr "Cancelar"
 
-#: src/components/Carta/ProductoDetalle.js:245
+#: src/components/Carta/ProductoDetalle.js:253
 msgid "Cantidad:"
 msgstr "Cantidad:"
 
@@ -188,7 +188,7 @@ msgstr "Cantidad:"
 msgid "Compartir"
 msgstr "Compartir"
 
-#: src/components/Carta/ProductoDetalle.js:332
+#: src/components/Carta/ProductoDetalle.js:335
 msgid "Copa"
 msgstr ""
 
@@ -196,29 +196,29 @@ msgstr ""
 msgid "Individual"
 msgstr "Individual"
 
-#: src/components/Carta/ProductoDetalle.js:197
+#: src/components/Carta/ProductoDetalle.js:205
 msgid "Ingredientes:"
 msgstr "Ingredientes:"
 
-#: src/components/Carta/ProductoDetalle.js:220
+#: src/components/Carta/ProductoDetalle.js:228
 msgid "Opciones:"
 msgstr "Opciones:"
 
-#: src/components/Carta/ProductoDetalle.js:310
+#: src/components/Carta/ProductoDetalle.js:316
 msgid "Precio:"
 msgstr ""
 
-#: src/components/Carta/ProductoDetalle.js:288
+#: src/components/Carta/ProductoDetalle.js:294
 msgid "Ración"
 msgstr ""
 
 #: src/components/Carta/ProductoDetalle.js:263
-msgid "Selecciona el tipo de plato:"
-msgstr ""
+#~ msgid "Selecciona el tipo de plato:"
+#~ msgstr ""
 
 #: src/components/Carta/ProductoDetalle.js:315
-msgid "Selecciona presentación:"
-msgstr ""
+#~ msgid "Selecciona presentación:"
+#~ msgstr ""
 
 #: src/components/Carta/ProductoDetalle.js:383
 msgid "Selecciona un acompañante"
@@ -228,14 +228,14 @@ msgstr ""
 msgid "Sin acompañante"
 msgstr ""
 
-#: src/components/Carta/ProductoDetalle.js:294
+#: src/components/Carta/ProductoDetalle.js:300
 msgid "Surtido"
 msgstr ""
 
-#: src/components/Carta/ProductoDetalle.js:283
+#: src/components/Carta/ProductoDetalle.js:289
 msgid "Tapa"
 msgstr ""
 
 #: src/components/Carta/ProductoDetalle.js:349
-msgid "Tipo de plato:"
-msgstr "Tipo de plato"
+#~ msgid "Tipo de plato:"
+#~ msgstr "Tipo de plato"

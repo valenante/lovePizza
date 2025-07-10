@@ -90,8 +90,7 @@ const Navbar = ({ setMostrarSoloBebidas, mostrarSoloBebidas }) => {
     .filter((categoria, index, self) => self.indexOf(categoria) === index);
 
   return (
-    <div className="container">
-      <nav className="navbar">
+      <nav className="navbar-navbar-custom">
         {/* 📌 PANTALLAS GRANDES: Estructura normal */}
         {!pantallaPequena ? (
           <div className="row w-100 align-items-center">
@@ -134,6 +133,12 @@ const Navbar = ({ setMostrarSoloBebidas, mostrarSoloBebidas }) => {
                 >
                   English
                 </button>
+                <button
+                  className={`btn-idioma ${locale === "fr" ? "activo" : ""}`}
+                  onClick={() => cambiarIdioma("fr")}
+                >
+                  Français
+                </button>
               </div>
 
               {numeroMesa && (
@@ -163,6 +168,12 @@ const Navbar = ({ setMostrarSoloBebidas, mostrarSoloBebidas }) => {
                   >
                     English
                   </button>
+                  <button
+                    className={`btn-idioma ${locale === "fr" ? "activo" : ""}`}
+                    onClick={() => cambiarIdioma("fr")}
+                  >
+                    Français
+                  </button> 
                 </div>
               </div>
 
@@ -209,7 +220,6 @@ const Navbar = ({ setMostrarSoloBebidas, mostrarSoloBebidas }) => {
           <CarritoModal cerrarModal={() => setMostrarModal(false)} />
         )}
       </nav>
-    </div>
   );
 };
 

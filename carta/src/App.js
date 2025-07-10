@@ -9,15 +9,16 @@ import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
 import { messages as enMessages } from "./locales/en/messages";
 import { messages as esMessages } from "./locales/es/messages";
+import { messages as frMessages } from "./locales/fr/messages"; // 👈 Agregar esto arriba
 import { MesasProvider } from './context/MesasContext';
 import Home from './pages/HomePage.js';
 import Reservas from './pages/Reservas.js';
 import { ComensalProvider } from './context/ComensalesContext.js';
 
-// Configuración de idiomas
 const locales = {
   en: enMessages,
   es: esMessages,
+  fr: frMessages, // 👈 Agregar esta línea
 };
 
 function App() {

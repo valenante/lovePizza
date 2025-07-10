@@ -9,7 +9,7 @@ import "./EstadisticasFinal.css";
 const EstadisticasFinal = ({ category }) => {
   const { products, fetchProducts } = useCategorias();
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [setVentasDetalles] = useState({}); // Almacenará los detalles de ventas
+  const [, setVentasDetalles] = useState({});
   const [estadisticas, setEstadisticas] = useState({}); // Acumuladores por producto
   const [selectedDate, setSelectedDate] = useState(null); // Fecha seleccionada para el filtro
 

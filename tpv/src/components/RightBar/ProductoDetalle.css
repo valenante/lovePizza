@@ -285,7 +285,7 @@
   select,
   .mensaje-producto-textarea {
     width: auto;
-    min-height: 60px;
+    min-height: 2vh;
     resize: vertical;
     font-size: 1rem;
     border-radius: 6px;

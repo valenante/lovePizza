@@ -189,28 +189,6 @@ const ProductoDetalle = ({
           </>
         )}
 
-        {producto.opcionesPersonalizables.length > 0 && (
-          <>
-            {producto.opcionesPersonalizables.map((opcion) => (
-              <div key={opcion.tipo}>
-                <h5>{opcion.tipo}</h5>
-                {opcion.opciones.map((op) => (
-                  <label key={op}>
-                    <input
-                      type="radio"
-                      name={opcion.tipo}
-                      value={op}
-                      checked={opcionesSeleccionadas[opcion.tipo] === op}
-                      onChange={() => manejarOpciones(opcion.tipo, op)}
-                    />
-                    {op}
-                  </label>
-                ))}
-              </div>
-            ))}
-          </>
-        )}
-
         <div>
           <button onClick={() => manejarCantidad(-1)}>-</button>
           <span>{cantidad}</span>

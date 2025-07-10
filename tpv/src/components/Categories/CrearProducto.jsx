@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useEffect } from 'react';
 import { ProductosContext } from '../../context/ProductosContext';
-import { ImageContext } from '../../context/ImagesContext'; 
+import { ImageContext } from '../../context/ImagesContext';
 import * as logger from '../../utils/logger';
 import api from '../../utils/api';
 import './CrearProducto.css';
@@ -26,8 +26,6 @@ const CrearProducto = ({ onClose }) => {
       en: { nombre: "", descripcion: "" },
       fr: { nombre: "", descripcion: "" },
     },
-    puntosDeCoccion: [], // Solo para platos
-    opcionesPersonalizables: [], // Solo para platos
   });
 
   useEffect(() => {
@@ -79,14 +77,6 @@ const CrearProducto = ({ onClose }) => {
     }
   };
 
-  // Funciones para agregar y eliminar opciones personalizables (solo para platos)
-  const addOpcionPersonalizable = () => {
-    setFormData((prev) => ({
-      ...prev,
-      opcionesPersonalizables: [...prev.opcionesPersonalizables, ""],
-    }));
-  };
-
   // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -101,7 +91,6 @@ const CrearProducto = ({ onClose }) => {
     } else if (productData.tipo === "bebida") {
       delete productData.ingredientes;
       delete productData.puntosDeCoccion;
-      delete productData.opcionesPersonalizables;
     }
 
     try {
@@ -123,10 +112,103 @@ const CrearProducto = ({ onClose }) => {
             Nombre:
             <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} className="input--crear" required />
           </label>
+
           <label className="label--crear">
             Descripción:
             <textarea name="descripcion" value={formData.descripcion} onChange={handleChange} className="textarea--crear" required />
           </label>
+
+          {/* Traducción al inglés */}
+          <label className="label--editar">
+            Nombre en inglés:
+            <input
+              type="text"
+              value={formData.traducciones?.en?.nombre || ""}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  traducciones: {
+                    ...prev.traducciones,
+                    en: {
+                      ...prev.traducciones?.en,
+                      nombre: e.target.value,
+                    },
+                  },
+                }))
+              }
+              className="input--editar"
+              placeholder="Ej: Ham croquettes"
+            />
+          </label>
+
+          <label className="label--editar">
+            Descripción en inglés:
+            <input
+              type="text"
+              value={formData.traducciones?.en?.descripcion || ""}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  traducciones: {
+                    ...prev.traducciones,
+                    en: {
+                      ...prev.traducciones?.en,
+                      descripcion: e.target.value,
+                    },
+                  },
+                }))
+              }
+              className="input--editar"
+              placeholder="Ej: Delicious ham croquettes"
+            />
+          </label>
+
+          {/* Traducción al francés */}
+          <label className="label--editar">
+            Nombre en francés:
+            <input
+              type="text"
+              value={formData.traducciones?.fr?.nombre || ""}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  traducciones: {
+                    ...prev.traducciones,
+                    fr: {
+                      ...prev.traducciones?.fr,
+                      nombre: e.target.value,
+                    },
+                  },
+                }))
+              }
+              className="input--editar"
+              placeholder="Ej: Croquettes au jambon"
+            />
+          </label>
+
+          <label className="label--editar">
+            Descripción en francés:
+            <input
+              type="text"
+              value={formData.traducciones?.fr?.descripcion || ""}
+              onChange={(e) =>
+                
+                setFormData((prev) => ({
+                  ...prev,
+                  traducciones: {
+                    ...prev.traducciones,
+                    fr: {
+                      ...prev.traducciones?.fr,
+                      descripcion: e.target.value,
+                    },
+                  },
+                }))
+              }
+              className="input--editar"
+              placeholder="Ej: Délicieuses croquettes au jambon"
+            />
+          </label>
+
           <fieldset className="fieldset--crear">
             <legend className="legend--crear">Ingredientes</legend>
             {formData.ingredientes.map((ingrediente, index) => (
@@ -242,51 +324,6 @@ const CrearProducto = ({ onClose }) => {
                     />
                   </label>
                 </fieldset>
-                <fieldset className="fieldset--crear">
-                  <legend className="legend--crear">Opciones Personalizables</legend>
-                  {formData.opcionesPersonalizables.map((opcion, index) => (
-                    <div key={index} className="form-group--crear">
-                      <label className="label--crear">
-                        Tipo:
-                        <input
-                          type="text"
-                          value={opcion.tipo}
-                          onChange={(e) => {
-                            const nuevasOpciones = [...formData.opcionesPersonalizables];
-                            nuevasOpciones[index].tipo = e.target.value;
-                            setFormData((prev) => ({ ...prev, opcionesPersonalizables: nuevasOpciones }));
-                          }}
-                          className="input--crear"
-                        />
-                      </label>
-                      <label className="label--crear">
-                        Opciones (separadas por coma):
-                        <input
-                          type="text"
-                          value={opcion.opciones.join(", ")}
-                          onChange={(e) => {
-                            const nuevasOpciones = [...formData.opcionesPersonalizables];
-                            nuevasOpciones[index].opciones = e.target.value.split(",").map(op => op.trim());
-                            setFormData((prev) => ({ ...prev, opcionesPersonalizables: nuevasOpciones }));
-                          }}
-                          className="input--crear"
-                        />
-                      </label>
-                      <button type="button" onClick={() => {
-                        const nuevasOpciones = formData.opcionesPersonalizables.filter((_, i) => i !== index);
-                        setFormData((prev) => ({ ...prev, opcionesPersonalizables: nuevasOpciones }));
-                      }}>❌</button>
-                    </div>
-                  ))}
-                  <button type="button" onClick={() => {
-                    setFormData((prev) => ({
-                      ...prev,
-                      opcionesPersonalizables: [...prev.opcionesPersonalizables, { tipo: "", opciones: [] }]
-                    }));
-                  }}>➕ Agregar Personalización</button>
-                </fieldset>
-
-                <button type="button" onClick={addOpcionPersonalizable}>➕ Agregar Opción</button>
               </div>
             </fieldset>
           )}
@@ -312,7 +349,29 @@ const CrearProducto = ({ onClose }) => {
           )}
         </div>
 
+
         <div className="form-group--crear">
+          {/* Aliases */}
+          <label className="label--editar">
+            Aliases (separados por comas):
+            <input
+              type="text"
+              value={formData.aliases?.join(", ") || ""}
+              onChange={(e) => {
+                const input = e.target.value;
+                const nuevosAliases = input
+                  .split(",")
+                  .map((alias) => alias.trim())
+                  .filter((alias) => alias.length > 0);
+                setFormData((prev) => ({
+                  ...prev,
+                  aliases: nuevosAliases,
+                }));
+              }}
+              className="input--editar"
+              placeholder="Ej: croqueta, jamón, croquetas jamón"
+            />
+          </label>
           <label className="label--crear">
             Stock:
             <input type="number" name="stock" value={formData.stock} onChange={handleChange} className="input--crear" required />

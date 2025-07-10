@@ -12,15 +12,6 @@ const precioSchema = new Schema(
   { _id: false }
 );
 
-// Subesquema para presentaciones y opciones personalizables
-const opcionPersonalizableSchema = new Schema(
-  {
-    tipo: { type: String, required: true }, // Ejemplo: "queso", "acompañamiento"
-    opciones: { type: [String], default: [] }, // Ejemplo: ["cheddar", "mozzarella"]
-  },
-  { _id: false }
-);
-
 const adicionalSchema = new Schema(
   {
     nombre: { type: String, required: true }, // Ejemplo: "Unidad adicional"
@@ -64,7 +55,6 @@ const productoSchema = new Schema(
     ingredientes: { type: [String], default: [] }, // Ejemplo: ["pollo", "patatas"]
     ingredientesEliminados: { type: [String], default: [] }, // Ingredientes que el cliente ha solicitado quitar
     puntosDeCoccion: [{ type: String }], // Ej: "Poco hecho", "Bien hecho"
-    opcionesPersonalizables: [opcionPersonalizableSchema], // Opciones personalizables para el cliente
     adicionales: [adicionalSchema],
 
     especificaciones: [

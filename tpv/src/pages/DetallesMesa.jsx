@@ -48,7 +48,7 @@ const DetalleMesa = () => {
         <RightBar mesaId={mesa._id} agregarProducto={agregarProducto} />
       </div>
       <div className="contenido-mesa--mesadetalles">
-        
+
         {mostrarFacturaModal && (
           <div className="modal-factura">
             <div className="modal-contenido">
@@ -69,7 +69,16 @@ const DetalleMesa = () => {
                   setDatosFactura({ ...datosFactura, nif: e.target.value })
                 }
               />
-              <button onClick={() => emitirFactura(metodoPagoFactura)}>Emitir Factura</button>
+              <button
+                onClick={() =>
+                  emitirFactura(metodoPagoFactura, {
+                    nombre: datosFactura.nombre,
+                    nif: datosFactura.nif,
+                  })
+                }
+              >
+                Emitir Factura
+              </button>
               <button onClick={() => setMostrarFacturaModal(false)}>
                 Cancelar
               </button>
