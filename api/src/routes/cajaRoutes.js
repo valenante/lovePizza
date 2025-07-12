@@ -10,19 +10,93 @@ import {
   obtenerCajaAbierta,
 } from '../controllers/cajaController.js';
 
-// Obtener el total de la caja
+/**
+ * @swagger
+ * tags:
+ *   name: Caja
+ *   description: Operaciones sobre la caja del día
+ */
+
+/**
+ * @swagger
+ * /caja/total:
+ *   get:
+ *     summary: Obtener el total actual de la caja
+ *     tags: [Caja]
+ *     responses:
+ *       200:
+ *         description: Total de la caja obtenido correctamente
+ */
 router.get('/total', obtenerCaja);
 
-// Retirar dinero de la caja
+/**
+ * @swagger
+ * /caja/retirar:
+ *   post:
+ *     summary: Retirar dinero de la caja
+ *     tags: [Caja]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               cantidad:
+ *                 type: number
+ *             required:
+ *               - cantidad
+ *     responses:
+ *       200:
+ *         description: Dinero retirado correctamente
+ */
 router.post('/retirar', retirarDinero);
 
-// Integrar dinero a la caja
+/**
+ * @swagger
+ * /caja/integrar:
+ *   post:
+ *     summary: Integrar dinero a la caja
+ *     tags: [Caja]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               cantidad:
+ *                 type: number
+ *             required:
+ *               - cantidad
+ *     responses:
+ *       200:
+ *         description: Dinero integrado correctamente
+ */
 router.post('/integrar', integrarDinero);
 
-// Cerrar la caja
+/**
+ * @swagger
+ * /caja/cerrar:
+ *   post:
+ *     summary: Cerrar la caja del día
+ *     tags: [Caja]
+ *     responses:
+ *       200:
+ *         description: Caja cerrada correctamente
+ */
 router.post('/cerrar', cerrarCaja);
 
-// Importar los controladores de caja
+/**
+ * @swagger
+ * /caja/abierta:
+ *   get:
+ *     summary: Obtener el estado actual de la caja (si está abierta)
+ *     tags: [Caja]
+ *     responses:
+ *       200:
+ *         description: Estado de la caja obtenido correctamente
+ */
 router.get('/abierta', obtenerCajaAbierta);
 
 export default router;

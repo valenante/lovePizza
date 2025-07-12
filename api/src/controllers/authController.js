@@ -109,6 +109,13 @@ export const registro = async (req, res) => {
     const accessToken = generarAccessToken(nuevoUsuario);
     const refreshToken = generarRefreshToken(nuevoUsuario);
 
+    res.cookie('token', accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+      maxAge: 60 * 60 * 1000, // 1 hora
+    });
+
     res.cookie('refreshToken', refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
@@ -157,6 +164,13 @@ export const login = async (req, res) => {
 
     const accessToken = generarAccessToken(user);
     const refreshToken = generarRefreshToken(user);
+
+    res.cookie('token', accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+      maxAge: 60 * 60 * 1000, // 1 hora
+    });
 
     res.cookie('refreshToken', refreshToken, {
       httpOnly: true,

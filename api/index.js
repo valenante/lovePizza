@@ -8,6 +8,9 @@ import session from 'express-session';
 import cors from 'cors';
 import helmet from 'helmet';
 import redisClient from './config/redisClient.js';
+import morgan from 'morgan';
+import fs from 'fs';
+import path from 'path';
 import {
   corsOptions,
   sessionConfig,
@@ -15,6 +18,9 @@ import {
   connectToDatabase,
   PORT,
 } from './config/config.js'; // ✅ Importamos la configuración
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from './config/swagger.js';
+import {attachUser} from './src/middlewares/attachUser.js'; // Importar middleware para adjuntar usuario
 import mesaRoutes from './src/routes/mesaRoutes.js';
 import productoRoutes from './src/routes/productosRoutes.js';
 import authRoutes from './src/routes/authRoutes.js';
@@ -61,16 +67,6 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 app.use(session(sessionConfig));
 
-// (OPCIONAL - para debug o tracking de sesiones)
-app.use((req, res, next) => {
-  if (!req.session.views) {
-    req.session.views = 1;
-  } else {
-    req.session.views++;
-  }
-  next();
-});
-
 // Middleware de seguridad
 app.use(helmet());
 
@@ -82,9 +78,6 @@ app.use((req, res, next) => {
   req.io = io;
   next();
 });
-
-// Conectar a MongoDB
-connectToDatabase();
 
 //Devolver imagenes
 app.use(
@@ -103,28 +96,67 @@ app.use(
   })
 );
 
+app.use(attachUser); // Intenta decodificar al usuario en TODAS las rutas, para logging
+
+// Crear carpeta de logs si no existe
+const logsDir = path.join(process.cwd(), 'logs');
+if (!fs.existsSync(logsDir)) {
+  fs.mkdirSync(logsDir);
+}
+
+// Crear stream de escritura para access.log
+const accessLogStream = fs.createWriteStream(
+  path.join(logsDir, 'access.log'),
+  { flags: 'a' } // 'a' = append, no sobrescribe
+);
+
+// Formato de log personalizado para incluir el usuario
+morgan.token('user', (req) => {
+  return req.user?.name || 'anónimo';
+});
+
+// Formato con timestamp + método + URL + status + usuario
+const customFormat = (tokens, req, res) => {
+  return [
+    `[${new Date().toISOString()}]`,
+    tokens.method(req, res),
+    tokens.url(req, res),
+    tokens.status(req, res),
+    '- user:',
+    tokens.user(req, res),
+  ].join(' ');
+};
+
+app.use(morgan(customFormat, { stream: accessLogStream }));
+
+// En desarrollo, muestra también en consola
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan(customFormat));
+}
+
 // Registrar rutas
-app.use('/api/mesas', mesaRoutes);
-app.use('/api/productos', productoRoutes);
-app.use('/api/auth', authRoutes);
-app.use('/api/pedidos', pedidosRoutes);
-app.use('/api/pedidosBebidas', pedidoBebidasRoutes);
-app.use('/api/ventas', ventasRoutes);
-app.use('/api/cart', cartRoutes);
-app.use('/api/password', passwordRoutes);
-app.use('/api/caja', cajaRoutes);
-app.use('/api/eliminaciones', eliminacionRoutes);
-app.use('/api/cajaDiaria', cajaDiariaRoutes);
-app.use('/api/valoraciones', valoracionesRoutes);
-app.use('/api/cuenta', cuentaRoutes);
-app.use('/api/images', imagesRoutes);
-app.use('/api/reservasConfiguracion', configuracionesReservasRoutes); // ✅ Registrar las rutas de configuraciones de reservas
-app.use('/api/reservas', reservasRoutes); // ✅ Registrar las rutas de reservas
-app.use('/api/disponibilidad', disponibilidadRoutes); // ✅ Registrar las rutas de disponibilidad
-app.use('/api/facturas', facturasRoutes); // ✅ Registrar las rutas de facturas
-app.use('/api/imprimir', imprimirRoutes); // ✅ Registrar las rutas de impresión
-app.use('/api/configuracion-global', configuracionRoutes); // Registrar las rutas de configuración global
-app.use('/api/extras', extraRoutes); // Registrar las rutas de extras
+app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/api/v1/productos', productoRoutes);
+app.use('/api/v1/mesas', mesaRoutes);
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/pedidos', pedidosRoutes);
+app.use('/api/v1/pedidosBebidas', pedidoBebidasRoutes);
+app.use('/api/v1/ventas', ventasRoutes);
+app.use('/api/v1/cart', cartRoutes);
+app.use('/api/v1/password', passwordRoutes);
+app.use('/api/v1/caja', cajaRoutes);
+app.use('/api/v1/eliminaciones', eliminacionRoutes);
+app.use('/api/v1/cajaDiaria', cajaDiariaRoutes);
+app.use('/api/v1/valoraciones', valoracionesRoutes);
+app.use('/api/v1/cuenta', cuentaRoutes);
+app.use('/api/v1/images', imagesRoutes);
+app.use('/api/v1/reservasConfiguracion', configuracionesReservasRoutes);
+app.use('/api/v1/reservas', reservasRoutes);
+app.use('/api/v1/disponibilidad', disponibilidadRoutes);
+app.use('/api/v1/facturas', facturasRoutes);
+app.use('/api/v1/imprimir', imprimirRoutes);
+app.use('/api/v1/configuracion-global', configuracionRoutes);
+app.use('/api/v1/extras', extraRoutes);
 
 // Middlewares de error
 app.use(notFoundHandler);
