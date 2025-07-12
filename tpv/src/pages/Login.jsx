@@ -82,6 +82,7 @@ const Login = () => {
           onChange={handleChange}
           required
           autoFocus
+          autoComplete="username" // 👈 añadido aquí
           className="input--login"
           placeholder="Nombre de usuario"
         />
@@ -91,6 +92,7 @@ const Login = () => {
           value={formData.password}
           onChange={handleChange}
           required
+          autoComplete="current-password" // 👈 añadido aquí
           className="input--login"
           placeholder="Contraseña"
         />
