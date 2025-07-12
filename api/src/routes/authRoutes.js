@@ -29,14 +29,15 @@ const attemptsPorUsuario = new Map();
 export const limitarPorNombreDeUsuario = (req, res, next) => {
   const { name } = req.body;
 
-  if (!name) return next(); // No limitar si no hay nombre
+  // Si no hay name o no es string, no limitar
+  if (typeof name !== 'string') return next();
 
   const clave = name.toLowerCase();
   const ahora = Date.now();
   const datos = attemptsPorUsuario.get(clave) || { intentos: 0, ultimoIntento: ahora };
 
   if (ahora - datos.ultimoIntento > 60 * 1000) {
-    // resetear contador si pasó más de 1 minuto
+    // Resetear si pasó más de un minuto
     attemptsPorUsuario.set(clave, { intentos: 1, ultimoIntento: ahora });
     return next();
   }
@@ -60,8 +61,8 @@ router.post(
   '/login',
   loginRateLimiterByIP,
   limitarPorNombreDeUsuario,
-    check('name', 'El nombre de usuario es obligatorio').notEmpty(),
-  [check('password', 'La contraseña es obligatoria').notEmpty()],
+  check('name').isString().withMessage('El nombre debe ser texto').notEmpty(),
+  check('password').isString().withMessage('La contraseña debe ser texto').notEmpty(),
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
