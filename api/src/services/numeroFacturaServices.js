@@ -2,7 +2,6 @@
 import ContadorFactura from '../models/ContadorFactura.js';
 
 export const obtenerNumeroFactura = async () => {
-  console.log("Obteniendo número de factura...");
   const year = new Date().getFullYear();
   let contador = await ContadorFactura.findOne({ year });
 
@@ -13,6 +12,5 @@ export const obtenerNumeroFactura = async () => {
   }
 
   await contador.save();
-  console.log(`Número de factura obtenido: ${contador.lastNumber} para el año ${year}`);
   return `${year}-${contador.lastNumber.toString().padStart(4, '0')}`;
 };

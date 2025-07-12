@@ -6,7 +6,7 @@ const TopBar = () => {
   return (
     <div className="top-bar">
       <div className="container d-flex justify-content-center align-items-center">
-        <img src={logo} alt="Logo LP" className="top-bar-logo" />
+        <img src={logo} alt="Logo" className="top-bar-logo" />
       </div>
     </div>
   );

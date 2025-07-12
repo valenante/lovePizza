@@ -7,6 +7,8 @@ export const CategoriasContext = createContext();
 export const CategoriasProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const [lastFetchedCategory, setLastFetchedCategory] = useState(null);
+
 
   const fetchCategories = async (type) => {
     if (!type) {
@@ -35,16 +37,23 @@ export const CategoriasProvider = ({ children }) => {
       return [];
     }
 
+    // ✅ Protege contra peticiones repetidas
+    if (category === lastFetchedCategory) {
+      return products;
+    }
+
     try {
       const response = await api.get(`/productos/category/${encodeURIComponent(category)}`);
       const loadedProducts = response.data.products || [];
       setProducts(loadedProducts);
-      return loadedProducts;  // ✅ Devuelve los productos
+      setLastFetchedCategory(category); // Guarda la última categoría consultada
+      return loadedProducts;
     } catch (error) {
       logger.error("Error al obtener productos:", error);
       return [];
     }
   };
+
 
   const updateProduct = async (product) => {
     try {

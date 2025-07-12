@@ -14,17 +14,16 @@ const EstadisticasFinal = ({ category }) => {
   const [selectedDate, setSelectedDate] = useState(null); // Fecha seleccionada para el filtro
 
   useEffect(() => {
-    const cargarProductosYVentas = async () => {
-      if (products.length === 0) {
-        await fetchProducts(category);
-      }
+    fetchProducts(category);
+  }, [category]);
 
+  useEffect(() => {
+    const cargarEstadisticas = async () => {
       const productosFiltrados = products.filter(
         (product) => product.categoria === category
       );
       setFilteredProducts(productosFiltrados);
 
-      // Obtener detalles de ventas para cada producto y calcular estadísticas
       const detallesVentas = {};
       const acumuladores = {};
 
@@ -33,26 +32,23 @@ const EstadisticasFinal = ({ category }) => {
           product.ventas.map(async (ventaId) => {
             try {
               const response = await api.get(`/ventas/${ventaId}`);
-              return response.data; // Datos de la venta
+              return response.data;
             } catch (error) {
               logger.error(`Error al obtener la venta ${ventaId}:`, error);
-              return null; // Maneja errores para ventas individuales
+              return null;
             }
           })
         );
 
         const ventasFiltradas = ventasDetalles.filter((venta) => {
           if (!venta) return false;
-          if (!selectedDate) return true; // Si no hay fecha seleccionada, incluir todas las ventas
+          if (!selectedDate) return true;
           const ventaFecha = new Date(venta.fecha);
-          return (
-            ventaFecha.toDateString() === selectedDate.toDateString() // Comparar fechas
-          );
+          return ventaFecha.toDateString() === selectedDate.toDateString();
         });
 
         detallesVentas[product._id] = ventasFiltradas;
 
-        // Calcular estadísticas
         const totalCantidad = ventasFiltradas.reduce(
           (acumulado, venta) => acumulado + venta.cantidad,
           0
@@ -72,8 +68,10 @@ const EstadisticasFinal = ({ category }) => {
       setEstadisticas(acumuladores);
     };
 
-    cargarProductosYVentas();
-  }, [category, products, fetchProducts, selectedDate]);
+    if (products.length > 0) {
+      cargarEstadisticas();
+    }
+  }, [products, selectedDate, category]);
 
   return (
     <div className="estadisticas-final--estadisticas">
