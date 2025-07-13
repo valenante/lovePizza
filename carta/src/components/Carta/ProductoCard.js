@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useMesas } from "../../context/MesasContext";
 import { Trans, useLingui } from "@lingui/react";
+import { useConfiguracion } from "../../context/ConfiguracionContext";
 import ProductoDetalle from "./ProductoDetalle";
 import ModalCroquetas from "./ModalCroquetas";
-import api from "../../utils/api";
-import * as logger from '../../utils/logger';
 import "../../styles/ProductoCard.css";
 
 const ProductoCard = ({ producto, estrellas }) => {
@@ -27,14 +26,13 @@ const ProductoCard = ({ producto, estrellas }) => {
     producto.precios?.[tipoPrecio] ?? producto.precios?.precioBase
   );
 
-  const [permitePedidosComida, setPermitePedidosComida] = useState(true);
-  const [permitePedidosBebida, setPermitePedidosBebida] = useState(true);
-
   const { i18n } = useLingui();
   const idiomaActual = i18n.locale;
   const nombreTraducido = producto.traducciones?.[idiomaActual]?.nombre || producto.nombre;
   const descripcionTraducida = producto.traducciones?.[idiomaActual]?.descripcion || producto.descripcion;
   const esCroqueta = producto.nombre.toLowerCase().includes("croqueta") && !producto.nombre.toLowerCase().includes("mexicanas");
+  const { permitePedidosComida, permitePedidosBebida } = useConfiguracion();
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -42,19 +40,6 @@ const ProductoCard = ({ producto, estrellas }) => {
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    const fetchConfiguracion = async () => {
-      try {
-        const res = await api.get("/configuracion-global");
-        setPermitePedidosComida(res.data.permitePedidosComida);
-        setPermitePedidosBebida(res.data.permitePedidosBebida);
-      } catch (err) {
-        logger.error("Error al obtener configuración global:", err);
-      }
-    };
-    fetchConfiguracion();
   }, []);
 
   const abrirModal = () => setMostrarModal(true);
