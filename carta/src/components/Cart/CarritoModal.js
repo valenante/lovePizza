@@ -132,20 +132,24 @@ const CarritoModal = ({ cerrarModal }) => {
         };
         await api.post("/pedidos", pedidoPlatos);
 
-        await enviarPedidoAImpresora(
-          numeroMesa,
-          comensales,
-          productosPlatos.map(p => ({
-            nombre: p.nombre,
-            cantidad: p.cantidad,
-            opcionesPersonalizables: p.opcionesPersonalizables,
-            alergiasComensal: p.alergiasComensal,
-            tipoPrecio: p.tipoPrecio,
-            seccion: p.seccion,
-          })),
-          pedidoPlatos.total,
-          'platos'
-        );
+        try {
+          await enviarPedidoAImpresora(
+            numeroMesa,
+            comensales,
+            productosPlatos.map(p => ({
+              nombre: p.nombre,
+              cantidad: p.cantidad,
+              opcionesPersonalizables: p.opcionesPersonalizables,
+              alergiasComensal: p.alergiasComensal,
+              tipoPrecio: p.tipoPrecio,
+              seccion: p.seccion,
+            })),
+            pedidoPlatos.total,
+            'platos'
+          );
+        } catch (err) {
+          logger.error("Error imprimiendo platos:", err);
+        }
       }
 
       if (productosBebidas.length > 0) {
@@ -156,23 +160,29 @@ const CarritoModal = ({ cerrarModal }) => {
           total: productosBebidas.reduce((total, item) => total + item.total, 0),
           comensales,
         };
+
         await api.post("/pedidosBebidas", pedidoBebidas);
 
-        await enviarPedidoAImpresora(
-          numeroMesa,
-          comensales,
-          productosBebidas.map(p => ({
-            nombre: p.nombre,
-            cantidad: p.cantidad,
-            opcionesPersonalizables: p.opcionesPersonalizables,
-            alergiasComensal: p.alergiasComensal,
-            tipoPrecio: p.tipoPrecio,
-            seccion: p.seccion,
-          })),
-          pedidoBebidas.total,
-          'bebidas'
-        );
+        try {
+          await enviarPedidoAImpresora(
+            numeroMesa,
+            comensales,
+            productosBebidas.map(p => ({
+              nombre: p.nombre,
+              cantidad: p.cantidad,
+              opcionesPersonalizables: p.opcionesPersonalizables,
+              alergiasComensal: p.alergiasComensal,
+              tipoPrecio: p.tipoPrecio,
+              seccion: p.seccion,
+            })),
+            pedidoBebidas.total,
+            'bebidas'
+          );
+        } catch (err) {
+          logger.error("Error imprimiendo bebidas:", err);
+        }
       }
+
       //Eliminar el carrito
       await api.delete(`/cart/${carritoId}`, {
         headers: { "X-Cart-ID": carritoId },
