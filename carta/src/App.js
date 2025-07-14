@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { ProductosProvider } from './context/ProductosContext';
-import { LanguageProvider } from "./context/LanguageContext"; // 👈 Importamos el contexto
-import CartaPage from './pages/CartaPage';
-import PreMenu from './components/PreMenu/PreMenu';
+import { ProductosProvider } from './context/ProductosContext.js';
+import { LanguageProvider } from "./context/LanguageContext.js"; // 👈 Importamos el contexto
+import CartaPage from './pages/CartaPage.js';
+import PreMenu from './components/PreMenu/PreMenu.jsx';
 import Valoraciones from './pages/Valoraciones.js';
 import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
-import { messages as enMessages } from "./locales/en/messages";
-import { messages as esMessages } from "./locales/es/messages";
-import { messages as frMessages } from "./locales/fr/messages"; // 👈 Agregar esto arriba
-import { MesasProvider } from './context/MesasContext';
+import { messages as enMessages } from "./locales/en/messages.js";
+import { messages as esMessages } from "./locales/es/messages.js";
+import { messages as frMessages } from "./locales/fr/messages.js"; // 👈 Agregar esto arriba
+import { MesasProvider } from './context/MesasContext.js';
 import Home from './pages/HomePage.js';
 import Reservas from './pages/Reservas.js';
 import { ComensalProvider } from './context/ComensalesContext.js';

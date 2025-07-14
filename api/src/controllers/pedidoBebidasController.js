@@ -366,9 +366,9 @@ export const agregarProductoBebida = async (req, res) => {
     for (const producto of productos) {
       const venta = new Venta({
         producto: producto.producto,
-        pedidoId: nuevoPedido._id,
+        pedidoId: pedidoModificado._id,
         cantidad: producto.cantidad,
-        total,
+        total: producto.total,
       });
 
       await venta.save();
