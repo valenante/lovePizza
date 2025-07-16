@@ -3,6 +3,8 @@ import { Parser } from 'json2csv';
 import FacturaHash from '../models/FacturaHash.js';
 import EventoFactura from '../models/EventosFactura.js';
 import { generarHashFactura } from '../../utils/hashFactura.js';
+import { enviarFacturaAEAT } from '../../utils/enviarAEAT.js';
+
 
 export const listarFacturasEncadenadas = async (req, res) => {
   try {
@@ -82,7 +84,7 @@ export const rectificarFactura = async (req, res) => {
       clienteNIF,
       importeTotal,
       hashAnterior: facturaOriginal.hash,
-      hash: await generarHashFactura(
+      hash: generarHashFactura(
         {
           numeroFactura,
           fechaExpedicion: new Date(),
@@ -95,6 +97,8 @@ export const rectificarFactura = async (req, res) => {
     });
 
     await nuevaFactura.save();
+
+    await enviarFacturaAEAT(nuevaFactura);
 
     facturaOriginal.rectificada = true;
     facturaOriginal.facturaRectificativaId = nuevaFactura._id;

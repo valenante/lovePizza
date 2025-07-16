@@ -10,6 +10,10 @@ import { v4 as uuidv4 } from 'uuid'; // Generador de UUID
 import { registrarFacturaConHash } from '../services/registroFacturaService.js';
 import EventoFactura from '../models/EventosFactura.js';
 import { obtenerNumeroFactura } from '../services/numeroFacturaServices.js';
+import { generarFacturaXML } from '../../utils/generarFacturaXML.js';
+import { firmarFacturaMock } from '../../utils/firmarFacturaMock.js';
+import path from 'path';
+import fs from 'fs';
 
 export const verificarTokenLider = async (req, res) => {
   //Conseguir el mesaId de los params
@@ -305,7 +309,7 @@ export const cerrarMesa = async (req, res) => {
     });
 
     await eventoFactura.save();
-    
+
     const sesionActiva = await SesionMesa.findOne({
       mesa: mesa._id,
       estado: 'activa',
@@ -328,6 +332,27 @@ export const cerrarMesa = async (req, res) => {
         sesionActiva: null,
       }
     );
+
+    // Generar XML base
+    const facturaXML = generarFacturaXML({
+      numeroFactura,
+      fechaExpedicion: ahora,
+      clienteNombre: clienteNombre || 'Consumidor Final',
+      clienteNIF: clienteNIF || 'N/A',
+      productos,
+      importeTotal: totalMesa,
+      hash: hashFactura.hash,
+      firmaDigital: hashFactura.firma,
+    });
+
+    // Firmar (modo desarrollo)
+    const facturaFirmadaXML = await firmarFacturaMock(facturaXML);
+
+    // Guardar XML firmado en disco (para pruebas)
+    const carpetaFacturas = path.resolve('facturas_emitidas');
+    if (!fs.existsSync(carpetaFacturas)) fs.mkdirSync(carpetaFacturas);
+    const ruta = path.join(carpetaFacturas, `${numeroFactura}.xml`);
+    fs.writeFileSync(ruta, facturaFirmadaXML);
 
     res.status(200).json({
       message: 'Mesa cerrada con éxito',

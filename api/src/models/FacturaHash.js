@@ -20,6 +20,7 @@ const facturaHashSchema = new Schema(
     importeTotal: { type: Number, required: true },
     hash: { type: String, required: true },
     hashAnterior: { type: String, required: true },
+    firmaDigital: { type: String },
     rectificada: {
       type: Boolean,
       default: false,
