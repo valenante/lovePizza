@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import api from '../../utils/api'; // Asegúrate de que el path sea correcto
+import api from '../../utils/api';
 import * as logger from '../../utils/logger';
 import "./Navbar.css";
-import logo from "../../images/LovePizzaLogo.png"; // Asegúrate de que el path sea correcto
+import logo from "../../images/LovePizzaLogo.png";
+
+// Variables de entorno
+const mostrarBarra = process.env.REACT_APP_BARRA === 'true';
+const mostrarCocina = process.env.REACT_APP_COCINA === 'true';
+
+console.log("Mostrar Barra:", process.env.REACT_APP_BARRA);
+console.log("Mostrar Cocina:", process.env.REACT_APP_COCINA);
 
 const Navbar = () => {
   const [selectValue, setSelectValue] = useState("");
@@ -61,10 +68,18 @@ const Navbar = () => {
           <Link className="navbar-link--navbar" to="/reservas">Reservas</Link>
         </li>
         <li className="navbar-item--navbar only-desktop">
-          <Link className="navbar-link--navbar" to="/facturas">
-            Facturas
-          </Link>
+          <Link className="navbar-link--navbar" to="/facturas">Facturas</Link>
         </li>
+        {mostrarBarra && (
+          <li className="navbar-item--navbar only-desktop">
+            <Link className="navbar-link--navbar" to="/barra">Barra</Link>
+          </li>
+        )}
+        {mostrarCocina && (
+          <li className="navbar-item--navbar only-desktop">
+            <Link className="navbar-link--navbar" to="/cocina">Cocina</Link>
+          </li>
+        )}
 
         <li className="navbar-item--navbar only-mobile">
           <select
@@ -77,10 +92,11 @@ const Navbar = () => {
             <option value="/tpv/products">Productos</option>
             <option value="/tpv/reservas">Reservas</option>
             <option value="/tpv/facturas">Facturas</option>
+            {mostrarBarra && <option value="/tpv/barra">Barra</option>}
+            {mostrarCocina && <option value="/tpv/cocina">Cocina</option>}
           </select>
         </li>
 
-        {/* Botones para habilitar/deshabilitar pedidos */}
         <li className="navbar-item--navbar only-desktop">
           <button
             className={`toggle-btn ${config.permitePedidosComida ? "enabled" : "disabled"}`}
