@@ -3,7 +3,6 @@ export const enviarFacturaAEAT = async (factura) => {
   const esProduccion = process.env.NODE_ENV === 'production';
 
   if (!esProduccion) {
-    console.log('🔧 Simulación de envío a Hacienda:', factura.numeroFactura);
     return 'simulado';
   }
 
@@ -17,7 +16,6 @@ export const enviarFacturaAEAT = async (factura) => {
       hash: factura.hash,
     });
 
-    console.log('✅ Factura enviada a Hacienda:', factura.numeroFactura);
     return respuesta.data;
   } catch (error) {
     console.error('❌ Error al enviar a Hacienda:', error);

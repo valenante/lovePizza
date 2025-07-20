@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { ProductosContext } from '../context/ProductosContext';
 import Carta from '../components/Carta/Carta';
 import TopBar from '../components/Navbar/Topbar';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 const CartaPage = () => {
   const { numeroMesa } = useParams();
