@@ -1,0 +1,144 @@
+/* === SUBNAVBAR - TPV === */
+.subnavbar--subnavbar {
+  background-color: var(--color-principal);
+  padding: var(--espaciado-base) calc(var(--espaciado-base) * 2);
+  position: relative;
+  box-shadow: var(--sombra-suave);
+  border-top: 1px solid var(--blanco);
+}
+
+.subnavbar-header--subnavbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Botón hamburguesa (oculto por defecto en desktop) */
+.hamburger-button--subnavbar {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: var(--color-secundario);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--borde-redondeado);
+  transition: background-color 0.3s ease;
+}
+
+.hamburger-button--subnavbar:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Menú del subnavbar */
+.subnavbar-menu--subnavbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--espaciado-base);
+  margin-top: var(--espaciado-base);
+}
+
+.subnavbar-menu--subnavbar.open--subnavbar {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.subnavbar-menu--subnavbar.closed--subnavbar {
+  display: none;
+}
+
+/* Botones */
+.subnavbar-button--subnavbar {
+  background-color: var(--color-secundario);
+  color: var(--blanco);
+  border: none;
+  border-radius: var(--borde-redondeado);
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+.subnavbar-button--subnavbar:hover {
+  background-color: var(--blanco);
+  color: var(--color-secundario);
+  transform: scale(1.05);
+}
+
+/* Select dentro del botón */
+.subnavbar-button--subnavbar select {
+  background-color: var(--blanco);
+  color: var(--color-principal);
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: var(--borde-redondeado);
+  border: 1px solid var(--color-principal);
+  cursor: pointer;
+  transition: border 0.3s ease;
+  appearance: none;
+  width: 100%;
+}
+
+.subnavbar-button--subnavbar select:hover {
+  border-color: var(--color-principal-oscuro);
+}
+
+/* Botón de cerrar caja */
+.btn-cerrar-caja--subnavbar {
+  background-color: var(--color-principal);
+}
+
+.btn-cerrar-caja--subnavbar.disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-cerrar-caja--subnavbar.disabled:hover {
+  background-color: #bbb;
+  color: var(--blanco);
+  transform: none;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .hamburger-button--subnavbar {
+    display: block;
+    width: 100%;
+    font-size: 2rem;
+  }
+
+  .subnavbar-menu--subnavbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    display: none;
+  }
+
+  .subnavbar-menu--subnavbar.open--subnavbar {
+    display: flex;
+  }
+
+  .subnavbar-button--subnavbar {
+    width: 90%;
+    max-width: 300px;
+    margin: 0.5rem 0;
+    background-color: var(--color-principal);
+    border-bottom: 2px solid var(--color-secundario);
+  }
+
+  .subnavbar-button--subnavbar:hover {
+    background-color: var(--blanco);
+    color: var(--color-principal);
+  }
+}
+
+@media (min-width: 769px) {
+  .subnavbar-menu--subnavbar {
+    display: flex !important; /* Fuerza visibilidad en escritorio */
+  }
+}

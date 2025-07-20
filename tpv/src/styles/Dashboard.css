@@ -1,0 +1,99 @@
+/* === DASHBOARD TPV === */
+
+.container--dashboard {
+  padding: 2rem;
+  background-color: var(--color-principal);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-right: 2px solid var(--gris-claro);
+  min-height: 50vh;
+}
+
+.subnavbar--dashboard {
+  margin-bottom: 2rem;
+}
+
+.dashboard--dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1.5rem;
+  max-width: 150vh;
+  width: 100%;
+}
+
+.mesa--dashboard {
+  background-color: var(--gris-claro);
+  border-radius: var(--borde-redondeado);
+  width: 6vw;
+  height: 6vw;
+  max-width: 100px;
+  max-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8vw;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--sombra-suave);
+  border: 2px solid transparent;
+}
+
+.mesa--dashboard:hover {
+  transform: translateY(-3%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mesa-number--dashboard {
+  font-size: 1.5rem;
+  color: var(--gris-oscuro);
+}
+
+.mesa--dashboard.abierta--dashboard {
+  background-color: var(--color-secundario);
+  color: var(--blanco);
+  border-color: var(--color-secundario);
+}
+
+.mesa--dashboard.cerrada--dashboard {
+  background-color: var(--gris-claro);
+  color: var(--gris-oscuro);
+  border-color: var(--gris-claro);
+}
+
+.search-container--dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60vh;
+  width: 43vh;
+}
+
+@media (max-width: 600px) {
+  .dashboard--dashboard {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    justify-items: center;
+    width: 100%;
+  }
+
+  .mesa--dashboard {
+    width: 100%;
+    max-width: 80px;
+    height: 80px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+  }
+
+  .container--dashboard {
+    padding: 0rem;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow-x: hidden;
+  }
+}

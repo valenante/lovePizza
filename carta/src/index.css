@@ -1,0 +1,40 @@
+/* === VARIABLES GLOBALES === */
+:root {
+  --color-principal: #60b5ff; /* Azul índigo oscuro */
+  --color-principal-hover: #1a252f; /* Azul más profundo al hacer hover */
+  --color-principal-oscuro: #1e2e3a; /* Versión aún más oscura */
+
+  --color-secundario: #f39c12; /* Naranja vibrante */
+  --color-secundario-hover: #d68910; /* Naranja más oscuro al pasar el ratón */
+
+  --blanco: #ffffff;
+  --gris-claro: #ecf0f1;
+  --gris-oscuro: #2d3436;
+
+  --espaciado-base: 1rem;
+  --borde-redondeado: 0.5rem;
+  --sombra-suave: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  --fuente-principal: 'Inter', sans-serif;
+  --tamano-texto-base: 1rem;
+}
+
+/* === RESETEO Y BASE === */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: var(--fuente-principal);
+  font-size: var(--tamano-texto-base);
+  background-color: var(--color-principal);
+  color: var(--gris-oscuro);
+}
+
+/* === UTILITARIOS === */
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.p-3 { padding: 3rem; }
+.text-center { text-align: center; }
+.shadow-suave { box-shadow: var(--sombra-suave); }
+.rounded { border-radius: var(--borde-redondeado); }

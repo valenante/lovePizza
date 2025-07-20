@@ -1,0 +1,51 @@
+import React, { useState } from 'react';
+import api from '../../utils/api';
+import * as logger from '../../utils/logger';
+import './PedidosFinalizados.css';
+
+const PedidosFinalizados = ({ onClose }) => {
+  const [pedidosFinalizados, setPedidosFinalizados] = useState([]);
+  
+  const cargarPedidosFinalizados = async () => {
+    try {
+      const response = await api.get('/pedidos/finalizados/finalizados');
+       setPedidosFinalizados(response.data);
+    } catch (error) {
+      logger.error('Error al cargar pedidos finalizados:', error);
+    }
+  };
+
+  // Cargar pedidos finalizados al montar el componente
+  React.useEffect(() => {
+    cargarPedidosFinalizados();
+  }, []);
+
+  return (
+    <div className="modal-overlay--finalizados">
+      <div className="pedidos-finalizados">
+        <h2>Pedidos Finalizados (últimos 20m)</h2>
+        <button onClick={onClose} className="boton-cerrar--finalizados">Cerrar</button>
+        
+        {pedidosFinalizados.length === 0 ? (
+          <p className="mensaje-vacio--finalizados">No hay pedidos finalizados en los últimos 20 minutos</p>
+        ) : (
+          pedidosFinalizados.map((pedido) => (
+            <div key={pedido._id} className="pedido-finalizado">
+              <h3>Mesa: {pedido.mesa.numero}</h3>
+              <ul className="lista-productos--finalizados">
+                {pedido.productos.map((producto) => (
+                  <li key={producto._id}>
+                    {producto.cantidad}x {producto.producto?.nombre || "Producto no disponible"}
+                  </li>
+                ))}
+              </ul>
+              <p><strong>Total:</strong> {pedido.total.toFixed(2)} €</p>
+            </div>
+          ))
+        )}
+      </div>    
+    </div>
+  );
+};
+
+export default PedidosFinalizados;

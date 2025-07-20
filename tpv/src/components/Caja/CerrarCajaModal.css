@@ -1,0 +1,156 @@
+/* === MODAL CERRAR CAJA === */
+.modal-overlay--cerrar-caja {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.modal-content--cerrar-caja {
+  background-color: var(--blanco);
+  border-radius: var(--borde-redondeado);
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--sombra-fuerte);
+}
+
+.titulo--cerrar-caja {
+  text-align: center;
+  font-size: 1.6rem;
+  color: var(--color-principal);
+  margin-bottom: 1rem;
+}
+
+.total-caja--cerrar-caja {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+  color: var(--color-principal);
+}
+
+.detalle-caja--cerrar-caja {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--gris-oscuro);
+}
+
+.acciones-caja--cerrar-caja,
+.acciones-finales--cerrar-caja {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.input--cerrar-caja {
+  padding: 0.7rem;
+  border-radius: var(--borde-redondeado);
+  border: 1px solid var(--gris);
+  font-size: 1rem;
+  width: 100%;
+}
+
+.boton--cerrar-caja,
+.boton-cancelar--cerrar-caja,
+.boton-confirmar--cerrar-caja {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--borde-redondeado);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton--cerrar-caja {
+  background-color: var(--color-principal);
+  color: var(--blanco);
+}
+
+.boton--cerrar-caja:disabled {
+  background-color: var(--gris);
+  cursor: not-allowed;
+}
+
+.boton--cerrar-caja:hover:enabled {
+  background-color: var(--color-secundario);
+  transform: scale(1.03);
+}
+
+.boton-cancelar--cerrar-caja {
+  background-color: var(--gris);
+  color: var(--blanco);
+}
+
+.boton-cancelar--cerrar-caja:hover {
+  background-color: var(--gris-oscuro);
+}
+
+.boton-confirmar--cerrar-caja.retirar {
+  background-color: #d9534f;
+  color: var(--blanco);
+}
+
+.boton-confirmar--cerrar-caja.integrar {
+  background-color: var(--color-secundario);
+  color: var(--blanco);
+}
+
+.boton-confirmar--cerrar-caja:hover {
+  transform: scale(1.03);
+}
+
+.error--cerrar-caja {
+  color: var(--color-error);
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .modal-overlay--cerrar-caja {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 1rem;
+  }
+
+  .modal-content--cerrar-caja {
+    max-width: 30vh;
+    border-radius: 10px;
+  }
+
+  .titulo--cerrar-caja {
+    font-size: 1.4rem;
+  }
+
+  .total-caja--cerrar-caja {
+    font-size: 1rem;
+  }
+
+  .input--cerrar-caja,
+  .boton--cerrar-caja,
+  .boton-cancelar--cerrar-caja,
+  .boton-confirmar--cerrar-caja {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+}

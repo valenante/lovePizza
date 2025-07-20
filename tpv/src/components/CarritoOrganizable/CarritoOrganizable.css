@@ -1,0 +1,128 @@
+/* Sección de cada grupo */
+.carrito-section {
+  border: 2px solid var(--color-principal);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 1vh;
+  background-color: #f8f6ff;
+  transition: background-color 0.3s ease;
+}
+
+.carrito-section.drag-over {
+  background-color: #e6ddf7;
+}
+
+.carrito-section-title {
+  font-size: 1.2rem;
+  color: var(--color-principal);
+  margin-bottom: 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--color-principal);
+  padding-bottom: 6px;
+}
+
+/* Item de producto */
+.carrito-item {
+  padding: 12px 16px;
+  margin: 8px 0;
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  cursor: grab;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.carrito-item.dragging {
+  background-color: #ffe6e6;
+}
+
+/* Contenedor del botón enviar */
+.carrito-enviar-container {
+  margin-top: 20px;
+}
+
+.carrito-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.carrito-item-nombre {
+  flex: 1 1 80%;
+  padding-right: 8px;
+  word-break: break-word;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.carrito-item-eliminar {
+  flex: 0 0 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.carrito-eliminar-button {
+  background: none;
+  border: none;
+  color: var(--color-secundario);;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.carrito-enviar-button {
+  background-color: var(--color-principal);
+  color: var(--blanco);
+  border: none;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: var(--borde-redondeado);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.carrito-enviar-button:hover:enabled {
+  background-color: var(--color-principal-oscuro);
+  transform: scale(1.05);
+}
+
+.carrito-enviar-button:disabled {
+  background-color: var(--gris);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carrito-organizable-container {
+    max-height: 70vh;
+  }
+
+  .carrito-section {
+    padding: 12px;
+  }
+
+  .carrito-section-title {
+    font-size: 1rem;
+  }
+
+  .carrito-item {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .carrito-enviar-button {
+    padding: 18px;
+    font-size: 1.1rem;
+  }
+}

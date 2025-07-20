@@ -1,0 +1,144 @@
+import ProductoDetalle from "./ProductoDetalle.jsx";
+import { useRightBar } from "../../hooks/useRightBar";
+import AlertaMensaje from "../AlertaMensaje/AlertaMensaje"; // ✅ Asegúrate de tenerlo creado
+import ModalProductosCategoria from "../ModalProductosCategoria/ModalProductosCategoria";
+import CarritoOrganizable from "../CarritoOrganizable/CarritoOrganizable";
+import "./RightBar.css";
+
+const RightBar = ({ mesaId }) => {
+  const {
+    tipo, setTipo, categoriaSeleccionada, setCategoriaSeleccionada,
+    productoSeleccionado, preciosSeleccionados, setPreciosSeleccionados,
+    showModal, abrirModal, cerrarModal, agregarAlCarrito,
+    carrito, setCarrito, carritoBebidas, setCarritoBebidas,
+    enviarPedido, mensajeAlerta, setMensajeAlerta, isLoading,
+    mostrarResumen, setMostrarResumen, categories,
+    handleClickCategoria, mostrarModalCategoria,
+    productosCategoriaActual, productosYaPedidos, setMostrarModalCategoria
+  } = useRightBar(mesaId);
+
+  const eliminarBebidaDelCarrito = (indexAEliminar) => {
+    const nuevoCarrito = [...carritoBebidas];
+    nuevoCarrito.splice(indexAEliminar, 1);
+    setCarritoBebidas(nuevoCarrito);
+  };
+
+  return (
+    <div className="right-bar--rightbar">
+      <div className="filtros-tipo--rightbar">
+        <button
+          onClick={() => setTipo("plato")}
+          className={`boton-tipo--rightbar ${tipo === "plato" ? "activo--rightbar" : ""}`}
+        >
+          Platos
+        </button>
+        <button
+          onClick={() => setTipo("bebida")}
+          className={`boton-tipo--rightbar ${tipo === "bebida" ? "activo--rightbar" : ""}`}
+        >
+          Bebidas
+        </button>
+      </div>
+
+      <div className="categorias--rightbar">
+        <ul className="lista-categorias--rightbar">
+          {categories.map((categoria) => (
+            <li
+              key={categoria}
+              className={`categoria--rightbar ${categoria === categoriaSeleccionada ? "seleccionada--rightbar" : ""}`}
+              onClick={() => handleClickCategoria(categoria)}
+            >
+              {categoria}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <button
+        className="boton-toggle-resumen"
+        onClick={() => setMostrarResumen(!mostrarResumen)}
+      >
+        📋
+      </button>
+
+      {showModal && productoSeleccionado && (
+        <ProductoDetalle
+          producto={productoSeleccionado}
+          cerrarModal={cerrarModal}
+          seleccionPrecio={productoSeleccionado.precioSeleccionado}
+          onConfirm={agregarAlCarrito}
+        />
+      )}
+
+      {mostrarModalCategoria && (
+        <ModalProductosCategoria
+          categoria={categoriaSeleccionada}
+          productos={productosCategoriaActual}
+          productosPedidoMesa={productosYaPedidos}
+          onClose={() => setMostrarModalCategoria(false)}
+          onProductoClick={(producto) => {
+            setMostrarModalCategoria(false);
+            abrirModal(producto);
+          }}
+        />
+      )}
+
+      {mostrarResumen && (
+        <div className="resumen-pedido-panel">
+          <h4>Pedido Actual</h4>
+
+          {/* Platos */}
+          <CarritoOrganizable
+            carrito={carrito}
+            setCarrito={setCarrito}
+            enviarPedido={enviarPedido}
+            isLoading={isLoading}
+          />
+
+          {/* Bebidas */}
+          {carritoBebidas.length > 0 && (
+            <div className="carrito-section">
+              <h4 className="carrito-section-title">Bebidas</h4>
+              {carritoBebidas.map((bebida, index) => (
+                <div key={index} className="carrito-item">
+                  <div className="carrito-item-nombre">
+                    {bebida.nombre} x{bebida.cantidad}
+                  </div>
+                  <div className="carrito-item-eliminar">
+                    <button
+                      onClick={() => eliminarBebidaDelCarrito(index)}
+                      className="carrito-eliminar-button"
+                      title="Eliminar"
+                    >
+                      ❌
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Botón al final */}
+          <div className="carrito-enviar-container">
+            <button
+              onClick={enviarPedido}
+              disabled={isLoading}
+              className="carrito-enviar-button"
+            >
+              {isLoading ? "Enviando..." : "Enviar Pedido"}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {mensajeAlerta && (
+        <AlertaMensaje
+          tipo={mensajeAlerta.tipo}
+          mensaje={mensajeAlerta.mensaje}
+          onClose={() => setMensajeAlerta(null)}
+        />
+      )}
+    </div>
+  );
+}
+export default RightBar;

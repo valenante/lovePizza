@@ -1,0 +1,169 @@
+.extras-panel {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 1vh;
+  background-color: var(--gris-claro);
+  border-radius: var(--borde-redondeado);
+  box-shadow: var(--sombra-suave);
+}
+
+/* Título principal */
+.extras-panel h2 {
+  color: var(--color-principal);
+  margin-bottom: var(--espaciado-base);
+  text-align: center;
+}
+
+/* Botón de volver */
+.extras-panel > button {
+  margin-bottom: 1rem;
+  background-color: var(--gris-claro);
+  color: var(--gris-oscuro);
+  border: 1px solid #ccc;
+  border-radius: var(--borde-redondeado);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.extras-panel > button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Lista de extras */
+.extras-panel ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: var(--blanco);
+  border-radius: var(--borde-redondeado);
+  box-shadow: var(--sombra-suave);
+}
+
+/* Scroll personalizado */
+.extras-panel ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.extras-panel ul::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+/* Ítems individuales */
+.extras-panel li {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.extras-panel li:last-child {
+  border-bottom: none;
+  border-radius: 0 0 var(--borde-redondeado) var(--borde-redondeado);
+}
+
+/* Botones */
+.extras-panel button {
+  cursor: pointer;
+  padding: 0.4rem 0.9rem;
+  border: none;
+  border-radius: var(--borde-redondeado);
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+/* Botones con intención */
+.btn-verde {
+  background-color: var(--color-principal);
+  color: var(--blanco);
+}
+
+.btn-verde:hover {
+  background-color: var(--color-principal-oscuro);
+}
+
+.btn-rojo {
+  background-color: var(--color-secundario);
+  color: var(--blanco);
+}
+
+.btn-rojo:hover {
+  filter: brightness(0.95);
+}
+
+.btn-gris {
+  background-color: var(--gris-claro);
+  color: var(--gris-oscuro);
+}
+
+.btn-gris:hover {
+  filter: brightness(0.95);
+}
+
+/* Inputs para edición */
+.extras-panel input[type="text"],
+.extras-panel input[type="number"] {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: var(--borde-redondeado);
+  font-size: 0.95rem;
+  width: 150px;
+  margin-right: 0.5rem;
+}
+
+/* Crear nuevo extra */
+.crear-extra {
+  background-color: var(--blanco);
+  padding: var(--espaciado-base);
+  border-radius: var(--borde-redondeado);
+  box-shadow: var(--sombra-suave);
+  margin-top: 2rem;
+}
+
+.crear-extra h3 {
+  margin-bottom: 0.75rem;
+  color: var(--gris-oscuro);
+}
+
+.crear-extra input[type="text"],
+.crear-extra input[type="number"] {
+  margin-bottom: 0.75rem;
+  width: 100%;
+  max-width: 250px;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+  .extras-panel {
+    padding: 1rem;
+  }
+
+  .extras-panel li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .extras-panel input[type="text"],
+  .extras-panel input[type="number"] {
+    width: 90%;
+    margin-bottom: 0.5rem;
+  }
+
+  .crear-extra input[type="text"],
+  .crear-extra input[type="number"] {
+    width: 90%;
+  }
+
+  .extras-panel button {
+    width: 100%;
+    text-align: center;
+  }
+}

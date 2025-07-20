@@ -1,0 +1,129 @@
+import React, { useState, useEffect } from "react";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { obtenerCajasPorRango } from "./ObtenerCajasPorRango";
+import * as logger from '../../utils/logger';
+import "./CajaDiaria.css";
+
+// Registrar componentes necesarios de Chart.js
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+const GraficoCajaDiaria = () => {
+  const [fechaInicio, setFechaInicio] = useState("");
+  const [fechaFin, setFechaFin] = useState("");
+  const [datos, setDatos] = useState([]);
+  const [error, setError] = useState(null);
+
+ // Calcular fechas predeterminadas: primer día del mes pasado y mañana
+useEffect(() => {
+  const hoy = new Date();
+
+  // Calcular el primer día del mes pasado
+  const primerDiaMesPasado = new Date(hoy.getFullYear(), hoy.getMonth() - 1, 1);
+
+  // Calcular el día de mañana
+  const manana = new Date(hoy);
+  manana.setDate(hoy.getDate() + 1);
+
+  // Formatear las fechas a 'YYYY-MM-DD'
+  const fechaInicio = primerDiaMesPasado.toISOString().split("T")[0];
+  const fechaFin = manana.toISOString().split("T")[0];
+
+  // Establecer las fechas en el estado
+  setFechaInicio(fechaInicio);
+  setFechaFin(fechaFin);
+
+  // Llamar a la función para manejar el rango
+  manejarRango(fechaInicio, fechaFin);
+}, []);
+
+
+  // Función para manejar la obtención de datos por rango
+  const manejarRango = async (inicio, fin) => {
+    try {
+      const cajas = await obtenerCajasPorRango(inicio, fin);
+      setDatos(cajas || []); // Asegúrate de establecer un array
+      setError(null);
+    } catch (err) {
+      logger.error("Error al obtener las cajas:", err);
+      setDatos([]); // Reestablece un array vacío en caso de error
+      setError("No se pudieron cargar los datos.");
+    }
+  };
+
+  const manejarCambioDeRango = () => {
+    manejarRango(fechaInicio, fechaFin);
+  };
+
+  const data = {
+    labels: Array.isArray(datos) ? datos.map((caja) => new Date(caja.createdAt).toLocaleDateString()) : [],
+    datasets: [
+      {
+        label: "Total de Caja (€)", // Etiqueta con símbolo de euro
+        data: Array.isArray(datos) ? datos.map((caja) => caja.total) : [],
+        borderColor: "rgba(75, 192, 192, 1)",
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        tension: 0.4,
+      },
+    ],
+  };
+
+  return (
+    <div className="caja-diaria--caja-diaria">
+      <h1 className="titulo--caja-diaria">Gráfico de Caja Diaria</h1>
+      <div className="filtros--caja-diaria">
+        <div className="fechas--caja-diaria">
+          <div className="fecha-item--caja-diaria">
+            <label className="label--caja-diaria">Fecha Inicio:</label>
+            <input
+              type="date"
+              value={fechaInicio}
+              onChange={(e) => setFechaInicio(e.target.value)}
+              className="input--caja-diaria"
+            />
+          </div>
+          <div className="fecha-item--caja-diaria">
+            <label className="label--caja-diaria">Fecha Fin:</label>
+            <input
+              type="date"
+              value={fechaFin}
+              onChange={(e) => setFechaFin(e.target.value)}
+              className="input--caja-diaria"
+            />
+          </div>
+        </div>
+        <button onClick={manejarCambioDeRango} className="boton--caja-diaria">
+          Actualizar Gráfico
+        </button>
+      </div>
+      {error && <p className="error--caja-diaria">{error}</p>}
+      {Array.isArray(datos) && datos.length === 0 && !error && (
+        <p className="mensaje--caja-diaria">No hay datos para mostrar.</p>
+      )}
+      {Array.isArray(datos) && datos.length > 0 && (
+        <div className="grafico-container--caja-diaria">
+          <Line key={JSON.stringify(datos)} data={data} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default GraficoCajaDiaria;

@@ -1,0 +1,22 @@
+
+services:
+  api:
+    build:
+      context: ./api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/usr/src/app
+    env_file:
+      - ./api/.env
+  carta:
+    build:
+      context: ./carta
+    ports:
+      - "3001:80"
+
+  tpv:
+    build:
+      context: ./tpv
+    ports:
+      - "3002:80"
